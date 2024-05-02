@@ -1,0 +1,88 @@
+
+body,
+html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.js-slider {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    overflow: hidden; 
+    
+}
+
+.js-photos {
+    position: relative;
+    display: flex;
+    width: max-content;
+    left: -500px;
+    transition: left 0.3s ease;
+    
+}
+
+.js-photo {
+    flex-shrink: 0;
+    position: relative;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+}
+
+.green {
+    background-color: #74d371;
+}
+
+.green-dark {
+    background-color: #397037;
+}
+
+.green-darker {
+    background-color: #174e15;
+}
+
+
+/* boutons */
+#decalDroiteBtn, #decalGaucheBtn {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    z-index: 100;
+}
+
+#decalGaucheBtn {
+    left: initial;
+    right: 0;
+}
+
+.arrow {
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    transform: rotate(-45deg);
+}
+
+#decalGaucheBtn  .arrow{
+    transform: rotate(135deg);
+}
+

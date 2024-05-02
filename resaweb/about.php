@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HH - Réservation</title>
+<title>HH - Concept</title>
 <link rel="stylesheet" href="styles.css">
 <script src="https://kit.fontawesome.com/ac86f9bd86.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,13 +24,12 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"> </i>
         </label>
-        <a href="#" class="logo">Hommade Hommous</a>
+        <a href="home.php" class="logo">Hommade Hommous</a>
         <ul>
             <li><a class="a_nav" href="home.php">Home</a></li>
-            <li><a href="about.html" class="a_nav">Nous</a></li>
-            <li><a href="concept.html" class="a_nav">Notre Concept</a></li>
-<!--             <li><a href="contact.html" class="a_nav">Contactez-nous</a></li>
- -->            <li><a href="reserve.php" class="active a_nav book_btn">Réserver</a></li>
+            <li><a href="about.php" class="active a_nav">Nous</a></li>
+            <li><a href="concept.php" class=" a_nav">Notre Concept</a></li>
+             <li><a href="reserve.php" class=" a_nav book_btn">Réserver</a></li>
         </ul>
         </nav>
  
@@ -38,20 +37,33 @@
 
     <!-- fin header -->
     
-<!-- début formulaire réservation -->
 
-<section class="formulaire" id="formulaire">
-
-    <h1 class="heading">Réservez un créneau</h1>
-
-    <form action=""></form>
+<!-- début section about us -->
 
 
-</section>
+<!--     <img class='about-header' src="images/about_header.jpg" alt="">
+ -->    
+    <section class="about_us">  
 
+<!--     <div class="heading2">
+        <span>PERSONNALISEZ VOS MOMENTS DU QUOTIDIEN</span>
+        <h3>Hommade Hommous, c'est qui ?</h3>
+    </div> -->
 
+<div class="abt-section">
+    <div class="inner-container">
+        <h1>About us</h1>
+        <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolorem eveniet debitis at quaerat reprehenderit totam quibusdam perspiciatis minima distinctio culpa molestiae, praesentium fugiat illo vero? Eius sapiente at voluptates?
+        </p>
+        <div class="skills">
+            <span >Humain</span>
+            <span>Humain</span>
+            <span>Humain</span>
+        </div>
 
-
+    </div>
+</div>
 
 
     <!-- début footer -->

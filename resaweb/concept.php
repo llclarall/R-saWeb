@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HH - Réservation</title>
+<title>HH - Concept</title>
 <link rel="stylesheet" href="styles.css">
 <script src="https://kit.fontawesome.com/ac86f9bd86.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,13 +24,12 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"> </i>
         </label>
-        <a href="#" class="logo">Hommade Hommous</a>
+        <a href="home.php" class="logo">Hommade Hommous</a>
         <ul>
             <li><a class="a_nav" href="home.php">Home</a></li>
-            <li><a href="about.html" class="a_nav">Nous</a></li>
-            <li><a href="concept.html" class="a_nav">Notre Concept</a></li>
-<!--             <li><a href="contact.html" class="a_nav">Contactez-nous</a></li>
- -->            <li><a href="reserve.php" class="active a_nav book_btn">Réserver</a></li>
+            <li><a href="about.php" class="a_nav">Nous</a></li>
+            <li><a href="concept.php" class="active a_nav">Notre Concept</a></li>
+             <li><a href="reserve.php" class=" a_nav book_btn">Réserver</a></li>
         </ul>
         </nav>
  
@@ -38,19 +37,45 @@
 
     <!-- fin header -->
     
-<!-- début formulaire réservation -->
 
-<section class="formulaire" id="formulaire">
-
-    <h1 class="heading">Réservez un créneau</h1>
-
-    <form action=""></form>
+<!-- début section concept -->
 
 
+    <img class='concept-header' src="images/concept_header.jpg" alt="">
+    
+    <section class="concept">  
+
+    <div class="heading2">
+        <span>PERSONNALISEZ VOS MOMENTS DU QUOTIDIEN</span>
+        <h3>Hommade Hommous, comment ça marche ?</h3>
+    </div>
+    
+    <div class="card-container">
+        <div class="card">
+            <img src="images/number-1.png" alt="">
+            <div class="card-content">
+                <h1>Réservez le créneau qui vous convient</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam non delectus quas blanditiis officiis fugiat, pariatur ad in ut, et voluptatum.</p>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="images/number-2.png" alt="">
+            <div class="card-content">
+                <h1>Réservez le créneau qui vous convient</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam non delectus quas blanditiis officiis fugiat, pariatur ad in ut, et voluptatum.</p>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="images/number-3.png" alt="">
+            <div class="card-content">
+                <h1>Réservez le créneau qui vous convient</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam non delectus quas blanditiis officiis fugiat, pariatur ad in ut, et voluptatum.</p>
+            </div>
+        </div>
+    </div>
 </section>
-
-
-
 
 
 
