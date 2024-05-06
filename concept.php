@@ -24,9 +24,9 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"> </i>
         </label>
-        <a href="home.php" class="logo">Hommade Hommous</a>
+        <a href="index.php" class="logo">Hommade Hommous</a>
         <ul>
-            <li><a class="a_nav" href="home.php">Home</a></li>
+            <li><a class="a_nav" href="index.php">Home</a></li>
             <li><a href="about.php" class="a_nav">Nous</a></li>
             <li><a href="concept.php" class="active a_nav">Notre Concept</a></li>
              <li><a href="reserve.php" class=" a_nav book_btn">Réserver</a></li>

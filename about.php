@@ -24,7 +24,7 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"> </i>
         </label>
-        <a href="home.php" class="logo">Hommade Hommous</a>
+        <a href="index.php" class="logo">Hommade Hommous</a>
         <ul>
             <li><a class="a_nav" href="home.php">Home</a></li>
             <li><a href="about.php" class="active a_nav">Nous</a></li>

@@ -35,7 +35,7 @@
 <section class="header">
     <nav>
     
-    <a class="evitement" href="#home">Aller au contenu</a> <!-- home ou about ? -->
+    <a class="evitement" href="#about">Aller au contenu</a> 
     
     <input type="checkbox" id="check">
     <label for="check" class="checkbtn">

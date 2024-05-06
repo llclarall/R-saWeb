@@ -26,9 +26,9 @@
         </label>
         <a href="#" class="logo">Hommade Hommous</a>
         <ul>
-            <li><a class="a_nav" href="home.html">Home</a></li>
-            <li><a href="about.html" class="a_nav">Nous</a></li>
-            <li><a href="services.html" class="a_nav">Notre Concept</a></li>
+            <li><a class="a_nav" href="index.php">Home</a></li>
+            <li><a href="about.php" class="a_nav">Nous</a></li>
+            <li><a href="concept.php" class="a_nav">Notre Concept</a></li>
 <!--             <li><a href="contact.html" class="a_nav">Contactez-nous</a></li> -->
             <li><a href="reserve.php" class="active a_nav book_btn">Réserver</a></li>
         </ul>
