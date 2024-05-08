@@ -76,10 +76,10 @@ a.evitement:focus {
 nav {
     height: 100px;
     width: 100%;
-/*     background: #f5ce86cc;
+    background: #f5ce86cc;
     position: sticky;
     top: 0;
-    left: 0; */
+    left: 0;
     right: 0;
     z-index: 999;
 }
@@ -528,8 +528,8 @@ text-decoration: underline;
     ul {
         position: absolute;
         width: 100%;
-        height: 70vh;
-        background-color: #e99a08;
+        height: fit-content;
+        background-color: #fee1ac;
         top: 100px;
         left: -120%;
         text-align: center;
@@ -603,9 +603,6 @@ text-decoration: underline;
         line-height: 20px;
     
     }
-    ul {
-        height: 60vh;
-    }
 
     html {
         font-size: 55%;
@@ -642,9 +639,6 @@ text-decoration: underline;
     nav ul li {
         line-height: 10px;
     
-    }
-    ul {
-        height: 50vh;
     }
     
     .about .image img {
@@ -847,6 +841,122 @@ text-decoration: underline;
 }
 
 
+/* début section ateliers */
+
+
+.lineh {
+    display: flex;
+    align-items: center;
+    /* largeur max */
+    max-width: 1080px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+  
+
+.line {
+width: 100%;
+border-bottom: 2px solid #000;
+}
+
+h2 {
+font-size: 3rem;
+margin-bottom: 0;
+margin-top: 0;
+font-weight: bold;
+white-space: nowrap;
+margin-left: 30px;
+margin-right: 30px;
+}
+
+
+.ateliers {
+    background-color: #fcf1dc;
+}
+
+
+
+.ateliers .slide .image {
+    height: 25rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.ateliers .slide .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.ateliers .slide .image span {
+    position: absolute;
+    bottom: -10rem; left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1.5rem;
+    font-size: 2rem;
+    color: white;
+    background-color: black;
+    z-index: 10;
+    transition: 0.5s;
+}
+
+.ateliers .slide:hover .image span {
+    bottom: 1rem;
+}
+
+.ateliers .slide:hover .image img {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.ateliers .slide .content {
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 5px 10px 10px rgb(125, 125, 125),
+    -5px 10px 10px rgb(125, 125, 125);
+    border: #000000 solid 1px;
+    margin-bottom: 4rem;
+}
+
+.ateliers .slide .content .icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    
+}
+
+.ateliers .slide .content .icon a {
+    font-size: 1.5rem;
+    color: #7c7c7c;
+}
+
+.ateliers .slide .content .icon a i {
+    padding-right: 0.7rem;
+    color: #F6B339;
+    font-size: 2.5rem;
+}
+
+.ateliers .slide .content .icon a:hover {
+    color: #F6B339;
+}
+
+.ateliers .slide .content .title {
+    font-size: 2.5rem;
+    color: black;
+    font-weight: bold;
+}
+
+.ateliers .slide .content p {
+    padding: 1rem 0;
+    line-height: 2;
+    font-size: 1.6rem;
+    color: #505050;
+}
+
+
 
 /* début about us page */
 
@@ -885,7 +995,7 @@ text-decoration: underline;
 .text {
     font-size: 1.5rem;
     line-height: 2;
-    text-align: justify;
+    /* text-align: justify; */
     margin-bottom: 40px;
 }
 

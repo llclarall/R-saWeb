@@ -29,9 +29,17 @@
 <!-- opquast -->
 <!-- styles boutons -->
             <!-- footer -->    
+            
+<?php 
+$db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf8', 'root', ''); 
+?>
+
+
 
 
 <!-- début header  -->
+<header>
+
 <section class="header">
     <nav>
     
@@ -45,13 +53,14 @@
     <ul>
         <li><a class="active a_nav" href="#">Home</a></li>
         <li><a href="about.php" class="a_nav">Nous</a></li>
-        <li><a href="concept.php" class="a_nav">Notre Concept</a></li>
+        <li><a href="concept.php" class="a_nav">Nos Ateliers</a></li>
         <!-- <li><a href="contact.html" class="a_nav">Contactez-nous</a></li> -->
         <li><a href="reserve.php" class="a_nav book_btn">Réserver</a></li>
     </ul>
     </nav>
 
 </section>
+</header>
 
 <!-- fin header -->
 
@@ -127,7 +136,7 @@
 
 <!-- début section slider mezze -->
 
-<section class="food" id="food">
+<!-- <section class="food" id="food">
 
 <div class="heading">
     <span>aMezzeing</span>
@@ -169,8 +178,100 @@
 
 </div>
 
-</section>
+</section> -->
 <!-- fin section slider mezze -->
+
+
+
+<!-- début section ateliers -->
+
+<section class="ateliers" id="ateliers">
+    
+
+    <div class="heading">
+    <span>Blog</span>
+    <h3>Ateliers</h3>
+</div>
+
+
+<div class="swiper blogs-slider">
+
+<div class="swiper-wrapper">
+
+<div class="swiper-slide slide">
+    <div class="image">
+        <img src="images/atelier_mezze.jpeg" alt="">
+        <span>Mezze</span>
+    </div>
+    <div class="content">
+        <div class="icon">
+            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
+            <a href="#"><i class="fas fa-user"></i> 15 </a>
+            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+        </div>
+        <h3 class="title">Atelier Mezze</h3>
+        <p>Découvrez l'art de la cuisine libanaise lors de notre atelier d'entrées libanaises.</p>
+        <a href="#" class="btn">Lire plus</a>
+    </div>
+</div>
+
+<div class="swiper-slide slide">
+    <div class="image">
+        <img src="images/atelier_desserts.jpg" alt="">
+        <span>Desserts</span>
+    </div>
+    <div class="content">
+        <div class="icon">
+            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
+            <a href="#"><i class="fas fa-user"></i> 15 </a>
+            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+        </div>
+        <h3 class="title">Atelier Desserts</h3>
+        <p>Explorez la délicieuse tradition des desserts libanais lors de notre atelier sucré.</p>
+        <a href="#" class="btn">Lire plus</a>
+    </div>
+</div>
+
+<div class="swiper-slide slide">
+    <div class="image">
+        <img src="images/atelier_manakish.jpg" alt="">
+        <span>Manakish</span>
+    </div>
+    <div class="content">
+        <div class="icon">
+            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
+            <a href="#"><i class="fas fa-user"></i> 15 </a>
+            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+        </div>
+        <h3 class="title">Atelier Manakish</h3>
+        <p>Voyagez au cœur de la cuisine libanaise avec notre atelier culinaire dédié aux manakish.</p>
+        <a href="#" class="btn">Lire plus</a>
+    </div>
+</div>
+
+<div class="swiper-slide slide">
+    <div class="image">
+        <img src="images/atelier_knefeh.jpg" alt="">
+        <span>Knefeh</span>
+    </div>
+    <div class="content">
+        <div class="icon">
+            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
+            <a href="#"><i class="fas fa-user"></i> 15 </a>
+            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+        </div>
+        <h3 class="title">Atelier Knefeh</h3>
+        <p>Plongez dans une aventure gustative unique avec notre atelier dédié aux Knefeh libanais.</p>
+        <a href="#" class="btn">Lire plus</a>
+    </div>
+</div>
+
+</div>
+
+<div class="swiper-pagination"></div>
+</div>
+
+</section>
 
 
 
@@ -179,8 +280,8 @@
 <section class="reservation" id="reservation">
     <div class="content">
         <h1 class="title">Réservez maintenant !</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore eveniet odit animi nisi numquam! Cupiditate, suscipit a distinctio unde doloribus facere ad voluptate laudantium hic molestias animi fugit magnam nemo!</p>
-        <a href="concept.html" class="btn">Choisir un atelier</a>
+        <p>Quelque soit l'atelier, vous voulez simplement rencontrer de nouvelles personnes en passant un bon moment ? Pas de soucis, vous pouvez accédez dés à présent au formulaire de réservation pour choisir un créneau.</p>
+        <a href="concept.html" class="btn">Prendre un créneau</a>
 <!--         <div class="icons-container">
             <div class="icons">
                 <img src="images/cooking.png" alt="">
@@ -230,7 +331,6 @@
                 </div>
                 <a href="#" class="title">titre blog</a>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In non iusto cupiditate corrupti, praesentium nihil quos voluptatum deleniti repudiandae reprehenderit adipisci sint dolorem facere dolore aliquam sed, qui quas? Dolorem?</p>
-                <a href="#" class="btn">Lire plus</a>
             </div>
         </div>
 
@@ -246,7 +346,6 @@
                 </div>
                 <a href="#" class="title">titre blog</a>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In non iusto cupiditate corrupti, praesentium nihil quos voluptatum deleniti repudiandae reprehenderit adipisci sint dolorem facere dolore aliquam sed, qui quas? Dolorem?</p>
-                <a href="#" class="btn">Lire plus</a>
             </div>
         </div>
 
@@ -262,7 +361,6 @@
                 </div>
                 <a href="#" class="title">titre blog</a>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In non iusto cupiditate corrupti, praesentium nihil quos voluptatum deleniti repudiandae reprehenderit adipisci sint dolorem facere dolore aliquam sed, qui quas? Dolorem?</p>
-                <a href="#" class="btn">Lire plus</a>
             </div>
         </div>
 
@@ -278,7 +376,6 @@
                 </div>
                 <a href="#" class="title">titre blog</a>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In non iusto cupiditate corrupti, praesentium nihil quos voluptatum deleniti repudiandae reprehenderit adipisci sint dolorem facere dolore aliquam sed, qui quas? Dolorem?</p>
-                <a href="#" class="btn">Lire plus</a>
             </div>
         </div>
 
@@ -294,7 +391,6 @@
                 </div>
                 <a href="#" class="title">titre blog</a>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In non iusto cupiditate corrupti, praesentium nihil quos voluptatum deleniti repudiandae reprehenderit adipisci sint dolorem facere dolore aliquam sed, qui quas? Dolorem?</p>
-                <a href="#" class="btn">Lire plus</a>
             </div>
         </div>
     </div>

@@ -16,27 +16,33 @@
 
 <body>
 <!-- début header -->
-    <section class="header">
-        <nav>        
-        <a class="evitement" href="#home">Aller au contenu</a>
+    <header>
+        <section class="header">
+            <nav>
+            <a class="evitement" href="#home">Aller au contenu</a>
         
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <i class="fas fa-bars"> </i>
-        </label>
-        <a href="index.php" class="logo">Hommade Hommous</a>
-        <ul>
-            <li><a class="a_nav" href="index.php">Home</a></li>
-            <li><a href="about.php" class="a_nav">Nous</a></li>
-            <li><a href="concept.php" class="active a_nav">Notre Concept</a></li>
-             <li><a href="reserve.php" class=" a_nav book_btn">Réserver</a></li>
-        </ul>
-        </nav>
- 
-    </section>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"> </i>
+            </label>
+            <a href="index.php" class="logo">Hommade Hommous</a>
+            <ul>
+                <li><a class="a_nav" href="index.php">Home</a></li>
+                <li><a href="about.php" class="a_nav">Nous</a></li>
+                <li><a href="concept.php" class="active a_nav">Nos Ateliers</a></li>
+                 <li><a href="reserve.php" class=" a_nav book_btn">Réserver</a></li>
+            </ul>
+            </nav>
+        </section>
+    </header>
 
     <!-- fin header -->
     
+
+    <?php 
+$db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf8', 'root', ''); 
+?>
+
 
 <!-- début section concept -->
 
@@ -77,6 +83,105 @@
     </div>
 </section>
 
+
+
+
+<!-- début section ateliers -->
+
+
+
+<section class="ateliers" id="ateliers">
+    
+<div class="lineh">
+        <div class="line"></div>
+        <h2 id="concept">Nos Ateliers</h2>
+        <div class="line"></div>
+</div>
+    <br>
+
+<div class="swiper blogs-slider">
+
+<div class="swiper-wrapper">
+
+<div class="swiper-slide slide">
+    <div class="image">
+        <img src="images/atelier_mezze.jpeg" alt="">
+        <span>Mezze</span>
+    </div>
+    <div class="content">
+        <div class="icon">
+            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
+            <a href="#"><i class="fas fa-user"></i> 15 </a>
+            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+        </div>
+        <h3 class="title">Atelier Mezze</h3>
+        <p>Découvrez l'art de la cuisine libanaise lors de notre atelier d'entrées libanaises.</p>
+        <a href="#" class="btn">Lire plus</a>
+    </div>
+</div>
+
+<div class="swiper-slide slide">
+    <div class="image">
+        <img src="images/atelier_desserts.jpg" alt="">
+        <span>Desserts</span>
+    </div>
+    <div class="content">
+        <div class="icon">
+            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
+            <a href="#"><i class="fas fa-user"></i> 15 </a>
+            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+        </div>
+        <h3 class="title">Atelier Desserts</h3>
+        <p>Explorez la délicieuse tradition des desserts libanais lors de notre atelier sucré.</p>
+        <a href="#" class="btn">Lire plus</a>
+    </div>
+</div>
+
+<div class="swiper-slide slide">
+    <div class="image">
+        <img src="images/atelier_manakish.jpg" alt="">
+        <span>Manakish</span>
+    </div>
+    <div class="content">
+        <div class="icon">
+            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
+            <a href="#"><i class="fas fa-user"></i> 15 </a>
+            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+        </div>
+        <h3 class="title">Atelier Manakish</h3>
+        <p>Voyagez au cœur de la cuisine libanaise avec notre atelier culinaire dédié aux manakish.</p>
+        <a href="#" class="btn">Lire plus</a>
+    </div>
+</div>
+
+<div class="swiper-slide slide">
+    <div class="image">
+        <img src="images/atelier_knefeh.jpg" alt="">
+        <span>Knefeh</span>
+    </div>
+    <div class="content">
+        <div class="icon">
+            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
+            <a href="#"><i class="fas fa-user"></i> 15 </a>
+            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+        </div>
+        <h3 class="title">Atelier Knefeh</h3>
+        <p>Plongez dans une aventure gustative unique avec notre atelier dédié aux Knefeh libanais.</p>
+        <a href="#" class="btn">Lire plus</a>
+    </div>
+</div>
+
+</div>
+
+<div class="swiper-pagination"></div>
+</div>
+
+
+
+    
+
+
+</section>
 
 
     <!-- début footer -->

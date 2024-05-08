@@ -16,24 +16,25 @@
 
 <body>
 <!-- début header -->
-    <section class="header">
-        <nav>        
-        <a class="evitement" href="#home">Aller au contenu</a>
+    <header>
+        <section class="header">
+            <nav>
+            <a class="evitement" href="#home">Aller au contenu</a>
         
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <i class="fas fa-bars"> </i>
-        </label>
-        <a href="index.php" class="logo">Hommade Hommous</a>
-        <ul>
-            <li><a class="a_nav" href="home.php">Home</a></li>
-            <li><a href="about.php" class="active a_nav">Nous</a></li>
-            <li><a href="concept.php" class=" a_nav">Notre Concept</a></li>
-             <li><a href="reserve.php" class=" a_nav book_btn">Réserver</a></li>
-        </ul>
-        </nav>
- 
-    </section>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"> </i>
+            </label>
+            <a href="index.php" class="logo">Hommade Hommous</a>
+            <ul>
+                <li><a class="a_nav" href="home.php">Home</a></li>
+                <li><a href="about.php" class="active a_nav">Nous</a></li>
+                <li><a href="concept.php" class=" a_nav">Nos Ateliers</a></li>
+                 <li><a href="reserve.php" class=" a_nav book_btn">Réserver</a></li>
+            </ul>
+            </nav>
+        </section>
+    </header>
 
     <!-- fin header -->
     
