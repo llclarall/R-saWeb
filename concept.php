@@ -53,7 +53,7 @@ $db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf
 
     <div class="heading2">
         <span>PERSONNALISEZ VOS MOMENTS DU QUOTIDIEN</span>
-        <h3>Hommade Hommous, comment ça marche ?</h3>
+        <h1>Hommade Hommous, comment ça marche ?</h1>
     </div>
     
     <div class="card-container">
@@ -90,7 +90,7 @@ $db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf
 
 
 
-<section class="ateliers" id="ateliers">
+<section class="ateliers_2" id="ateliers_2">
     
 <div class="lineh">
         <div class="line"></div>
@@ -99,81 +99,112 @@ $db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf
 </div>
     <br>
 
-<div class="swiper blogs-slider">
 
-<div class="swiper-wrapper">
+    <form action="index.php">
 
-<div class="swiper-slide slide">
+<span>Trier par :</span>
+<select name="duree" id="duree">
+<?php 
+$db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf8', 'root', '');
+$requete = "SELECT * FROM hh_atelier";
+$stmt = $db->query($requete);
+$resultat = $stmt -> fetchall();
+foreach ($resultat as $atelier){
+echo "<option value='duree'>".$atelier["duree"];
+}
+?>
+</select>
+
+<select name="duree" id="duree">
+<?php 
+$db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf8', 'root', '');
+$requete = "SELECT * FROM hh_atelier";
+$stmt = $db->query($requete);
+$resultat = $stmt -> fetchall();
+foreach ($resultat as $atelier){
+echo "<option value='prix'>".$atelier["prix"];
+}
+?>
+</select>
+
+<input type="submit" value="Valider">
+<br><br>
+</form>
+
+
+
+<div class="swiper">
+
+<div class="slide">
     <div class="image">
         <img src="images/atelier_mezze.jpeg" alt="">
         <span>Mezze</span>
     </div>
     <div class="content">
         <div class="icon">
-            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
-            <a href="#"><i class="fas fa-user"></i> 15 </a>
-            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+            <span><i class="fa-regular fa-clock"></i> 2h</span> 
+            <span><i class="fas fa-user"></i> 15 </span>
+            <span><i class="fa-solid fa-money-bill-1-wave"></i> 38 </span>
         </div>
         <h3 class="title">Atelier Mezze</h3>
-        <p>Découvrez l'art de la cuisine libanaise lors de notre atelier d'entrées libanaises.</p>
+        <p>Découvrez l'art de la cuisine libanaise lors de notre atelier d'entrées libanaises. Apprenez à préparer des délices traditionnels tels que le hommous, le taboulé et la crème d'aubergine, tout en explorant les saveurs exotiques de la Méditerranée. Rejoignez-nous pour une expérience culinaire inoubliable !</p>
         <a href="#" class="btn">Lire plus</a>
     </div>
 </div>
 
-<div class="swiper-slide slide">
+<div class="slide ">
     <div class="image">
         <img src="images/atelier_desserts.jpg" alt="">
         <span>Desserts</span>
     </div>
     <div class="content">
         <div class="icon">
-            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
-            <a href="#"><i class="fas fa-user"></i> 15 </a>
-            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+            <span><i class="fa-regular fa-clock"></i> 2h</span> 
+            <span><i class="fas fa-user"></i> 15 </span>
+            <span><i class="fa-solid fa-money-bill-1-wave"></i> 38 </span>
         </div>
         <h3 class="title">Atelier Desserts</h3>
-        <p>Explorez la délicieuse tradition des desserts libanais lors de notre atelier sucré.</p>
+        <p>Explorez la délicieuse tradition des desserts libanais lors de notre atelier sucré. Découvrez les secrets des baklavas et des maamouls des trésors de la pâtisserie orientale, avec nos chefs experts. Rejoignez-nous pour une expérience gourmande et exotique !</p>
         <a href="#" class="btn">Lire plus</a>
     </div>
 </div>
 
-<div class="swiper-slide slide">
+<div class="slide ">
     <div class="image">
         <img src="images/atelier_manakish.jpg" alt="">
         <span>Manakish</span>
     </div>
     <div class="content">
         <div class="icon">
-            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
-            <a href="#"><i class="fas fa-user"></i> 15 </a>
-            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+            <span><i class="fa-regular fa-clock"></i> 2h</span> 
+            <span><i class="fas fa-user"></i> 15 </span>
+            <span><i class="fa-solid fa-money-bill-1-wave"></i> 38 </span>
         </div>
         <h3 class="title">Atelier Manakish</h3>
-        <p>Voyagez au cœur de la cuisine libanaise avec notre atelier culinaire dédié aux manakish.</p>
+        <p>Voyagez au cœur de la cuisine libanaise avec notre atelier culinaire dédié aux manakish. Découvrez l'art de préparer ces délicieuses pizzas levantines, garnies de zaatar, de fromage ou de viande, selon vos préférences. Apprenez à pétrir et à garnir la pâte à la perfection, tout en explorant les saveurs authentiques de la Méditerranée orientale. Rejoignez-nous pour une expérience culinaire qui éveillera vos papilles et vous transportera directement dans les rues animées de Beyrouth.</p>
         <a href="#" class="btn">Lire plus</a>
     </div>
 </div>
 
-<div class="swiper-slide slide">
+<div class="slide ">
     <div class="image">
         <img src="images/atelier_knefeh.jpg" alt="">
         <span>Knefeh</span>
     </div>
     <div class="content">
         <div class="icon">
-            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
-            <a href="#"><i class="fas fa-user"></i> 15 </a>
-            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+            <span><i class="fa-regular fa-clock"></i> 2h</span> 
+            <span><i class="fas fa-user"></i> 15 </span>
+            <span><i class="fa-solid fa-money-bill-1-wave"></i> 38 </span>
         </div>
         <h3 class="title">Atelier Knefeh</h3>
-        <p>Plongez dans une aventure gustative unique avec notre atelier dédié aux Knefeh libanais.</p>
+        <p>Plongez dans une aventure gustative unique avec notre atelier dédié aux Knefeh libanais. Laissez-vous transporter dans l'univers envoûtant de ce dessert traditionnel, où la douceur du fromage et la texture croustillante de la pâte filo se marient harmonieusement avec un sirop parfumé à la fleur d'oranger.</p>
         <a href="#" class="btn">Lire plus</a>
     </div>
 </div>
 
 </div>
 
-<div class="swiper-pagination"></div>
 </div>
 
 

@@ -42,9 +42,25 @@
 
 <section class="formulaire" id="formulaire">
 
-    <h1 class="heading">Réservez un créneau</h1>
+    <div class="heading">
+        <h1>Réservez un créneau</h1>
+      
+</div>
 
-    <form action=""></form>
+    <form action="reserve.php" method="post">
+    <label>date<input type="date"></label>
+    <label>Heure
+        <select name="creneaux" id="creneaux">
+            <option value="">Choisir un créneau</option>
+            <option value="creneau1">10h-12h</option>
+            <option value="creneau2">14h-16h</option>
+            <option value="creneau3">16h-18h</option>
+        </select>
+    </label>
+
+
+
+    </form>
 
 
 </section>

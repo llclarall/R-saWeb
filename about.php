@@ -27,7 +27,7 @@
             </label>
             <a href="index.php" class="logo">Hommade Hommous</a>
             <ul>
-                <li><a class="a_nav" href="home.php">Home</a></li>
+                <li><a class="a_nav" href="index.php">Home</a></li>
                 <li><a href="about.php" class="active a_nav">Nous</a></li>
                 <li><a href="concept.php" class=" a_nav">Nos Ateliers</a></li>
                  <li><a href="reserve.php" class=" a_nav book_btn">Réserver</a></li>
@@ -53,14 +53,24 @@
 
 <div class="abt-section">
     <div class="inner-container">
-        <h1>About us</h1>
+        <h1>Notre Histoire</h1>
         <p class="text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolorem eveniet debitis at quaerat reprehenderit totam quibusdam perspiciatis minima distinctio culpa molestiae, praesentium fugiat illo vero? Eius sapiente at voluptates?
+        Aujourd’hui, nous vivons dans une société où l’amour est le but ultime pour beaucoup d’entre nous. 
+        Mais qu’en est-il des amitiés, les gens qui resteront avec vous à travers toutes situations, les gens qui auront un album photo dédié à toutes les photos les plus laides de vous? 
+<br><br>
+        C’est là qu’intervient <strong>Hommade Hommous</strong>.
+<br><br>
+        Réservez un de nos ateliers et nos cuisines sont tout à vous pour apprendre avec nos chefs les merveilles de la cuisine libanaise avec d’autres âmes solitaires.
+<br><br>
+        Soyons honnêtes, quelle meilleure façon de lier les gens que par la nourriture. 
+        Et pourquoi libanais vous demandez-vous? Parcequ'il n’y a rien de plus puissant que des pois chiches bien cuits.
+
+        Malheureusement, Philippe Etchebest ne pourra pas être des nôtres pour juger vos cuissons, donc n’hésitez pas à expérimenter et à ajouter votre propre grain de sel.
         </p>
         <div class="skills">
             <span >Humain</span>
-            <span>Humain</span>
-            <span>Humain</span>
+            <span>Créatif</span>
+            <span>Ludique</span>
         </div>
 
     </div>

@@ -114,7 +114,8 @@ $db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf
 
     <div class="content">
         <h1 class="title">Bienvenue à Hommade Hommous !</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore eveniet odit animi nisi numquam! Cupiditate, suscipit a distinctio unde doloribus facere ad voluptate laudantium hic molestias animi fugit magnam nemo!</p>
+        <p>Imaginez si Tinder rencontrait Cauchemars en cuisine. Cela semble être la recette du désastre, mais croyez-moi:
+        La catastrophe n’est pas la seule recette que vous apprendrez avec nous car à Hommade Hommous, vous venez préparer vos propres repas libanais et repartez avec des amis pour la vie. </p>
         <a href="about.php" class="btn">En savoir plus</a>
         <div class="icons-container">
             <div class="icons">
@@ -185,11 +186,11 @@ $db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf
 
 <!-- début section ateliers -->
 
-<section class="ateliers" id="ateliers">
+<!-- <section class="ateliers" id="ateliers">
     
 
     <div class="heading">
-    <span>Blog</span>
+    <span>Choix</span>
     <h3>Ateliers</h3>
 </div>
 
@@ -271,6 +272,89 @@ $db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf
 <div class="swiper-pagination"></div>
 </div>
 
+</section> -->
+
+<section class="ateliers" id="ateliers">
+
+<div class="heading">
+    <span>Choix</span>
+    <h2>Ateliers</h2>
+</div>  
+
+
+<div class="swiper">
+
+<div class="slide">
+    <div class="image">
+        <img src="images/atelier_mezze.jpeg" alt="">
+        <span>Mezze</span>
+    </div>
+    <div class="content">
+        <!-- <div class="icon">
+            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
+            <a href="#"><i class="fas fa-user"></i> 15 </a>
+            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+        </div> -->
+        <h3 class="title">Atelier  Mezze</h3>
+        <p>Découvrez l'art de la cuisine libanaise lors de notre atelier culinaire d'entrées libanaises.</p>
+        <a href="concept.php" class="btn" id="mezze">Lire plus</a>
+    </div>
+</div>
+
+<div class="slide">
+    <div class="image">
+        <img src="images/atelier_desserts.jpg" alt="">
+        <span>Desserts</span>
+    </div>
+    <div class="content">
+        <!-- <div class="icon">
+            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
+            <a href="#"><i class="fas fa-user"></i> 15 </a>
+            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+        </div> -->
+        <h3 class="title">Atelier Desserts</h3>
+        <p>Explorez la délicieuse tradition des desserts libanais lors de notre atelier sucré.</p>
+        <a href="concept.php" class="btn" id="desserts">Lire plus</a>
+    </div>
+</div>
+
+<div class="slide">
+    <div class="image">
+        <img src="images/atelier_manakish.jpg" alt="">
+        <span>Manakish</span>
+    </div>
+    <div class="content">
+        <!-- <div class="icon">
+            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
+            <a href="#"><i class="fas fa-user"></i> 15 </a>
+            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+        </div> -->
+        <h3 class="title">Atelier Manakish</h3>
+        <p>Voyagez au cœur de la cuisine libanaise avec notre atelier culinaire dédié aux manakish.</p>
+        <a href="concept.php" class="btn" id="manakish">Lire plus</a>
+    </div>
+</div>
+
+<div class="slide">
+    <div class="image">
+        <img src="images/atelier_knefeh.jpg" alt="">
+        <span>Knefeh</span>
+    </div>
+    <div class="content">
+        <!-- <div class="icon">
+            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
+            <a href="#"><i class="fas fa-user"></i> 15 </a>
+            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
+        </div> -->
+        <h3 class="title">Atelier Knefeh</h3>
+        <p>Plongez dans une aventure gustative unique avec notre atelier dédié aux Knefeh libanais.</p>
+        <a href="concept.php" class="btn" id="knefeh">Lire plus</a>
+    </div>
+</div>
+
+</div>
+</div>
+
 </section>
 
 
@@ -312,7 +396,7 @@ $db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf
 <section class="blogs" id="blogs">
 <div class="heading">
     <span>Blog</span>
-    <h3>Posts</h3>
+    <h2>Posts</h2>
 </div>
 
 <div class="swiper blogs-slider">
