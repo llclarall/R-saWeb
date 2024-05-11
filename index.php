@@ -1,3 +1,7 @@
+<?php 
+include 'connexion.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -6,7 +10,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hommade Hommous</title>
 <link rel="stylesheet" href="styles.css">
+
 <script src="https://kit.fontawesome.com/ac86f9bd86.js" crossorigin="anonymous"></script>
+<link rel="icon" href="images/favicon.ico" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -17,24 +23,19 @@
 <body>
 <!-- page accéssibilité -->
 <!-- mezzéchanges -->
-    <!-- page concept -->
-<!-- page nous -->
+        <!-- page concept -->
+        <!-- page nous -->
 <!-- textes -->
-<!-- différents ateliers -->
+            <!-- différents ateliers -->
             <!-- nav burger -->   
 <!-- mentions légales -->
 <!-- formulaire booking -->
 <!-- trouver photos -->
-<!-- slider blog à revoir peut-être -->
+            <!-- slider blog à revoir peut-être -->
 <!-- opquast -->
 <!-- styles boutons -->
             <!-- footer -->    
             
-<?php 
-$db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf8', 'root', ''); 
-?>
-
-
 
 
 <!-- début header  -->
@@ -295,7 +296,7 @@ $db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf
             <a href="#"><i class="fas fa-user"></i> 15 </a>
             <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
         </div> -->
-        <h3 class="title">Atelier  Mezze</h3>
+        <h3 class="title">Atelier Mezze</h3>
         <p>Découvrez l'art de la cuisine libanaise lors de notre atelier culinaire d'entrées libanaises.</p>
         <a href="concept.php" class="btn" id="mezze">Lire plus</a>
     </div>
@@ -365,7 +366,7 @@ $db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf
     <div class="content">
         <h1 class="title">Réservez maintenant !</h1>
         <p>Quelque soit l'atelier, vous voulez simplement rencontrer de nouvelles personnes en passant un bon moment ? Pas de soucis, vous pouvez accédez dés à présent au formulaire de réservation pour choisir un créneau.</p>
-        <a href="concept.html" class="btn">Prendre un créneau</a>
+        <a href="concept.php" class="btn">Prendre un créneau</a>
 <!--         <div class="icons-container">
             <div class="icons">
                 <img src="images/cooking.png" alt="">
@@ -406,75 +407,70 @@ $db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf
         <div class="swiper-slide slide">
             <div class="image">
                 <img src="images/about.jpeg" alt="">
-                <span>Hommous</span>
             </div>
             <div class="content">
                 <div class="icon">
-                    <a href="#"><i class="fas fa-calendar"></i> 1er mai 2023 </a>
-                    <a href="#"><i class="fas fa-user"></i> by admin </a>
+                    <a href="#"><i class="fas fa-calendar"></i> 1er mai 2024 </a>
+                    <a href="#"><i class="fas fa-user"></i> by elodie_marchand </a>
                 </div>
-                <a href="#" class="title">titre blog</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In non iusto cupiditate corrupti, praesentium nihil quos voluptatum deleniti repudiandae reprehenderit adipisci sint dolorem facere dolore aliquam sed, qui quas? Dolorem?</p>
+                <a href="#" class="title">"Un plaisir culinaire et social !"</a>
+                <p> Participer à un atelier Hommade Hommous est une expérience enrichissante où j'ai appris à cuisiner des plats libanais tout en rencontrant des personnes formidables. Recommandé pour ceux qui aiment la bonne cuisine et de nouvelles amitiés.</p>
             </div>
         </div>
 
         <div class="swiper-slide slide">
             <div class="image">
                 <img src="images/about.jpeg" alt="">
-                <span>Hommous</span>
             </div>
             <div class="content">
                 <div class="icon">
-                    <a href="#"><i class="fas fa-calendar"></i> 1er mai 2023 </a>
-                    <a href="#"><i class="fas fa-user"></i> by admin </a>
+                    <a href="#"><i class="fas fa-calendar"></i> 26 avril 2024 </a>
+                    <a href="#"><i class="fas fa-user"></i> by ._marc </a>
                 </div>
-                <a href="#" class="title">titre blog</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In non iusto cupiditate corrupti, praesentium nihil quos voluptatum deleniti repudiandae reprehenderit adipisci sint dolorem facere dolore aliquam sed, qui quas? Dolorem?</p>
+                <a href="#" class="title">"Connexion à travers la cuisine." </a>
+                <p>Hommade Hommous offre une expérience de partage unique où vous pouvez apprendre à cuisiner tout en rencontrant d'autres passionnés de cuisine. Une occasion parfaite pour élargir vos horizons culinaires et votre cercle social.</p>
             </div>
         </div>
 
         <div class="swiper-slide slide">
             <div class="image">
                 <img src="images/about.jpeg" alt="">
-                <span>Hommous</span>
             </div>
             <div class="content">
                 <div class="icon">
-                    <a href="#"><i class="fas fa-calendar"></i> 1er mai 2023 </a>
-                    <a href="#"><i class="fas fa-user"></i> by admin </a>
+                    <a href="#"><i class="fas fa-calendar"></i> 14 janvier 2024 </a>
+                    <a href="#"><i class="fas fa-user"></i> by Hélène </a>
                 </div>
-                <a href="#" class="title">titre blog</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In non iusto cupiditate corrupti, praesentium nihil quos voluptatum deleniti repudiandae reprehenderit adipisci sint dolorem facere dolore aliquam sed, qui quas? Dolorem?</p>
+                <a href="#" class="title">"Cuisine et amitié chez Hommade Hommous."</a>
+                <p>Des ateliers bien organisés, des ingrédients de qualité et une ambiance conviviale font de Hommade Homous l'endroit idéal pour cuisiner, apprendre et se faire de nouveaux amis. Une expérience inoubliable à ne pas manquer !</p>
             </div>
         </div>
 
         <div class="swiper-slide slide">
             <div class="image">
                 <img src="images/about.jpeg" alt="">
-                <span>Hommous</span>
             </div>
             <div class="content">
                 <div class="icon">
-                    <a href="#"><i class="fas fa-calendar"></i> 1er mai 2023 </a>
-                    <a href="#"><i class="fas fa-user"></i> by admin </a>
+                    <a href="#"><i class="fas fa-calendar"></i> 5 avril 2024 </a>
+                    <a href="#"><i class="fas fa-user"></i> by Cally.04 </a>
                 </div>
-                <a href="#" class="title">titre blog</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In non iusto cupiditate corrupti, praesentium nihil quos voluptatum deleniti repudiandae reprehenderit adipisci sint dolorem facere dolore aliquam sed, qui quas? Dolorem?</p>
+                <a href="#" class="title">"Une aventure culinaire et sociale."</a>
+                <p>Chez Hommade Hommous, j'ai découvert plus qu'un simple cours de cuisine. C'est une véritable aventure où vous pouvez cuisiner, apprendre et tisser des liens authentiques avec d'autres passionnés de cuisine.</p>
             </div>
         </div>
 
         <div class="swiper-slide slide">
             <div class="image">
                 <img src="images/about.jpeg" alt="">
-                <span>Hommous</span>
             </div>
             <div class="content">
                 <div class="icon">
-                    <a href="#"><i class="fas fa-calendar"></i> 1er mai 2023 </a>
-                    <a href="#"><i class="fas fa-user"></i> by admin </a>
+                    <a href="#"><i class="fas fa-calendar"></i> 11 février 2024 </a>
+                    <a href="#"><i class="fas fa-user"></i> by lilooo </a>
                 </div>
-                <a href="#" class="title">titre blog</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In non iusto cupiditate corrupti, praesentium nihil quos voluptatum deleniti repudiandae reprehenderit adipisci sint dolorem facere dolore aliquam sed, qui quas? Dolorem?</p>
+                <a href="#" class="title">"Cuisinez, apprenez et liez-vous d'amitié."</a>
+                <p> Hommade Homous offre une expérience culinaire enrichissante où vous pouvez explorer la cuisine libanaise tout en rencontrant des personnes partageant les mêmes intérêts. Parfait pour les gourmets en quête de nouvelles expériences sociales.</p>
             </div>
         </div>
     </div>

@@ -988,7 +988,7 @@ margin-right: 30px;
 .ateliers_2 .swiper {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 25px; 
     justify-content: center;
     align-items: center;
 }

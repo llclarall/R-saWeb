@@ -1,3 +1,50 @@
+<?php 
+require 'connexion.php';
+
+if(isset($_GET["submit"])){
+    $nom = $_GET["nom"];
+    $prenom = $_GET["prenom"];
+    $mail = $_GET["mail"];
+    $date = $_GET["date"];
+    $creneau = $_GET["creneaux"];
+
+    $sql = "INSERT INTO hh_user(nom_user,prenom_user,mail_user) VALUES(:nom,:prenom,:mail)";
+    $stmt = $db->prepare($sql);
+
+    $stmt->bindParam(':nom',$nom);
+    $stmt->bindParam(':prenom',$prenom);
+    $stmt->bindParam(':mail',$mail);
+        $stmt->execute();
+   
+
+
+        // Envoi du courrier électronique de confirmation
+        $to = $mail;
+        $subject = "Confirmation de réservation";
+        $message = "<p>Merci pour votre réservation !</p>";
+        $headers = "From: HommadeHommous@example.com\r\n";
+        $headers .= "Content-type: text/html\r\n";
+        mail($to, $subject, $message, $headers);
+};
+
+
+if(isset($_GET["submit"])){
+    $jour = $_GET["date"];
+    $creneau = $_GET["creneaux"];
+
+    $sql2 = "INSERT INTO hh_reservation(date_reservation,creneau_reservation) VALUES(:jour,:creneau)";
+    $stmt2 = $db->prepare($sql2);
+
+    $stmt2->bindParam(':jour',$date);
+    $stmt2->bindParam(':creneau',$creneau);
+        $stmt2->execute();
+
+    echo " <script> alert('Réservation confirmée ! Vous recevrez bientôt un e-mail de confirmation.'); </script> ";
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -42,25 +89,29 @@
 
 <section class="formulaire" id="formulaire">
 
-    <div class="heading">
-        <h1>Réservez un créneau</h1>
-      
+<div class="heading">
+    <h1>Réservez un créneau</h1>   
 </div>
 
-    <form action="reserve.php" method="post">
-    <label>date<input type="date"></label>
-    <label>Heure
-        <select name="creneaux" id="creneaux">
-            <option value="">Choisir un créneau</option>
-            <option value="creneau1">10h-12h</option>
-            <option value="creneau2">14h-16h</option>
-            <option value="creneau3">16h-18h</option>
-        </select>
-    </label>
+<form action="reserve.php" method="get" autocomplete="on">
+
+    <label>nom<input type="text" name="nom" required></label> <br><br>
+    <label>prenom<input type="text" name="prenom" required></label><br><br>
+    <label>mail<input type="email" name="mail" required></label><br><br>
+<label>date<input type="date" name="date" required></label><br><br>
+<label>Heure
+    <select name="creneaux" id="creneaux" required>
+        <option value="">Choisir un créneau</option>
+        <option value="10-12">10h-12h</option>
+        <option value="14-16">14h-16h</option>
+        <option value="16-18">16h-18h</option>
+    </select> <br><br>
+    <button type="submit" name="submit">Envoyer</button>
+</label>
 
 
 
-    </form>
+</form>
 
 
 </section>

@@ -1,3 +1,7 @@
+<?php 
+include 'connexion.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -19,7 +23,7 @@
     <header>
         <section class="header">
             <nav>
-            <a class="evitement" href="#home">Aller au contenu</a>
+            <a class="evitement" href="#concept">Aller au contenu</a>
         
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn">
@@ -39,17 +43,13 @@
     <!-- fin header -->
     
 
-    <?php 
-$db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf8', 'root', ''); 
-?>
-
 
 <!-- début section concept -->
 
 
     <img class='concept-header' src="images/concept_header.jpg" alt="">
     
-    <section class="concept">  
+    <section class="concept" id="concept">  
 
     <div class="heading2">
         <span>PERSONNALISEZ VOS MOMENTS DU QUOTIDIEN</span>
@@ -105,7 +105,6 @@ $db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf
 <span>Trier par :</span>
 <select name="duree" id="duree">
 <?php 
-$db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf8', 'root', '');
 $requete = "SELECT * FROM hh_atelier";
 $stmt = $db->query($requete);
 $resultat = $stmt -> fetchall();
@@ -117,7 +116,6 @@ echo "<option value='duree'>".$atelier["duree"];
 
 <select name="duree" id="duree">
 <?php 
-$db = new PDO('mysql:host=localhost;dbname=hommade_hommous;port=3306;charset=utf8', 'root', '');
 $requete = "SELECT * FROM hh_atelier";
 $stmt = $db->query($requete);
 $resultat = $stmt -> fetchall();
@@ -148,7 +146,7 @@ echo "<option value='prix'>".$atelier["prix"];
         </div>
         <h3 class="title">Atelier Mezze</h3>
         <p>Découvrez l'art de la cuisine libanaise lors de notre atelier d'entrées libanaises. Apprenez à préparer des délices traditionnels tels que le hommous, le taboulé et la crème d'aubergine, tout en explorant les saveurs exotiques de la Méditerranée. Rejoignez-nous pour une expérience culinaire inoubliable !</p>
-        <a href="#" class="btn">Lire plus</a>
+        <a href="reserve.php" class="btn">Réserver</a>
     </div>
 </div>
 
@@ -165,7 +163,7 @@ echo "<option value='prix'>".$atelier["prix"];
         </div>
         <h3 class="title">Atelier Desserts</h3>
         <p>Explorez la délicieuse tradition des desserts libanais lors de notre atelier sucré. Découvrez les secrets des baklavas et des maamouls des trésors de la pâtisserie orientale, avec nos chefs experts. Rejoignez-nous pour une expérience gourmande et exotique !</p>
-        <a href="#" class="btn">Lire plus</a>
+        <a href="reserve.php" class="btn">Réserver</a>
     </div>
 </div>
 
@@ -182,7 +180,7 @@ echo "<option value='prix'>".$atelier["prix"];
         </div>
         <h3 class="title">Atelier Manakish</h3>
         <p>Voyagez au cœur de la cuisine libanaise avec notre atelier culinaire dédié aux manakish. Découvrez l'art de préparer ces délicieuses pizzas levantines, garnies de zaatar, de fromage ou de viande, selon vos préférences. Apprenez à pétrir et à garnir la pâte à la perfection, tout en explorant les saveurs authentiques de la Méditerranée orientale. Rejoignez-nous pour une expérience culinaire qui éveillera vos papilles et vous transportera directement dans les rues animées de Beyrouth.</p>
-        <a href="#" class="btn">Lire plus</a>
+        <a href="reserve.php" class="btn">Réserver</a>
     </div>
 </div>
 
@@ -199,7 +197,7 @@ echo "<option value='prix'>".$atelier["prix"];
         </div>
         <h3 class="title">Atelier Knefeh</h3>
         <p>Plongez dans une aventure gustative unique avec notre atelier dédié aux Knefeh libanais. Laissez-vous transporter dans l'univers envoûtant de ce dessert traditionnel, où la douceur du fromage et la texture croustillante de la pâte filo se marient harmonieusement avec un sirop parfumé à la fleur d'oranger.</p>
-        <a href="#" class="btn">Lire plus</a>
+        <a href="reserve.php" class="btn">Réserver</a>
     </div>
 </div>
 

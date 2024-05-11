@@ -77,6 +77,9 @@
 </div>
 
 
+<!-- section équipe et mentions légales -->
+
+
     <!-- début footer -->
 
 <section class="footer">
