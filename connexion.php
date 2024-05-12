@@ -8,5 +8,4 @@ catch (PDOException $e) {
     echo "la connexion a échoué:" . $e->getMessage();
 }
 
-/* $conn = mysqli_connect("localhost", "root", "", "hommade_hommous") */
 ?>

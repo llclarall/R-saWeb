@@ -57,3 +57,38 @@ var swiper = new Swiper(".food-slider", {
   });
   
 
+
+  /* tri ateliers */
+
+  function sortAteliers() {
+    var critere = document.getElementById("critere").value;
+    $.ajax({
+      url: "get_ateliers.php",
+      type: "GET",
+      success: function(response) {
+        var ateliers = JSON.parse(response);
+        if (critere === "prix") {
+          ateliers.sort(function(a, b) {
+            return a.prix - b.prix;
+          });
+        } else if (critere === "duree") {
+          ateliers.sort(function(a, b) {
+            return new Date(a.duree) - new Date(b.duree);
+          });
+        }
+        displayAteliers(ateliers);
+      },
+      error: function(xhr, status, error) {
+        console.log("Erreur lors de la récupération des ateliers : " + error);
+      }
+    });
+  }
+  
+  function displayAteliers(ateliers) {
+    var AteliersList = document.getElementById("AteliersList");
+    AteliersList.innerHTML = "";
+    ateliers.forEach(function(atelier) {
+      AteliersList.innerHTML += "<div>" + atelier.name + " - " + atelier.prix + " - " + workshop.duree + "</div>";
+    });
+  }
+  

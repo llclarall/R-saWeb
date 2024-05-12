@@ -10,6 +10,7 @@ include 'connexion.php';
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HH - Concept</title>
 <link rel="stylesheet" href="styles.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/ac86f9bd86.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,8 +100,9 @@ include 'connexion.php';
 </div>
     <br>
 
+<!-- filtre en php -->
 
-    <form action="index.php">
+<form action="index.php">
 
 <span>Trier par :</span>
 <select name="duree" id="duree">
@@ -130,7 +132,22 @@ echo "<option value='prix'>".$atelier["prix"];
 </form>
 
 
+<!-- tri en js -->
 
+<select id="critere">
+  <option value="prix">Prix</option>
+  <option value="duree">Durée</option>
+</select>
+
+<button onclick="sortAteliers()">Trier</button>
+
+<?php 
+$requete = "SELECT * FROM hh_atelier";
+$stmt = $db->query($requete);
+$resultat = $stmt -> fetchall();
+?>
+
+<div id="AteliersList">
 <div class="swiper">
 
 <div class="slide">
@@ -140,9 +157,9 @@ echo "<option value='prix'>".$atelier["prix"];
     </div>
     <div class="content">
         <div class="icon">
-            <span><i class="fa-regular fa-clock"></i> 2h</span> 
+            <span><i class="fa-regular fa-clock" name="duree"></i> 2h</span> 
             <span><i class="fas fa-user"></i> 15 </span>
-            <span><i class="fa-solid fa-money-bill-1-wave"></i> 38 </span>
+            <span><i class="fa-solid fa-money-bill-1-wave" name="duree"></i> 38 </span>
         </div>
         <h3 class="title">Atelier Mezze</h3>
         <p>Découvrez l'art de la cuisine libanaise lors de notre atelier d'entrées libanaises. Apprenez à préparer des délices traditionnels tels que le hommous, le taboulé et la crème d'aubergine, tout en explorant les saveurs exotiques de la Méditerranée. Rejoignez-nous pour une expérience culinaire inoubliable !</p>
@@ -157,9 +174,9 @@ echo "<option value='prix'>".$atelier["prix"];
     </div>
     <div class="content">
         <div class="icon">
-            <span><i class="fa-regular fa-clock"></i> 2h</span> 
+            <span><i class="fa-regular fa-clock"></i> 3h</span> 
             <span><i class="fas fa-user"></i> 15 </span>
-            <span><i class="fa-solid fa-money-bill-1-wave"></i> 38 </span>
+            <span><i class="fa-solid fa-money-bill-1-wave"></i> 45 </span>
         </div>
         <h3 class="title">Atelier Desserts</h3>
         <p>Explorez la délicieuse tradition des desserts libanais lors de notre atelier sucré. Découvrez les secrets des baklavas et des maamouls des trésors de la pâtisserie orientale, avec nos chefs experts. Rejoignez-nous pour une expérience gourmande et exotique !</p>
@@ -174,9 +191,9 @@ echo "<option value='prix'>".$atelier["prix"];
     </div>
     <div class="content">
         <div class="icon">
-            <span><i class="fa-regular fa-clock"></i> 2h</span> 
+            <span><i class="fa-regular fa-clock"></i> 1h</span> 
             <span><i class="fas fa-user"></i> 15 </span>
-            <span><i class="fa-solid fa-money-bill-1-wave"></i> 38 </span>
+            <span><i class="fa-solid fa-money-bill-1-wave"></i> 27 </span>
         </div>
         <h3 class="title">Atelier Manakish</h3>
         <p>Voyagez au cœur de la cuisine libanaise avec notre atelier culinaire dédié aux manakish. Découvrez l'art de préparer ces délicieuses pizzas levantines, garnies de zaatar, de fromage ou de viande, selon vos préférences. Apprenez à pétrir et à garnir la pâte à la perfection, tout en explorant les saveurs authentiques de la Méditerranée orientale. Rejoignez-nous pour une expérience culinaire qui éveillera vos papilles et vous transportera directement dans les rues animées de Beyrouth.</p>
@@ -203,6 +220,7 @@ echo "<option value='prix'>".$atelier["prix"];
 
 </div>
 
+</div>
 </div>
 
 
