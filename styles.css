@@ -808,7 +808,7 @@ text-decoration: underline;
  */
 }
 
-.card-container {
+.concept .card-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -817,7 +817,7 @@ text-decoration: underline;
     margin-bottom: 5rem;
 }
 
-.card {
+.concept .card {
     width: 350px;
     background-color: #fcdea8;
     overflow: hidden;
@@ -826,27 +826,27 @@ text-decoration: underline;
     border: #ec964b solid;
 }
 
-.card:hover {
+.concept .card:hover {
     transform: translateY(-10px);
 }
 
-.card-container .card img {
+.concept .card-container .card img {
     width: 20%;
     margin-top: 2rem;
     margin-left: 2rem;
     object-fit: cover;
 }
 
-.card-content {
+.concept .card-content {
     padding: 20px;
 }
 
-.card-content h1 {
+.concept .card-content h1 {
     font-size: 2.5rem;
     margin-bottom: 15px;
 }
 
-.card-content p {
+.concept .card-content p {
     font-size: 1.7rem;
     margin-bottom: 20px;
 }
@@ -887,7 +887,7 @@ margin-right: 30px;
     background-color: #fcf1dc;
 }
 
-.ateliers .swiper {
+/* .ateliers .swiper {
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
@@ -976,7 +976,7 @@ margin-right: 30px;
     line-height: 2;
     font-size: 1.6rem;
     color: #505050;
-}
+} */
 
 
 /* début 2e section ateliers page concept */
@@ -1166,4 +1166,162 @@ margin-right: 30px;
 
 .formulaire {
     margin-top: 15rem;
+}
+
+.formulaire h1 {
+    margin-bottom: 5rem;
+}
+
+.formulaire form {
+    background-color: #fad286;
+    padding: 4rem;
+    margin: 0 auto;
+    max-width: 60rem;
+    border-radius: 20px;
+}
+
+
+.formulaire form input, 
+.formulaire form select {
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    border-radius: .5rem;
+    font-size: 1.7rem;
+    border: 1.5px solid #77021D;
+}
+
+.formulaire form .date {
+   display: flex;
+   justify-content: space-between;
+   gap: 30px;
+}
+
+.formulaire form label {
+    font-size: 2rem;
+}
+
+
+.formulaire form input[type="submit"] {
+    width: 50%;
+    background-color: #77021D;
+    color: #F6B339;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 3rem;
+    margin-bottom: .5rem;
+}
+
+
+/* section test */
+
+.ateliers .atelier_wrapper {
+    width: 100%;
+    /* height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5rem;
+    padding-top: 2rem;
+}
+
+
+.ateliers .atelier_wrapper .atelier_container {
+    height: 400px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+}
+
+ .ateliers .atelier_card{
+    width: 80px;
+    border-radius: 2rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+    transition: .6s cubic-bezier(.28,-0.03,0,.99);
+    box-shadow: 0px 20px 30px -5px rgba(0, 0, 0, 0.8);
+    opacity: .9;
+}
+
+.ateliers .atelier_card > .row {
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.ateliers .atelier_card > .row > .atelier_icon {
+    background-color: #223;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+.ateliers .atelier_card > .row > .description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80px;
+    width: 520px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: .3s;
+    transition: all .3s ease;
+}
+
+.ateliers .description p {
+    color: #b0b0ba;
+    padding-top: 5px;
+}
+
+.ateliers .description h3 {
+    text-transform: uppercase;
+}
+
+.ateliers input[type="radio"] {
+    display: none;
+}
+
+.ateliers input:checked + label {
+    width: 600px;
+}
+
+.ateliers input:checked + label .description {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.ateliers .atelier_card[for="c1"] {
+        background-image: url(images/atelier_mezze.jpeg);
+        background-size: cover;
+        background-position: center;
+
+}
+
+.ateliers .atelier_card[for="c2"] {
+        background-image: url(images/atelier_desserts.jpg);
+        background-size: cover;
+        background-position: center;
+}
+
+.ateliers .atelier_card[for="c3"] {
+        background-image: url(images/atelier_manakish.jpg);
+        background-size: cover;
+        background-position: center;
+}
+
+.ateliers .atelier_card[for="c4"] {
+        background-image: url(images/atelier_knefeh.jpg);
+        background-size: cover;
+        background-position: center;
 }

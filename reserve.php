@@ -17,14 +17,14 @@ if(isset($_GET["submit"])){
         $stmt->execute();
    
 
-
+/* 
         // Envoi du courrier électronique de confirmation
         $to = $mail;
         $subject = "Confirmation de réservation";
         $message = "<p>Merci pour votre réservation !</p>";
         $headers = "From: HommadeHommous@example.com\r\n";
         $headers .= "Content-type: text/html\r\n";
-        mail($to, $subject, $message, $headers);
+        mail($to, $subject, $message, $headers); */
 };
 
 
@@ -66,13 +66,13 @@ if(isset($_GET["submit"])){
     <header>
         <section class="header">
             <nav>
-            <a class="evitement" href="#home">Aller au contenu</a>
+            <a class="evitement" href="#formulaire">Aller au contenu</a>
         
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn">
                 <i class="fas fa-bars"> </i>
             </label>
-            <a href="#" class="logo">Hommade Hommous</a>
+            <a href="index.php" class="logo">Hommade Hommous</a>
             <ul>
                 <li><a class="a_nav" href="index.php">Home</a></li>
                 <li><a href="about.php" class="a_nav">Nous</a></li>
@@ -93,30 +93,34 @@ if(isset($_GET["submit"])){
     <h1>Réservez un créneau</h1>   
 </div>
 
+<div class="form">
+    
 <form action="reserve.php" method="get" autocomplete="on">
 
-    <label>nom<input type="text" name="nom" required></label> <br><br>
-    <label>prenom<input type="text" name="prenom" required></label><br><br>
-    <label>mail<input type="email" name="mail" required></label><br><br>
-<label>date<input type="date" name="date" required></label><br><br>
-<label>Heure
-    <select name="creneaux" id="creneaux" required>
-        <option value="">Choisir un créneau</option>
-        <option value="10-12">10h-12h</option>
-        <option value="14-16">14h-16h</option>
-        <option value="16-18">16h-18h</option>
-    </select> <br><br>
-    <button type="submit" name="submit">Envoyer</button>
+    <div class="date">
+        <label>Prénom<input type="text" name="prenom" class="box" required></label>
+        <label>Nom<input type="text" name="nom" class="box" required></label>
+    </div>
+    <label>Mail<input type="email" name="mail" class="box" required></label>
+    <div class="date">
+        <label>Date<input type="date" name="date" class="box" required></label>
+        <label>Créneau
+        <select name="creneaux" id="creneaux" class="box" required>
+            <option value="">Choisir un créneau</option>
+            <option value="10-12">10h-12h</option>
+            <option value="14-16">14h-16h</option>
+            <option value="16-18">16h-18h</option>
+        </select>
+    </div>
+    <input type="submit" name="submit" class="btn" value="Réserver"></input>
 </label>
-
-
 
 </form>
 
+</div>
+
 
 </section>
-
-
 
 
 

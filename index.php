@@ -283,6 +283,58 @@ include 'connexion.php';
 </div>  
 
 
+<div class="atelier_wrapper">
+        <div class="atelier_container">
+    
+            <input type="radio" name="slide" id="c1" checked>
+            <label for="c1" class="atelier_card">
+            <div class="row">
+                <div class="atelier_icon">1</div>
+                    <div class="description">
+                        <h3>Atelier 1</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+            </div>
+            </label>
+    
+            <input type="radio" name="slide" id="c2">
+            <label for="c2" class="atelier_card">
+            <div class="row">
+                <div class="atelier_icon">2</div>
+                    <div class="description">
+                        <h3>Atelier 2</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+            </div>
+            </label>
+    
+            <input type="radio" name="slide" id="c3">
+            <label for="c3" class="atelier_card">
+            <div class="row">
+                <div class="atelier_icon">3</div>
+                    <div class="description">
+                        <h3>Atelier 3</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+            </div>
+            </label>
+    
+            <input type="radio" name="slide" id="c4">
+            <label for="c4" class="atelier_card">
+            <div class="row">
+                <div class="atelier_icon">4</div>
+                    <div class="description">
+                        <h3>Atelier 4</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+            </div>
+            </label>
+    
+        </div>
+    </div>
+
+    <a href="concept.php" class="btn">Lire plus</a>
+<!-- 
 <div class="swiper">
 
 <div class="slide">
@@ -291,11 +343,6 @@ include 'connexion.php';
         <span>Mezze</span>
     </div>
     <div class="content">
-        <!-- <div class="icon">
-            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
-            <a href="#"><i class="fas fa-user"></i> 15 </a>
-            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
-        </div> -->
         <h3 class="title">Atelier Mezze</h3>
         <p>Découvrez l'art de la cuisine libanaise lors de notre atelier culinaire d'entrées libanaises.</p>
         <a href="concept.php" class="btn" id="mezze">Lire plus</a>
@@ -308,11 +355,6 @@ include 'connexion.php';
         <span>Desserts</span>
     </div>
     <div class="content">
-        <!-- <div class="icon">
-            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
-            <a href="#"><i class="fas fa-user"></i> 15 </a>
-            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
-        </div> -->
         <h3 class="title">Atelier Desserts</h3>
         <p>Explorez la délicieuse tradition des desserts libanais lors de notre atelier sucré.</p>
         <a href="concept.php" class="btn" id="desserts">Lire plus</a>
@@ -325,11 +367,6 @@ include 'connexion.php';
         <span>Manakish</span>
     </div>
     <div class="content">
-        <!-- <div class="icon">
-            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
-            <a href="#"><i class="fas fa-user"></i> 15 </a>
-            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
-        </div> -->
         <h3 class="title">Atelier Manakish</h3>
         <p>Voyagez au cœur de la cuisine libanaise avec notre atelier culinaire dédié aux manakish.</p>
         <a href="concept.php" class="btn" id="manakish">Lire plus</a>
@@ -342,11 +379,6 @@ include 'connexion.php';
         <span>Knefeh</span>
     </div>
     <div class="content">
-        <!-- <div class="icon">
-            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
-            <a href="#"><i class="fas fa-user"></i> 15 </a>
-            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
-        </div> -->
         <h3 class="title">Atelier Knefeh</h3>
         <p>Plongez dans une aventure gustative unique avec notre atelier dédié aux Knefeh libanais.</p>
         <a href="concept.php" class="btn" id="knefeh">Lire plus</a>
@@ -354,9 +386,13 @@ include 'connexion.php';
 </div>
 
 </div>
-</div>
+</div> -->
+
 
 </section>
+
+
+
 
 
 
@@ -367,20 +403,6 @@ include 'connexion.php';
         <h1 class="title">Réservez maintenant !</h1>
         <p>Quelque soit l'atelier, vous voulez simplement rencontrer de nouvelles personnes en passant un bon moment ? Pas de soucis, vous pouvez accédez dés à présent au formulaire de réservation pour choisir un créneau.</p>
         <a href="concept.php" class="btn">Prendre un créneau</a>
-<!--         <div class="icons-container">
-            <div class="icons">
-                <img src="images/cooking.png" alt="">
-                <h3>Ajoutez votre grain de sel</h3>
-            </div>
-            <div class="icons">
-                <img src="images/restaurant.png" alt="">
-                <h3>Faites de nouvelles rencontres</h3>
-            </div>
-            <div class="icons">
-                <img src="images/lebanon.png" alt="">
-                <h3>Découvrez les saveurs du Liban</h3>
-            </div>
-        </div> -->
     </div> 
     
     <div class="image">
