@@ -1,5 +1,7 @@
 <?php 
 include 'connexion.php';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +104,7 @@ include 'connexion.php';
 
 <!-- filtre en php -->
 
-<form action="index.php">
+<form action="concept.php">
 
 <span>Trier par :</span>
 <select name="duree" id="duree">
@@ -141,14 +143,34 @@ echo "<option value='prix'>".$atelier["prix"];
 
 <button onclick="sortAteliers()">Trier</button>
 
+<div id="AteliersList">
+<div class="swiper">
+
 <?php 
 $requete = "SELECT * FROM hh_atelier";
 $stmt = $db->query($requete);
 $resultat = $stmt -> fetchall();
+foreach ($resultat as $hh_atelier){
+    /* echo "<option value='realisateur'>".$film["prenom"]." ".$film["nom_realisateur"]."</option>"; */
+    echo '<div class="slide">
+    <div class="image">
+        <img src="data:image/jpeg;base64, '.$hh_atelier["img"].'" alt="">
+        <span>Mezze</span>
+    </div>
+    <div class="content">
+        <div class="icon">
+            <span><i class="fa-regular fa-clock" name="duree"></i> 2h</span> 
+            <span><i class="fas fa-user"></i> 15 </span>
+            <span><i class="fa-solid fa-money-bill-1-wave" name="duree"></i> 38 </span>
+        </div>
+        <h3 class="title">'.$hh_atelier["activité"].'</h3>
+        <p>Découvrez l’art de la cuisine libanaise lors de notre atelier d’entrées libanaises. Apprenez à préparer des délices traditionnels tels que le hommous, le taboulé et la crème d’aubergine, tout en explorant les saveurs exotiques de la Méditerranée. Rejoignez-nous pour une expérience culinaire inoubliable !</p>
+        <a href="reserve.php?id=5" class="btn">Réserver</a>
+    </div>
+</div>';
+}
 ?>
 
-<div id="AteliersList">
-<div class="swiper">
 
 <div class="slide">
     <div class="image">

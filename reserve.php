@@ -1,7 +1,7 @@
 <?php 
 require 'connexion.php';
 
-if(isset($_GET["submit"])){
+/* if(isset($_GET["submit"])){
     $nom = $_GET["nom"];
     $prenom = $_GET["prenom"];
     $mail = $_GET["mail"];
@@ -15,20 +15,20 @@ if(isset($_GET["submit"])){
     $stmt->bindParam(':prenom',$prenom);
     $stmt->bindParam(':mail',$mail);
         $stmt->execute();
-   
+    
 
-/* 
+};*/
         // Envoi du courrier électronique de confirmation
         $to = $mail;
         $subject = "Confirmation de réservation";
         $message = "<p>Merci pour votre réservation !</p>";
         $headers = "From: HommadeHommous@example.com\r\n";
         $headers .= "Content-type: text/html\r\n";
-        mail($to, $subject, $message, $headers); */
-};
+        mail($to, $subject, $message, $headers);
 
 
-if(isset($_GET["submit"])){
+
+/* if(isset($_GET["submit"])){
     $jour = $_GET["date"];
     $creneau = $_GET["creneaux"];
 
@@ -40,7 +40,7 @@ if(isset($_GET["submit"])){
         $stmt2->execute();
 
     echo " <script> alert('Réservation confirmée ! Vous recevrez bientôt un e-mail de confirmation.'); </script> ";
-}
+} */
 
 ?>
 

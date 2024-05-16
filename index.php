@@ -291,8 +291,8 @@ include 'connexion.php';
             <div class="row">
                 <div class="atelier_icon">1</div>
                     <div class="description">
-                        <h3>Atelier 1</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <h3>Atelier mezze</h3>
+                        <p>Découvrez l'art de la cuisine lors de notre atelier d'entrées libanaises.</p>
                     </div>
             </div>
             </label>
@@ -302,8 +302,8 @@ include 'connexion.php';
             <div class="row">
                 <div class="atelier_icon">2</div>
                     <div class="description">
-                        <h3>Atelier 2</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <h3>Atelier desserts</h3>
+                        <p>Explorez la délicieuse tradition des desserts libanais lors de notre atelier sucré.</p>
                     </div>
             </div>
             </label>
@@ -313,8 +313,8 @@ include 'connexion.php';
             <div class="row">
                 <div class="atelier_icon">3</div>
                     <div class="description">
-                        <h3>Atelier 3</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <h3>Atelier Manakish</h3>
+                        <p>Voyagez au cœur de la cuisine libanaise avec notre atelier culinaire dédié aux manakish.</p>
                     </div>
             </div>
             </label>
@@ -324,8 +324,8 @@ include 'connexion.php';
             <div class="row">
                 <div class="atelier_icon">4</div>
                     <div class="description">
-                        <h3>Atelier 4</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <h3>Atelier knefeh</h3>
+                        <p>Plongez dans une aventure gustative unique avec notre atelier dédié aux Knefeh libanais.</p>
                     </div>
             </div>
             </label>
@@ -334,6 +334,7 @@ include 'connexion.php';
     </div>
 
     <a href="concept.php" class="btn">Lire plus</a>
+    
 <!-- 
 <div class="swiper">
 
