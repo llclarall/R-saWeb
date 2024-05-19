@@ -60,7 +60,7 @@ var swiper = new Swiper(".food-slider", {
 
   /* tri ateliers */
 
-  function sortAteliers() {
+/*   function sortAteliers() {
     var critere = document.getElementById("critere").value;
     $.ajax({
       url: "get_ateliers.php",
@@ -73,7 +73,7 @@ var swiper = new Swiper(".food-slider", {
           });
         } else if (critere === "duree") {
           ateliers.sort(function(a, b) {
-            return new Date(a.duree) - new Date(b.duree);
+            return a.duree - b.duree;
           });
         }
         displayAteliers(ateliers);
@@ -92,3 +92,48 @@ var swiper = new Swiper(".food-slider", {
     });
   }
   
+function displayAteliers(ateliers) {
+  var AteliersList = document.getElementById("AteliersList");
+  AteliersList.innerHTML = "";
+  ateliers.forEach(function(atelier) {
+    AteliersList.innerHTML += `<div class="slide">
+    <div class="image">
+        <img src="${atelier.img}" alt="">
+        <span>Mezze</span>
+    </div>
+    <div class="content">
+        <div class="icon">
+            <span><i class="fa-regular fa-clock" name="duree"></i> ${atelier.duree}</span> 
+            <span><i class="fas fa-user"></i> ${atelier.capacite} </span>
+            <span><i class="fa-solid fa-money-bill-1-wave" name="prix"></i> ${atelier.prix} </span>
+        </div>
+        <h3 class="title">${atelier.activite}</h3>
+        <p>${atelier.description}</p>
+        <a href="reserve.php?id=${atelier.id_atelier}" class="btn">Réserver</a>
+    </div>
+  </div>`;
+  });
+}; */
+
+function triAteliers() {
+  var critere = document.getElementById("critere").value;
+  var ateliers = document.querySelectorAll("#AteliersList .slide");
+  var tableauAteliers = Array.from(ateliers);
+
+  tableauAteliers.sort(function(a, b) {
+      if (critere === "prix") {
+          return a.dataset.prix - b.dataset.prix;
+      } else if (critere === "duree") {
+          return a.dataset.duree - b.dataset.duree;
+      }
+  });
+
+  var AteliersList = document.getElementById("AteliersList");
+  AteliersList.innerHTML = "";
+
+  tableauAteliers.forEach(function(atelier) {
+      AteliersList.appendChild(atelier);
+  });
+}
+
+

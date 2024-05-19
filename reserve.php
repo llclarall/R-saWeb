@@ -1,46 +1,47 @@
 <?php 
 require 'connexion.php';
 
-/* if(isset($_GET["submit"])){
+
+
+if(isset($_GET["submit"])){
     $nom = $_GET["nom"];
     $prenom = $_GET["prenom"];
     $mail = $_GET["mail"];
     $date = $_GET["date"];
     $creneau = $_GET["creneaux"];
 
-    $sql = "INSERT INTO hh_user(nom_user,prenom_user,mail_user) VALUES(:nom,:prenom,:mail)";
+    $sql = "INSERT IGNORE INTO hh_user(nom_user,prenom_user,mail_user) 
+    VALUES(:nom,:prenom,:mail);";
     $stmt = $db->prepare($sql);
 
     $stmt->bindParam(':nom',$nom);
     $stmt->bindParam(':prenom',$prenom);
     $stmt->bindParam(':mail',$mail);
         $stmt->execute();
-    
 
-};*/
         // Envoi du courrier électronique de confirmation
-        $to = $mail;
+       /*  $to = $mail;
         $subject = "Confirmation de réservation";
         $message = "<p>Merci pour votre réservation !</p>";
         $headers = "From: HommadeHommous@example.com\r\n";
         $headers .= "Content-type: text/html\r\n";
-        mail($to, $subject, $message, $headers);
+        mail($to, $subject, $message, $headers); */
 
-
-
-/* if(isset($_GET["submit"])){
     $jour = $_GET["date"];
     $creneau = $_GET["creneaux"];
-
+    
     $sql2 = "INSERT INTO hh_reservation(date_reservation,creneau_reservation) VALUES(:jour,:creneau)";
     $stmt2 = $db->prepare($sql2);
 
     $stmt2->bindParam(':jour',$date);
-    $stmt2->bindParam(':creneau',$creneau);
+    $stmt2->bindParam(':creneau',$creneau); 
         $stmt2->execute();
 
     echo " <script> alert('Réservation confirmée ! Vous recevrez bientôt un e-mail de confirmation.'); </script> ";
-} */
+};
+
+$atelier = $_GET["id"];
+
 
 ?>
 
@@ -93,11 +94,13 @@ require 'connexion.php';
     <h1>Réservez un créneau</h1>   
 </div>
 
+
+
 <div class="form">
     
 <form action="reserve.php" method="get" autocomplete="on">
 
-    <div class="date">
+<div class="date">
         <label>Prénom<input type="text" name="prenom" class="box" required></label>
         <label>Nom<input type="text" name="nom" class="box" required></label>
     </div>
@@ -106,14 +109,21 @@ require 'connexion.php';
         <label>Date<input type="date" name="date" class="box" required></label>
         <label>Créneau
         <select name="creneaux" id="creneaux" class="box" required>
-            <option value="">Choisir un créneau</option>
-            <option value="10-12">10h-12h</option>
-            <option value="14-16">14h-16h</option>
-            <option value="16-18">16h-18h</option>
+        <option value="">Choisir un créneau</option>
+          <?php 
+    $requete = "SELECT * FROM hh_calendrier WHERE fk_atelier=$atelier;";
+    $stmt = $db->query($requete);
+    $resultat = $stmt -> fetchall();
+    foreach ($resultat as $hh_calendrier){
+        echo   
+        ' <option value="'.$hh_calendrier["heure"].'">'.$hh_calendrier["heure"].'</option>'; };
+    ?>
         </select>
+        <!-- <input type="hidden" name="user"> -->
     </div>
     <input type="submit" name="submit" class="btn" value="Réserver"></input>
-</label>
+</label> ;
+
 
 </form>
 

@@ -436,7 +436,7 @@ include 'connexion.php';
                     <a href="#"><i class="fas fa-calendar"></i> 1er mai 2024 </a>
                     <a href="#"><i class="fas fa-user"></i> by elodie_marchand </a>
                 </div>
-                <a href="#" class="title">"Un plaisir culinaire et social !"</a>
+                <h3 href="#" class="title">"Un plaisir culinaire et social !"</h3>
                 <p> Participer à un atelier Hommade Hommous est une expérience enrichissante où j'ai appris à cuisiner des plats libanais tout en rencontrant des personnes formidables. Recommandé pour ceux qui aiment la bonne cuisine et de nouvelles amitiés.</p>
             </div>
         </div>
@@ -450,7 +450,7 @@ include 'connexion.php';
                     <a href="#"><i class="fas fa-calendar"></i> 26 avril 2024 </a>
                     <a href="#"><i class="fas fa-user"></i> by ._marc </a>
                 </div>
-                <a href="#" class="title">"Connexion à travers la cuisine." </a>
+                <h3 href="#" class="title">"Connexion à travers la cuisine." </h3>
                 <p>Hommade Hommous offre une expérience de partage unique où vous pouvez apprendre à cuisiner tout en rencontrant d'autres passionnés de cuisine. Une occasion parfaite pour élargir vos horizons culinaires et votre cercle social.</p>
             </div>
         </div>
@@ -464,7 +464,7 @@ include 'connexion.php';
                     <a href="#"><i class="fas fa-calendar"></i> 14 janvier 2024 </a>
                     <a href="#"><i class="fas fa-user"></i> by Hélène </a>
                 </div>
-                <a href="#" class="title">"Cuisine et amitié chez Hommade Hommous."</a>
+                <h3 href="#" class="title">"Cuisine et amitié chez Hommade Hommous."</h3>
                 <p>Des ateliers bien organisés, des ingrédients de qualité et une ambiance conviviale font de Hommade Homous l'endroit idéal pour cuisiner, apprendre et se faire de nouveaux amis. Une expérience inoubliable à ne pas manquer !</p>
             </div>
         </div>
@@ -478,7 +478,7 @@ include 'connexion.php';
                     <a href="#"><i class="fas fa-calendar"></i> 5 avril 2024 </a>
                     <a href="#"><i class="fas fa-user"></i> by Cally.04 </a>
                 </div>
-                <a href="#" class="title">"Une aventure culinaire et sociale."</a>
+                <h3 href="#" class="title">"Une aventure culinaire et sociale."</h3>
                 <p>Chez Hommade Hommous, j'ai découvert plus qu'un simple cours de cuisine. C'est une véritable aventure où vous pouvez cuisiner, apprendre et tisser des liens authentiques avec d'autres passionnés de cuisine.</p>
             </div>
         </div>
@@ -492,7 +492,7 @@ include 'connexion.php';
                     <a href="#"><i class="fas fa-calendar"></i> 11 février 2024 </a>
                     <a href="#"><i class="fas fa-user"></i> by lilooo </a>
                 </div>
-                <a href="#" class="title">"Cuisinez, apprenez et liez-vous d'amitié."</a>
+                <h3 class="title">"Cuisinez, apprenez et liez-vous d'amitié."</h3>
                 <p> Hommade Homous offre une expérience culinaire enrichissante où vous pouvez explorer la cuisine libanaise tout en rencontrant des personnes partageant les mêmes intérêts. Parfait pour les gourmets en quête de nouvelles expériences sociales.</p>
             </div>
         </div>
@@ -533,7 +533,7 @@ include 'connexion.php';
         <div class="icons">
              <i class="fa-solid fa-info"></i>
              <h3>Infos Pratiques</h3>
-             <p><a href="#">Mentions Légales</a></p>
+             <p><a href="mentions.html">Mentions Légales</a></p>
              <p><a href="#">Accéssibilité</a></p>
              <p><a href="#">FAQ</a></p>
         </div>

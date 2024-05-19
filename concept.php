@@ -13,6 +13,7 @@ include 'connexion.php';
 <title>HH - Concept</title>
 <link rel="stylesheet" href="styles.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://kit.fontawesome.com/ac86f9bd86.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -141,108 +142,39 @@ echo "<option value='prix'>".$atelier["prix"];
   <option value="duree">Durée</option>
 </select>
 
-<button onclick="sortAteliers()">Trier</button>
+<button onclick="triAteliers()">Trier</button>
 
-<div id="AteliersList">
-<div class="swiper">
+
+<div class="swiper" id="AteliersList">
+
 
 <?php 
+
 $requete = "SELECT * FROM hh_atelier";
 $stmt = $db->query($requete);
-$resultat = $stmt -> fetchall();
+$resultat = $stmt -> fetchall(PDO::FETCH_ASSOC);
 foreach ($resultat as $hh_atelier){
     /* echo "<option value='realisateur'>".$film["prenom"]." ".$film["nom_realisateur"]."</option>"; */
-    echo '<div class="slide">
+    echo '<div class="slide data-prix="'.$hh_atelier["prix"].'" data-duree="'.$hh_atelier["duree"].'">
     <div class="image">
-        <img src="data:image/jpeg;base64, '.$hh_atelier["img"].'" alt="">
+        <img src="'.$hh_atelier["img"].'" alt="">
         <span>Mezze</span>
     </div>
     <div class="content">
         <div class="icon">
-            <span><i class="fa-regular fa-clock" name="duree"></i> 2h</span> 
-            <span><i class="fas fa-user"></i> 15 </span>
-            <span><i class="fa-solid fa-money-bill-1-wave" name="duree"></i> 38 </span>
+            <span name="duree" id="prix"><i class="fa-regular fa-clock" ></i> '.$hh_atelier["duree"].'</span> 
+            <span><i class="fas fa-user"></i> '.$hh_atelier["capacite"].' </span>
+            <span name="prix" id="prix"><i class="fa-solid fa-money-bill-1-wave" ></i> '.$hh_atelier["prix"].' </span>
         </div>
         <h3 class="title">'.$hh_atelier["activité"].'</h3>
-        <p>Découvrez l’art de la cuisine libanaise lors de notre atelier d’entrées libanaises. Apprenez à préparer des délices traditionnels tels que le hommous, le taboulé et la crème d’aubergine, tout en explorant les saveurs exotiques de la Méditerranée. Rejoignez-nous pour une expérience culinaire inoubliable !</p>
-        <a href="reserve.php?id=5" class="btn">Réserver</a>
+        <p>'.$hh_atelier["description"].'</p>
+        <a href="reserve.php?id='.$hh_atelier["id_atelier"].'" class="btn">Réserver</a>
     </div>
 </div>';
 }
 ?>
 
 
-<div class="slide">
-    <div class="image">
-        <img src="images/atelier_mezze.jpeg" alt="">
-        <span>Mezze</span>
-    </div>
-    <div class="content">
-        <div class="icon">
-            <span><i class="fa-regular fa-clock" name="duree"></i> 2h</span> 
-            <span><i class="fas fa-user"></i> 15 </span>
-            <span><i class="fa-solid fa-money-bill-1-wave" name="duree"></i> 38 </span>
-        </div>
-        <h3 class="title">Atelier Mezze</h3>
-        <p>Découvrez l'art de la cuisine libanaise lors de notre atelier d'entrées libanaises. Apprenez à préparer des délices traditionnels tels que le hommous, le taboulé et la crème d'aubergine, tout en explorant les saveurs exotiques de la Méditerranée. Rejoignez-nous pour une expérience culinaire inoubliable !</p>
-        <a href="reserve.php" class="btn">Réserver</a>
-    </div>
-</div>
-
-<div class="slide ">
-    <div class="image">
-        <img src="images/atelier_desserts.jpg" alt="">
-        <span>Desserts</span>
-    </div>
-    <div class="content">
-        <div class="icon">
-            <span><i class="fa-regular fa-clock"></i> 3h</span> 
-            <span><i class="fas fa-user"></i> 15 </span>
-            <span><i class="fa-solid fa-money-bill-1-wave"></i> 45 </span>
-        </div>
-        <h3 class="title">Atelier Desserts</h3>
-        <p>Explorez la délicieuse tradition des desserts libanais lors de notre atelier sucré. Découvrez les secrets des baklavas et des maamouls des trésors de la pâtisserie orientale, avec nos chefs experts. Rejoignez-nous pour une expérience gourmande et exotique !</p>
-        <a href="reserve.php" class="btn">Réserver</a>
-    </div>
-</div>
-
-<div class="slide ">
-    <div class="image">
-        <img src="images/atelier_manakish.jpg" alt="">
-        <span>Manakish</span>
-    </div>
-    <div class="content">
-        <div class="icon">
-            <span><i class="fa-regular fa-clock"></i> 1h</span> 
-            <span><i class="fas fa-user"></i> 15 </span>
-            <span><i class="fa-solid fa-money-bill-1-wave"></i> 27 </span>
-        </div>
-        <h3 class="title">Atelier Manakish</h3>
-        <p>Voyagez au cœur de la cuisine libanaise avec notre atelier culinaire dédié aux manakish. Découvrez l'art de préparer ces délicieuses pizzas levantines, garnies de zaatar, de fromage ou de viande, selon vos préférences. Apprenez à pétrir et à garnir la pâte à la perfection, tout en explorant les saveurs authentiques de la Méditerranée orientale. Rejoignez-nous pour une expérience culinaire qui éveillera vos papilles et vous transportera directement dans les rues animées de Beyrouth.</p>
-        <a href="reserve.php" class="btn">Réserver</a>
-    </div>
-</div>
-
-<div class="slide ">
-    <div class="image">
-        <img src="images/atelier_knefeh.jpg" alt="">
-        <span>Knefeh</span>
-    </div>
-    <div class="content">
-        <div class="icon">
-            <span><i class="fa-regular fa-clock"></i> 2h</span> 
-            <span><i class="fas fa-user"></i> 15 </span>
-            <span><i class="fa-solid fa-money-bill-1-wave"></i> 38 </span>
-        </div>
-        <h3 class="title">Atelier Knefeh</h3>
-        <p>Plongez dans une aventure gustative unique avec notre atelier dédié aux Knefeh libanais. Laissez-vous transporter dans l'univers envoûtant de ce dessert traditionnel, où la douceur du fromage et la texture croustillante de la pâte filo se marient harmonieusement avec un sirop parfumé à la fleur d'oranger.</p>
-        <a href="reserve.php" class="btn">Réserver</a>
-    </div>
-</div>
-
-</div>
-
-</div>
 </div>
 
 
