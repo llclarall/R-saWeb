@@ -103,14 +103,31 @@ include 'connexion.php';
 </div>
     <br>
 
+<!-- barre de recherche en php -->
+
+<form method="post">
+    <label>Rechercher :<input type="search" name="s" placeholder="mezze, knefeh,..."></label>
+    <input type="submit" name="submit" value="Rechercher">
+</form>
+
+<?php
+if(isset($_POST["submit"])) {
+    $str = $_POST["search"];
+    $sth = $db->prepare("SELECT * FROM hh_atelier WHERE activité = '$str'");
+    $sth->setFetchMode(PDO:: FETCH_OBJ);
+    $sth -> execute();
+}
+?>
+
+
 <!-- filtre en php -->
 
 <form action="concept.php">
 
-<span>Trier par :</span>
+<span>Filtrer :</span>
 <select name="duree" id="duree">
 <?php 
-$requete = "SELECT * FROM hh_atelier";
+$requete = "SELECT DISTINCT * FROM hh_atelier ";
 $stmt = $db->query($requete);
 $resultat = $stmt -> fetchall();
 foreach ($resultat as $atelier){
@@ -155,7 +172,7 @@ $stmt = $db->query($requete);
 $resultat = $stmt -> fetchall(PDO::FETCH_ASSOC);
 foreach ($resultat as $hh_atelier){
     /* echo "<option value='realisateur'>".$film["prenom"]." ".$film["nom_realisateur"]."</option>"; */
-    echo '<div class="slide data-prix="'.$hh_atelier["prix"].'" data-duree="'.$hh_atelier["duree"].'">
+    echo '<div class="slide" data-prix="'.$hh_atelier["prix"].'" data-duree="'.$hh_atelier["duree"].'">
     <div class="image">
         <img src="'.$hh_atelier["img"].'" alt="">
         <span>Mezze</span>
@@ -168,7 +185,7 @@ foreach ($resultat as $hh_atelier){
         </div>
         <h3 class="title">'.$hh_atelier["activité"].'</h3>
         <p>'.$hh_atelier["description"].'</p>
-        <a href="reserve.php?id='.$hh_atelier["id_atelier"].'" class="btn">Réserver</a>
+        <a href="reserve.php?id_atelier='.$hh_atelier["id_atelier"].'" class="btn">Réserver</a>
     </div>
 </div>';
 }

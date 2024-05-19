@@ -1,50 +1,54 @@
 <?php 
 require 'connexion.php';
 
+$atelier = $_GET["id_atelier"];
 
-
-if(isset($_GET["submit"])){
+if (isset($_GET["submit"])) {
     $nom = $_GET["nom"];
     $prenom = $_GET["prenom"];
     $mail = $_GET["mail"];
     $date = $_GET["date"];
     $creneau = $_GET["creneaux"];
+    $atelier = $_GET["id_atelier"];
 
-    $sql = "INSERT IGNORE INTO hh_user(nom_user,prenom_user,mail_user) 
-    VALUES(:nom,:prenom,:mail);";
-    $stmt = $db->prepare($sql);
+    try {
+        // Démarrer une transaction
+        $db->beginTransaction();
 
-    $stmt->bindParam(':nom',$nom);
-    $stmt->bindParam(':prenom',$prenom);
-    $stmt->bindParam(':mail',$mail);
+        // Insérer l'utilisateur s'il n'existe pas déjà
+        $sql = "INSERT IGNORE INTO hh_user (nom_user, prenom_user, mail_user) VALUES (:nom, :prenom, :mail)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':nom', $nom);
+        $stmt->bindParam(':prenom', $prenom);
+        $stmt->bindParam(':mail', $mail);
         $stmt->execute();
 
-        // Envoi du courrier électronique de confirmation
-       /*  $to = $mail;
-        $subject = "Confirmation de réservation";
-        $message = "<p>Merci pour votre réservation !</p>";
-        $headers = "From: HommadeHommous@example.com\r\n";
-        $headers .= "Content-type: text/html\r\n";
-        mail($to, $subject, $message, $headers); */
 
-    $jour = $_GET["date"];
-    $creneau = $_GET["creneaux"];
-    
-    $sql2 = "INSERT INTO hh_reservation(date_reservation,creneau_reservation) VALUES(:jour,:creneau)";
-    $stmt2 = $db->prepare($sql2);
-
-    $stmt2->bindParam(':jour',$date);
-    $stmt2->bindParam(':creneau',$creneau); 
+        // Insérer la réservation
+        $sql2 = "INSERT INTO hh_reservation (date_reservation, creneau_reservation, atelier, fk_user) VALUES (:jour, :creneau, :atelier, :mail)";
+        $stmt2 = $db->prepare($sql2);
+        $stmt2->bindParam(':jour', $date);
+        $stmt2->bindParam(':creneau', $creneau);
+        $stmt2->bindParam(':atelier', $atelier);
+        $stmt2->bindParam(':mail', $mail);
         $stmt2->execute();
 
-    echo " <script> alert('Réservation confirmée ! Vous recevrez bientôt un e-mail de confirmation.'); </script> ";
-};
+        // Commit de la transaction
+        $db->commit();
 
-$atelier = $_GET["id"];
+        // Message de confirmation
+        echo "<script>alert('Réservation confirmée ! Vous recevrez bientôt un e-mail de confirmation.');</script>";
+
+    } catch (Exception $e) {
+        // Rollback en cas d'erreur
+        $db->rollBack();
+        echo "<script>alert('Erreur lors de la réservation : " . $e->getMessage() . "');</script>";
+    }
+}
+
 
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -85,57 +89,45 @@ $atelier = $_GET["id"];
     </header>
     <!-- fin header -->
     
-    
 <!-- début formulaire réservation -->
 
 <section class="formulaire" id="formulaire">
-
 <div class="heading">
     <h1>Réservez un créneau</h1>   
 </div>
 
-
-
 <div class="form">
-    
-<form action="reserve.php" method="get" autocomplete="on">
-
-<div class="date">
-        <label>Prénom<input type="text" name="prenom" class="box" required></label>
-        <label>Nom<input type="text" name="nom" class="box" required></label>
-    </div>
-    <label>Mail<input type="email" name="mail" class="box" required></label>
-    <div class="date">
-        <label>Date<input type="date" name="date" class="box" required></label>
-        <label>Créneau
-        <select name="creneaux" id="creneaux" class="box" required>
-        <option value="">Choisir un créneau</option>
-          <?php 
-    $requete = "SELECT * FROM hh_calendrier WHERE fk_atelier=$atelier;";
-    $stmt = $db->query($requete);
-    $resultat = $stmt -> fetchall();
-    foreach ($resultat as $hh_calendrier){
-        echo   
-        ' <option value="'.$hh_calendrier["heure"].'">'.$hh_calendrier["heure"].'</option>'; };
-    ?>
-        </select>
-        <!-- <input type="hidden" name="user"> -->
-    </div>
-    <input type="submit" name="submit" class="btn" value="Réserver"></input>
-</label> ;
-
-
-</form>
-
+    <form action="reserve.php" method="get" autocomplete="on">
+        <div class="date">
+            <label>Prénom<input type="text" name="prenom" class="box" required></label>
+            <label>Nom<input type="text" name="nom" class="box" required></label>
+        </div>
+        <label>Mail<input type="email" name="mail" class="box" required></label>
+        <div class="date">
+            <label>Date<input type="date" name="date" class="box" required></label>
+            <label>Créneau
+            <select name="creneaux" id="creneaux" class="box" required>
+                <option value="">Choisir un créneau</option>
+                <?php 
+                $requete = "SELECT * FROM hh_calendrier WHERE fk_atelier = :atelier";
+                $stmt = $db->prepare($requete);
+                $stmt->bindParam(':atelier', $atelier);
+                $stmt->execute();
+                $resultat = $stmt->fetchAll();
+                foreach ($resultat as $hh_calendrier) {
+                    echo '<option value="'.$hh_calendrier["heure"].'">'.$hh_calendrier["heure"].'</option>'; 
+                }
+                ?>
+            </select>
+            </label>
+        </div>
+        <input type="hidden" name="id_atelier" value="<?php echo htmlspecialchars($atelier); ?>">
+        <input type="submit" name="submit" class="btn" value="Réserver">
+    </form>
 </div>
-
-
 </section>
 
-
-
-
-    <!-- début footer -->
+<!-- début footer -->
 
 <section class="footer">
     <div class="icons-container">
@@ -145,25 +137,22 @@ $atelier = $_GET["id"];
              <p>7 j / 7</p>
              <p>de 11h à 22h</p>
         </div>
-
         <div class="icons">
              <i class="fas fa-address-book"></i>
              <h3>Contact</h3>
              <p>07 83 62 45 20</p>
              <p>poischiche@gmail.com</p>
         </div>
-
         <div class="icons">
              <i class="fas fa-map"></i>
              <h3>Adresse</h3>
              <p>156 Boulevard Voltaire, 75011</p>
         </div>
-
         <div class="icons">
              <i class="fa-solid fa-info"></i>
              <h3>Infos Pratiques</h3>
              <p><a href="#">Mentions Légales</a></p>
-             <p><a href="#">Accéssibilité</a></p>
+             <p><a href="#">Accessibilité</a></p>
              <p><a href="#">FAQ</a></p>
         </div>
     </div> 
@@ -175,17 +164,10 @@ $atelier = $_GET["id"];
     </div>
     
     <div class="credit"> Créé par <span>Clara Moubarak</span> | tous droits réservés</div>
- 
-    
 </section>
-
 <!-- fin footer -->
-
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
 </body>
-
 </html>
