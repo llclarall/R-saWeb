@@ -330,6 +330,17 @@ include 'connexion.php';
             </div>
             </label>
     
+            <input type="radio" name="slide" id="c5">
+            <label for="c5" class="atelier_card">
+            <div class="row">
+                <div class="atelier_icon">5</div>
+                    <div class="description">
+                        <h3>Atelier Kafta</h3>
+                        <p>Retrouvez les saveurs riches de la cuisine libanaise avec notre atelier de Kafta.</p>
+                    </div>
+            </div>
+            </label>
+    
         </div>
     </div>
 <dib class="bouton">

@@ -154,10 +154,11 @@ echo "<option value='prix'>".$atelier["prix"];
 
 <!-- tri en js -->
 <select id="critere">
+  <option value="">---</option>
   <option value="prix">Prix</option>
   <option value="duree">Durée</option>
 </select>
-<button onclick="triAteliers()">Trier</button>
+<button id="triButton">Trier</button>
 
 <div class="swiper" id="AteliersList">
 <?php 

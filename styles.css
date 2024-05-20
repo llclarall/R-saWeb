@@ -387,7 +387,7 @@ a {
 }
 
 
-/* début section about us */
+/* début section réservation page index */
 
 .reservation {
     display: flex;
@@ -1165,14 +1165,28 @@ margin-right: 30px;
 }
 
 
-/* début section formulaire */
+/* début page formulaire réservation */
 
-.formulaire {
-    margin-top: 15rem;
+
+
+.formulaire .heading2 {
+    text-align: center;
+    margin-top: 10rem; 
+    margin-bottom: 3rem;
+    padding: 3rem;
 }
 
-.formulaire h1 {
-    margin-bottom: 5rem;
+.formulaire .heading2 span {
+    font-size: 2rem;
+    color: #F6B339;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.formulaire .heading2 h1 {
+    font-size: 4.5rem;
+    color: black;
+    margin-top: 1rem;
 }
 
 .formulaire form {
@@ -1331,6 +1345,12 @@ margin-right: 30px;
 
 .ateliers .atelier_card[for="c4"] {
         background-image: linear-gradient(to bottom, transparent, black), url(images/atelier_knefeh.jpg);
+        background-size: cover;
+        background-position: center;
+}
+
+.ateliers .atelier_card[for="c5"] {
+        background-image: linear-gradient(to bottom, transparent, black), url(images/atelier_kafta.jpeg);
         background-size: cover;
         background-position: center;
 }
@@ -1504,6 +1524,7 @@ margin-right: 30px;
     font-size: 2rem;
     color: #F6B339;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .contacts .heading2 h1 {

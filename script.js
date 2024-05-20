@@ -115,25 +115,27 @@ function displayAteliers(ateliers) {
   });
 }; */
 
+
 function triAteliers() {
-  var critere = document.getElementById("critere").value;
-  var ateliers = document.querySelectorAll("#AteliersList .slide");
-  var tableauAteliers = Array.from(ateliers);
+        var critere = document.getElementById("critere").value;
+        var ateliers = document.querySelectorAll("#AteliersList .slide");
+        var tableauAteliers = Array.from(ateliers);
 
-  tableauAteliers.sort(function(a, b) {
-      if (critere === "prix") {
-          return a.dataset.prix - b.dataset.prix;
-      } else if (critere === "duree") {
-          return a.dataset.duree - b.dataset.duree;
-      }
-  });
+        tableauAteliers.sort(function(a, b) {
+            var aValue = parseFloat(a.dataset[critere]);
+            var bValue = parseFloat(b.dataset[critere]);
+            return aValue - bValue;
+        });
 
-  var AteliersList = document.getElementById("AteliersList");
-  AteliersList.innerHTML = "";
+        var AteliersList = document.getElementById("AteliersList");
+        AteliersList.innerHTML = "";
 
-  tableauAteliers.forEach(function(atelier) {
-      AteliersList.appendChild(atelier);
-  });
-}
+        tableauAteliers.forEach(function(atelier) {
+            AteliersList.appendChild(atelier);
+        });
+    }
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('triButton').addEventListener('click', triAteliers);
+});
 

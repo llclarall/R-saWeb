@@ -119,9 +119,18 @@ if (isset($_GET["submit"])) {
 <!-- début formulaire réservation -->
 
 <section class="formulaire" id="formulaire">
-<div class="heading">
-    <h1>Réservez un créneau</h1>   
+
+<div class="heading2">
+        <span>Réservez votre créneau</span>
+            <?php $requete = "SELECT activité FROM hh_atelier WHERE id_atelier = '$atelier'";
+            $stmt = $db->prepare($requete);
+            $stmt->execute();
+            $resultat = $stmt->fetchAll();
+            foreach ($resultat as $hh_atelier) {
+                echo '<h1>'.$hh_atelier["activité"].'</h1>'; 
+            }?>   
 </div>
+
 
 <div class="form">
     <form action="reserve.php" method="get" autocomplete="on">

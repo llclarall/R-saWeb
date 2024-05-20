@@ -66,7 +66,7 @@ if(!empty($_POST["send"])){
 ?>
 
 <div class="heading2">
-        <span>Hommade Hommous à votre disposiition</span>
+        <span>Hommade Hommous à votre disposition</span>
         <h1>Contactez-nous</h1>
 </div>
 
