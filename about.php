@@ -30,7 +30,7 @@
                 <li><a class="a_nav" href="index.php">Home</a></li>
                 <li><a href="about.php" class="active a_nav">Nous</a></li>
                 <li><a href="concept.php" class=" a_nav">Nos Ateliers</a></li>
-                 <li><a href="reserve.php" class=" a_nav book_btn">Réserver</a></li>
+                 <li><a href="contact.php" class=" a_nav">Contact</a></li>
             </ul>
             </nav>
         </section>

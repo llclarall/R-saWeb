@@ -38,7 +38,7 @@ include 'connexion.php';
                 <li><a class="a_nav" href="index.php">Home</a></li>
                 <li><a href="about.php" class="a_nav">Nous</a></li>
                 <li><a href="concept.php" class="active a_nav">Nos Ateliers</a></li>
-                 <li><a href="reserve.php" class=" a_nav book_btn">Réserver</a></li>
+                 <li><a href="contact.php" class=" a_nav">Contact</a></li>
             </ul>
             </nav>
         </section>
@@ -153,20 +153,14 @@ echo "<option value='prix'>".$atelier["prix"];
 
 
 <!-- tri en js -->
-
 <select id="critere">
   <option value="prix">Prix</option>
   <option value="duree">Durée</option>
 </select>
-
 <button onclick="triAteliers()">Trier</button>
 
-
 <div class="swiper" id="AteliersList">
-
-
 <?php 
-
 $requete = "SELECT * FROM hh_atelier";
 $stmt = $db->query($requete);
 $resultat = $stmt -> fetchall(PDO::FETCH_ASSOC);
@@ -175,7 +169,7 @@ foreach ($resultat as $hh_atelier){
     echo '<div class="slide" data-prix="'.$hh_atelier["prix"].'" data-duree="'.$hh_atelier["duree"].'">
     <div class="image">
         <img src="'.$hh_atelier["img"].'" alt="">
-        <span>Mezze</span>
+        <span>'.$hh_atelier["nom_img"].'</span>
     </div>
     <div class="content">
         <div class="icon">

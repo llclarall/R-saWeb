@@ -25,12 +25,12 @@ include 'connexion.php';
 <!-- mezzéchanges -->
         <!-- page concept -->
         <!-- page nous -->
-<!-- textes -->
+        <!-- textes -->
             <!-- différents ateliers -->
             <!-- nav burger -->   
 <!-- mentions légales -->
-<!-- formulaire booking -->
-<!-- trouver photos -->
+            <!-- formulaire booking -->
+            <!-- trouver photos -->
             <!-- slider blog à revoir peut-être -->
 <!-- opquast -->
 <!-- styles boutons -->
@@ -56,7 +56,7 @@ include 'connexion.php';
         <li><a href="about.php" class="a_nav">Nous</a></li>
         <li><a href="concept.php" class="a_nav">Nos Ateliers</a></li>
         <!-- <li><a href="contact.html" class="a_nav">Contactez-nous</a></li> -->
-        <li><a href="reserve.php" class="a_nav book_btn">Réserver</a></li>
+        <li><a href="contact.php" class="a_nav">Contact</a></li>
     </ul>
     </nav>
 
@@ -332,62 +332,12 @@ include 'connexion.php';
     
         </div>
     </div>
-
-    <a href="concept.php" class="btn">Lire plus</a>
+<dib class="bouton">
     
-<!-- 
-<div class="swiper">
+        <a href="concept.php" class="btn">Lire plus</a>
+    
+</dib>
 
-<div class="slide">
-    <div class="image">
-        <img src="images/atelier_mezze.jpeg" alt="">
-        <span>Mezze</span>
-    </div>
-    <div class="content">
-        <h3 class="title">Atelier Mezze</h3>
-        <p>Découvrez l'art de la cuisine libanaise lors de notre atelier culinaire d'entrées libanaises.</p>
-        <a href="concept.php" class="btn" id="mezze">Lire plus</a>
-    </div>
-</div>
-
-<div class="slide">
-    <div class="image">
-        <img src="images/atelier_desserts.jpg" alt="">
-        <span>Desserts</span>
-    </div>
-    <div class="content">
-        <h3 class="title">Atelier Desserts</h3>
-        <p>Explorez la délicieuse tradition des desserts libanais lors de notre atelier sucré.</p>
-        <a href="concept.php" class="btn" id="desserts">Lire plus</a>
-    </div>
-</div>
-
-<div class="slide">
-    <div class="image">
-        <img src="images/atelier_manakish.jpg" alt="">
-        <span>Manakish</span>
-    </div>
-    <div class="content">
-        <h3 class="title">Atelier Manakish</h3>
-        <p>Voyagez au cœur de la cuisine libanaise avec notre atelier culinaire dédié aux manakish.</p>
-        <a href="concept.php" class="btn" id="manakish">Lire plus</a>
-    </div>
-</div>
-
-<div class="slide">
-    <div class="image">
-        <img src="images/atelier_knefeh.jpg" alt="">
-        <span>Knefeh</span>
-    </div>
-    <div class="content">
-        <h3 class="title">Atelier Knefeh</h3>
-        <p>Plongez dans une aventure gustative unique avec notre atelier dédié aux Knefeh libanais.</p>
-        <a href="concept.php" class="btn" id="knefeh">Lire plus</a>
-    </div>
-</div>
-
-</div>
-</div> -->
 
 
 </section>
@@ -399,11 +349,12 @@ include 'connexion.php';
 
 <!-- début section réservation -->
 
+
 <section class="reservation" id="reservation">
     <div class="content">
         <h1 class="title">Réservez maintenant !</h1>
         <p>Quelque soit l'atelier, vous voulez simplement rencontrer de nouvelles personnes en passant un bon moment ? Pas de soucis, vous pouvez accédez dés à présent au formulaire de réservation pour choisir un créneau.</p>
-        <a href="concept.php" class="btn">Prendre un créneau</a>
+        <a href="concept.php" class="btn">Choisir un atelier</a>
     </div> 
     
     <div class="image">
@@ -429,7 +380,7 @@ include 'connexion.php';
 
         <div class="swiper-slide slide">
             <div class="image">
-                <img src="images/about.jpeg" alt="">
+                <img src="images/nourriture.png" alt="">
             </div>
             <div class="content">
                 <div class="icon">
@@ -443,7 +394,7 @@ include 'connexion.php';
 
         <div class="swiper-slide slide">
             <div class="image">
-                <img src="images/about.jpeg" alt="">
+                <img src="images/amis.png" alt="">
             </div>
             <div class="content">
                 <div class="icon">
@@ -457,7 +408,7 @@ include 'connexion.php';
 
         <div class="swiper-slide slide">
             <div class="image">
-                <img src="images/about.jpeg" alt="">
+                <img src="images/hummus.png" alt="">
             </div>
             <div class="content">
                 <div class="icon">
@@ -471,7 +422,7 @@ include 'connexion.php';
 
         <div class="swiper-slide slide">
             <div class="image">
-                <img src="images/about.jpeg" alt="">
+                <img src="images/partager.png" alt="">
             </div>
             <div class="content">
                 <div class="icon">
@@ -485,7 +436,7 @@ include 'connexion.php';
 
         <div class="swiper-slide slide">
             <div class="image">
-                <img src="images/about.jpeg" alt="">
+                <img src="images/kaak-al-eid.png" alt="">
             </div>
             <div class="content">
                 <div class="icon">

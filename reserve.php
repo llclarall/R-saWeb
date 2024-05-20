@@ -36,8 +36,35 @@ if (isset($_GET["submit"])) {
         // Commit de la transaction
         $db->commit();
 
+        $to = $mail;
+        $subject = "Confirmation de réservation";
+        $message = "
+            <html>
+            <head>
+                <title>Confirmation de réservation</title>
+            </head>
+            <body>
+                <p>Bonjour $prenom $nom,</p>
+                <p>Merci pour votre réservation à l'atelier $atelier.</p>
+                <p>Voici les détails de votre réservation :</p>
+                <ul>
+                    <li>Date : $date</li>
+                    <li>Créneau : $creneau</li>
+                </ul>
+                <p>Nous avons hâte de vous voir !</p>
+            </body>
+            </html>
+        ";
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= 'From: HommadeHommous@example.com' . "\r\n";
+
+
         // Message de confirmation
         echo "<script>alert('Réservation confirmée ! Vous recevrez bientôt un e-mail de confirmation.');</script>";
+
+
+
 
     } catch (Exception $e) {
         // Rollback en cas d'erreur
@@ -81,8 +108,8 @@ if (isset($_GET["submit"])) {
             <ul>
                 <li><a class="a_nav" href="index.php">Home</a></li>
                 <li><a href="about.php" class="a_nav">Nous</a></li>
-                <li><a href="concept.php" class="a_nav">Nos Ateliers</a></li>
-                <li><a href="reserve.php" class="active a_nav book_btn">Réserver</a></li>
+                <li><a href="concept.php" class="a_nav active">Nos Ateliers</a></li>
+                <li><a href="contact.php" class="a_nav">Contact</a></li>
             </ul>
             </nav>
         </section>
