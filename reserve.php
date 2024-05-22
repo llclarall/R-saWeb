@@ -36,33 +36,47 @@ if (isset($_GET["submit"])) {
         // Commit de la transaction
         $db->commit();
 
+
+        
+        
+        
+        $requete = "SELECT activité FROM hh_atelier WHERE id_atelier = $atelier";
+        /* echo $requete; */
+        $stmt = $db->query($requete);
+        $resultat = $stmt->fetch();
+        /* var_dump($resultat); */
         $to = $mail;
         $subject = "Confirmation de réservation";
         $message = "
-            <html>
-            <head>
-                <title>Confirmation de réservation</title>
-            </head>
-            <body>
-                <p>Bonjour $prenom $nom,</p>
-                <p>Merci pour votre réservation à l'atelier $atelier.</p>
-                <p>Voici les détails de votre réservation :</p>
-                <ul>
-                    <li>Date : $date</li>
-                    <li>Créneau : $creneau</li>
-                </ul>
-                <p>Nous avons hâte de vous voir !</p>
-            </body>
-            </html>
-        ";
+        <html>
+        <head>
+            <title>Confirmation de réservation</title>
+        </head>
+        <body>
+            <p>Bonjour $prenom $nom,</p>
+            <p>Merci pour votre réservation à Hommade Hommous !</p>
+            <p>Voici les détails de votre réservation :</p>
+            <ul>
+                <li>Activité : {$resultat['activité']}</li> 
+                <li>Date : $date</li>
+                <li>Créneau : $creneau</li>
+            </ul>
+            <p>Nous avons hâte de vous voir !</p>
+        </body>
+        </html>";
+        
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= 'From: HommadeHommous@example.com' . "\r\n";
 
 
-        // Message de confirmation
-        echo "<script>alert('Réservation confirmée ! Vous recevrez bientôt un e-mail de confirmation.');</script>";
+    // * Mail pour l'utilisateur qui a réservé 
 
+        if(mail($to, $subject, $message, $headers)) {
+            echo "<script>alert('Réservation confirmée ! Vous recevrez bientôt un e-mail de confirmation.');</script>";
+        } else {
+            echo "L'envoi de l'email a échoué.";
+        }
 
 
 
@@ -72,8 +86,6 @@ if (isset($_GET["submit"])) {
         echo "<script>alert('Erreur lors de la réservation : " . $e->getMessage() . "');</script>";
     }
 }
-
-
 
 ?>
 

@@ -1680,7 +1680,21 @@ margin-right: 30px;
         box-sizing: 0 0 20px 10px rgba(0,0,0,.4);
         overflow: hidden;
         display: block;
-        margin-top: 15rem;
     }
     
+    .contacts form {
+        padding: 50px;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .contacts .form-design {
+        text-align: center;
+    }
+
+    .contacts .social-media {
+        display: flex;
+        justify-content: center;
+    }
+
 }

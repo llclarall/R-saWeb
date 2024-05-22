@@ -59,11 +59,9 @@ if(!empty($_POST["send"])){
 
     if(mail($toEmail, $userNom, $mailHeaders)) {
         $message = "Votre message a bien été reçu !";
-    }
+    }} ?>
 
 
-}
-?>
 
 <div class="heading2">
         <span>Hommade Hommous à votre disposition</span>
