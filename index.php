@@ -136,9 +136,11 @@ require 'connexion.php';
 </section>
 <!-- fin section about us -->
 
-<!-- début section slider mezze -->
 
-<!-- <section class="food" id="food">
+
+<!-- début section slider mezze 
+
+<section class="food" id="food">
 
 <div class="heading">
     <span>aMezzeing</span>
@@ -180,100 +182,9 @@ require 'connexion.php';
 
 </div>
 
-</section> -->
-<!-- fin section slider mezze -->
+</section>fin section slider mezze -->
 
 
-
-<!-- début section ateliers -->
-
-<!-- <section class="ateliers" id="ateliers">
-    
-
-    <div class="heading">
-    <span>Choix</span>
-    <h3>Ateliers</h3>
-</div>
-
-
-<div class="swiper blogs-slider">
-
-<div class="swiper-wrapper">
-
-<div class="swiper-slide slide">
-    <div class="image">
-        <img src="images/atelier_mezze.jpeg" alt="">
-        <span>Mezze</span>
-    </div>
-    <div class="content">
-        <div class="icon">
-            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
-            <a href="#"><i class="fas fa-user"></i> 15 </a>
-            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
-        </div>
-        <h3 class="title">Atelier Mezze</h3>
-        <p>Découvrez l'art de la cuisine libanaise lors de notre atelier d'entrées libanaises.</p>
-        <a href="#" class="btn">Lire plus</a>
-    </div>
-</div>
-
-<div class="swiper-slide slide">
-    <div class="image">
-        <img src="images/atelier_desserts.jpg" alt="">
-        <span>Desserts</span>
-    </div>
-    <div class="content">
-        <div class="icon">
-            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
-            <a href="#"><i class="fas fa-user"></i> 15 </a>
-            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
-        </div>
-        <h3 class="title">Atelier Desserts</h3>
-        <p>Explorez la délicieuse tradition des desserts libanais lors de notre atelier sucré.</p>
-        <a href="#" class="btn">Lire plus</a>
-    </div>
-</div>
-
-<div class="swiper-slide slide">
-    <div class="image">
-        <img src="images/atelier_manakish.jpg" alt="">
-        <span>Manakish</span>
-    </div>
-    <div class="content">
-        <div class="icon">
-            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
-            <a href="#"><i class="fas fa-user"></i> 15 </a>
-            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
-        </div>
-        <h3 class="title">Atelier Manakish</h3>
-        <p>Voyagez au cœur de la cuisine libanaise avec notre atelier culinaire dédié aux manakish.</p>
-        <a href="#" class="btn">Lire plus</a>
-    </div>
-</div>
-
-<div class="swiper-slide slide">
-    <div class="image">
-        <img src="images/atelier_knefeh.jpg" alt="">
-        <span>Knefeh</span>
-    </div>
-    <div class="content">
-        <div class="icon">
-            <a href="#"><i class="fa-regular fa-clock"></i> 2h </a>
-            <a href="#"><i class="fas fa-user"></i> 15 </a>
-            <a href="#"><i class="fa-solid fa-money-bill-1-wave"></i> 38 </a>
-        </div>
-        <h3 class="title">Atelier Knefeh</h3>
-        <p>Plongez dans une aventure gustative unique avec notre atelier dédié aux Knefeh libanais.</p>
-        <a href="#" class="btn">Lire plus</a>
-    </div>
-</div>
-
-</div>
-
-<div class="swiper-pagination"></div>
-</div>
-
-</section> -->
 
 <section class="ateliers" id="ateliers">
 
@@ -282,79 +193,37 @@ require 'connexion.php';
     <h2>Ateliers</h2>
 </div>  
 
-
 <div class="atelier_wrapper">
         <div class="atelier_container">
-    
-            <input type="radio" name="slide" id="c1" checked>
-            <label for="c1" class="atelier_card">
+        <?php 
+        $requete = "SELECT * FROM hh_atelier";
+        $stmt = $db->query($requete);
+        $resultat = $stmt -> fetchall(PDO::FETCH_ASSOC);
+        foreach ($resultat as $hh_atelier){
+            echo '<input type="radio" name="slide" id="c'.$hh_atelier["id_atelier"].'" checked>
+            <label for="c'.$hh_atelier["id_atelier"].'" class="atelier_card">
             <div class="row">
-                <div class="atelier_icon">1</div>
+                <div class="atelier_icon">'.$hh_atelier["id_atelier"].'</div>
                     <div class="description">
-                        <h3>Atelier mezze</h3>
-                        <p>Découvrez l'art de la cuisine lors de notre atelier d'entrées libanaises.</p>
+                        <h3>'.$hh_atelier["activité"].'</h3>
+                        <p>'.$hh_atelier["resume"].'</p>
                     </div>
             </div>
-            </label>
-    
-            <input type="radio" name="slide" id="c2">
-            <label for="c2" class="atelier_card">
-            <div class="row">
-                <div class="atelier_icon">2</div>
-                    <div class="description">
-                        <h3>Atelier desserts</h3>
-                        <p>Explorez la délicieuse tradition des desserts libanais lors de notre atelier sucré.</p>
-                    </div>
-            </div>
-            </label>
-    
-            <input type="radio" name="slide" id="c3">
-            <label for="c3" class="atelier_card">
-            <div class="row">
-                <div class="atelier_icon">3</div>
-                    <div class="description">
-                        <h3>Atelier Manakish</h3>
-                        <p>Voyagez au cœur de la cuisine libanaise avec notre atelier culinaire dédié aux manakish.</p>
-                    </div>
-            </div>
-            </label>
-    
-            <input type="radio" name="slide" id="c4">
-            <label for="c4" class="atelier_card">
-            <div class="row">
-                <div class="atelier_icon">4</div>
-                    <div class="description">
-                        <h3>Atelier knefeh</h3>
-                        <p>Plongez dans une aventure gustative unique avec notre atelier dédié aux Knefeh libanais.</p>
-                    </div>
-            </div>
-            </label>
-    
-            <input type="radio" name="slide" id="c5">
-            <label for="c5" class="atelier_card">
-            <div class="row">
-                <div class="atelier_icon">5</div>
-                    <div class="description">
-                        <h3>Atelier Kafta</h3>
-                        <p>Retrouvez les saveurs riches de la cuisine libanaise avec notre atelier de Kafta.</p>
-                    </div>
-            </div>
-            </label>
-    
-        </div>
+            </label>' ;
+        }
+        ?> 
     </div>
-<dib class="bouton">
+</div>
+
+<div class="bouton">
     
         <a href="concept.php" class="btn">Lire plus</a>
     
-</dib>
+</div>
 
 
 
 </section>
-
-
-
 
 
 

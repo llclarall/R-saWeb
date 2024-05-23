@@ -1232,7 +1232,7 @@ margin-right: 30px;
 }
 
 
-/* section atelier page index */
+/* section atelier wrapper page index */
 
 .ateliers .atelier_wrapper {
     width: 100%;
@@ -1244,7 +1244,6 @@ margin-right: 30px;
     padding-top: 2rem;
 }
 
-
 .ateliers .atelier_wrapper .atelier_container {
     height: 400px;
     display: flex;
@@ -1252,7 +1251,6 @@ margin-right: 30px;
     justify-content: center;
     width: 105%;
 }
-
 
  .ateliers .atelier_card{
     width: 80px;
