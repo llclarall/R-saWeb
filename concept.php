@@ -1,5 +1,28 @@
-<?php 
+<?php
 require 'connexion.php';
+
+/* Initialiser les variables pour les filtres et la recherche */
+$prix = isset($_POST['prix']) ? $_POST['prix'] : '';
+$search = isset($_POST['search']) ? $_POST['search'] : '';
+
+/* Construire la requête SQL en fonction des filtres et de la recherche */
+$sql = "SELECT * FROM hh_atelier WHERE 1=1";
+$params = array();
+
+if (!empty($prix) && !isset($_POST['tout_voir'])) {
+    $sql .= " AND prix = :prix";
+    $params[':prix'] = $prix;
+}
+
+if (!empty($search)) {
+    $sql .= " AND nom_img LIKE :search";
+    $params[':search'] = '%' . $search . '%';
+}
+
+/* Préparer et exécuter la requête */
+$sth = $db->prepare($sql);
+$sth->execute($params);
+$results = $sth->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 <!DOCTYPE html>
@@ -22,37 +45,30 @@ require 'connexion.php';
 
 <body>
 <!-- début header -->
-    <header>
-        <section class="header">
-            <nav>
-            <a class="evitement" href="#concept">Aller au contenu</a>
-        
-            <input type="checkbox" id="check">
-            <label for="check" class="checkbtn">
-                <i class="fas fa-bars"> </i>
-            </label>
-            <a href="index.php" class="logo">Hommade Hommous</a>
-            <ul>
-                <li><a class="a_nav" href="index.php">Home</a></li>
-                <li><a href="about.php" class="a_nav">Nous</a></li>
-                <li><a href="concept.php" class="active a_nav">Nos Ateliers</a></li>
-                 <li><a href="contact.php" class=" a_nav">Contact</a></li>
-            </ul>
-            </nav>
-        </section>
-    </header>
-
-    <!-- fin header -->
+<header>
+    <section class="header">
+        <nav>
+        <a class="evitement" href="#concept">Aller au contenu</a>
     
-
-
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"> </i>
+        </label>
+        <a href="index.php" class="logo">Hommade Hommous</a>
+        <ul>
+            <li><a class="a_nav" href="index.php">Home</a></li>
+            <li><a href="about.php" class="a_nav">Nous</a></li>
+            <li><a href="concept.php" class="active a_nav">Nos Ateliers</a></li>
+             <li><a href="contact.php" class=" a_nav">Contact</a></li>
+        </ul>
+        </nav>
+    </section>
+</header>
+<!-- fin header -->
+    
 <!-- début section concept -->
-
-
-    <img class='concept-header' src="images/concept_header.jpg" alt="">
-    
-    <section class="concept" id="concept">  
-
+<img class='concept-header' src="images/concept_header.jpg" alt="">
+<section class="concept" id="concept">  
     <div class="heading2">
         <span>PERSONNALISEZ VOS MOMENTS DU QUOTIDIEN</span>
         <h1>Hommade Hommous, comment ça marche ?</h1>
@@ -84,139 +100,93 @@ require 'connexion.php';
         </div>
     </div>
 </section>
-
-
-
+<!-- fin section concept -->
 
 <!-- début section ateliers -->
-
-
 <section class="ateliers_2" id="ateliers_2">
-    
-<div class="lineh">
+    <div class="lineh">
         <div class="line"></div>
         <h2 id="concept">Nos Ateliers</h2>
         <div class="line"></div>
-</div>
+    </div>
     <br>
 
+    <div class="fonctions">
+        <!-- barre de recherche en php -->
+        <div class="search_container">
+            <form method="post">
+                <label>ATELIER<input type="search" name="search" placeholder="mezze, knefeh,..." class="search"></label>
+                <input type="submit" name="submit" value="Rechercher" class="btn">
+            </form>
+        </div>
 
+        <!-- tri en js -->
+        <div class="tri_container">
+            <select id="critere" class="tri">
+                <option value="">---</option>
+                <option value="prix">Prix</option>
+                <option value="duree">Durée</option>
+            </select>
+            <button id="triButton" class="btn">Trier</button>
+        </div>
+    </div>
 
-
-
-
-<div class="fonctions">
-
-    <!-- barre de recherche en php -->
-    
-    <div class="search_container">
-        <form method="post" >
-            <label>ATELIER<input type="search" name="search" placeholder="mezze, knefeh,..." class="search"></label>
-            <input type="submit" name="submit" value="Rechercher" class="btn">
+    <!-- filtre en php -->
+    <div class="filtre_container">
+        <form action="concept.php" method="POST">
+            <span>Filtrer :</span>
+            <select name="prix" id="prix" class="filtre">
+                <option value="">Par prix</option>
+                <?php
+                $requete = "SELECT DISTINCT prix FROM hh_atelier ORDER BY prix";
+                $stmt = $db->query($requete);
+                $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($resultat as $atelier){
+                    echo "<option value='".($atelier["prix"])."'>".($atelier["prix"])."</option>";
+                }
+                ?>
+            </select>
+            <input type="submit" name="filtrer" value="Valider" class="btn">
+            
+            <?php if (!empty($prix) || !empty($search)): ?>
+                <input type="submit" name="tout_voir" value="Tout voir" class="btn tout_voir">
+            <?php endif; ?>
+            
+            <br><br>
         </form>
     </div>
 
-
-    <!-- tri en js -->
-    
-    <div class="tri_container">
-    <select id="critere" class="tri">
-      <option value="">---</option>
-      <option value="prix">Prix</option>
-      <option value="duree">Durée</option>
-    </select>
-    <button id="triButton" class="btn">Trier</button>
-    </div>
-    
-</div>
-
-<!-- filtre en php -->
-
-<div class="filtre_container">
-    <form action="concept.php" method="post">
-        <span>Filtrer :</span>
-        <select name="prix" id="prix" class="filtre">
-            <option value="">Par prix</option>
-            <?php
-            $requete = "SELECT DISTINCT prix FROM hh_atelier ORDER BY prix";
-            $stmt = $db->query($requete);
-            $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($resultat as $atelier){
-                echo "<option value='".($atelier["prix"])."'>".($atelier["prix"])."</option>";
-            }
-            ?>
-        </select>
-        <input type="submit" value="Valider" class="btn">
-        <br><br>
-    </form>
-</div>
-
-
-<?php
-// Initialiser les variables pour les filtres et la recherche
-$prix = isset($_POST['prix']) ? $_POST['prix'] : '';
-$search = isset($_POST['search']) ? $_POST['search'] : '';
-
-// Construire la requête SQL en fonction des filtres et de la recherche
-$sql = "SELECT * FROM hh_atelier WHERE 1=1";
-$params = array();
-
-if (!empty($prix)) {
-    $sql .= " AND prix = :prix";
-    $params[':prix'] = $prix;
-}
-
-if (!empty($search)) {
-    $sql .= " AND nom_img LIKE :search";
-    $params[':search'] = '%' . $search . '%';
-}
-
-// Préparer et exécuter la requête
-$sth = $db->prepare($sql);
-$sth->execute($params);
-$results = $sth->fetchAll(PDO::FETCH_OBJ);
-
-// Afficher les résultats
-echo '<div class="swiper" id="AteliersList">';
-if ($results) {
-    foreach ($results as $row) {
-        echo '<div class="slide" data-prix="' . ($row->prix) . '" data-duree="' . ($row->duree) . '">
-                <div class="image">
-                    <img src="' . ($row->img) . '" alt="">
-                    <span>' . ($row->nom_img) . '</span>
-                </div>
-                <div class="content">
-                    <div class="icon">
-                        <span name="duree" id="duree"><i class="fa-regular fa-clock"></i> ' . ($row->duree) . '</span> 
-                        <span><i class="fas fa-user"></i> ' . ($row->capacite) . ' </span>
-                        <span name="prix" id="prix"><i class="fa-solid fa-money-bill-1-wave"></i> ' . ($row->prix) . ' </span>
+    <?php
+    /* Afficher les résultats */
+    echo '<div class="swiper" id="AteliersList">';
+    if ($results) {
+        foreach ($results as $row) {
+            echo '<div class="slide" data-prix="' . ($row->prix) . '" data-duree="' . ($row->duree) . '">
+                    <div class="image">
+                        <img src="' . ($row->img) . '" alt="">
+                        <span>' . ($row->nom_img) . '</span>
                     </div>
-                    <h3 class="title">' . ($row->activité) . '</h3>
-                    <p>' . ($row->description) . '</p>
-                    <a href="reserve.php?id_atelier=' . ($row->id_atelier) . '" class="btn">Réserver</a>
-                </div>
-            </div>';
+                    <div class="content">
+                        <div class="icon">
+                            <span name="duree" id="duree"><i class="fa-regular fa-clock"></i> ' . ($row->duree) . '</span> 
+                            <span><i class="fas fa-user"></i> ' . ($row->capacite) . ' </span>
+                            <span name="prix" id="prix"><i class="fa-solid fa-money-bill-1-wave"></i> ' . ($row->prix) . ' </span>
+                        </div>
+                        <h3 class="title">' . ($row->activité) . '</h3>
+                        <p>' . ($row->description) . '</p>
+                        <a href="reserve.php?id_atelier=' . ($row->id_atelier) . '" class="btn">Réserver</a>
+                    </div>
+                </div>';
+        }
+    } else {
+        echo '<p>Aucun résultat trouvé.</p>';
     }
-} else {
-    echo "<p>Aucun résultat trouvé.</p>";
-}
-echo '</div>';
-?>
-
-
-
-</div>
-
-
-
-    
-
-
+    echo '</div>';
+    ?>
 </section>
+<!-- fin section ateliers -->
 
-
-    <!-- début footer -->
-
+<!-- début footer -->
 <section class="footer">
     <div class="icons-container">
         <div class="icons">
@@ -249,20 +219,14 @@ echo '</div>';
     </div> 
     
     <div class="share">
-            <a href="#"><span class="sr-only">Facebook</span><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><span class="sr-only">Twitter</span><i class="fab fa-twitter"></i></a>
-            <a href="#"><span class="sr-only">Instagram</span><i class="fab fa-instagram"></i></a>
+        <a href="#"><span class="sr-only">Facebook</span><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><span class="sr-only">Twitter</span><i class="fab fa-twitter"></i></a>
+        <a href="#"><span class="sr-only">Instagram</span><i class="fab fa-instagram"></i></a>
     </div>
     
     <div class="credit"> Créé par <span>Clara Moubarak</span> | tous droits réservés</div>
- 
-    
 </section>
-
 <!-- fin footer -->
-
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
