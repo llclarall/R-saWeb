@@ -134,12 +134,12 @@ if (isset($_GET["submit"])) {
 
 <div class="heading2">
         <span>Réservez votre créneau</span>
-            <?php $requete = "SELECT activité FROM hh_atelier WHERE id_atelier = '$atelier'";
-            $stmt = $db->prepare($requete);
-            $stmt->execute();
-            $resultat = $stmt->fetchAll();
-            foreach ($resultat as $hh_atelier) {
-                echo '<h1>'.$hh_atelier["activité"].'</h1>'; 
+            <?php 
+            $requete = "SELECT activité FROM hh_atelier WHERE id_atelier = $atelier";
+            /* echo $requete; */
+            $stmt = $db->query($requete);
+            $resultat = $stmt->fetch(); {
+                echo '<h1>'.$resultat['activité'].'</h1>'; 
             }?>   
 </div>
 

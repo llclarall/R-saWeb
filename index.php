@@ -1,5 +1,7 @@
 <?php 
 require 'connexion.php';
+
+$logo = "Hommade Hommous";
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +52,7 @@ require 'connexion.php';
     <label for="check" class="checkbtn">
         <i class="fas fa-bars"> </i>
     </label>
-    <a href="#" class="logo">Hommade Hommous</a>
+    <a href="#" class="logo"><?= $logo ?></a>
     <ul>
         <li><a class="active a_nav" href="#">Home</a></li>
         <li><a href="about.php" class="a_nav">Nous</a></li>
@@ -240,7 +242,10 @@ require 'connexion.php';
     <div class="image">
         <img src="images/reservation.png" alt="">
     </div>
+
+
 </section>
+
 
 <!-- fin section réservation -->
 

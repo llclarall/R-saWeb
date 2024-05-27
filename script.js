@@ -60,62 +60,6 @@ var swiper = new Swiper(".food-slider", {
 
   /* tri ateliers */
 
-/*   function sortAteliers() {
-    var critere = document.getElementById("critere").value;
-    $.ajax({
-      url: "get_ateliers.php",
-      type: "GET",
-      success: function(response) {
-        var ateliers = JSON.parse(response);
-        if (critere === "prix") {
-          ateliers.sort(function(a, b) {
-            return a.prix - b.prix;
-          });
-        } else if (critere === "duree") {
-          ateliers.sort(function(a, b) {
-            return a.duree - b.duree;
-          });
-        }
-        displayAteliers(ateliers);
-      },
-      error: function(xhr, status, error) {
-        console.log("Erreur lors de la récupération des ateliers : " + error);
-      }
-    });
-  }
-  
-  function displayAteliers(ateliers) {
-    var AteliersList = document.getElementById("AteliersList");
-    AteliersList.innerHTML = "";
-    ateliers.forEach(function(atelier) {
-      AteliersList.innerHTML += "<div>" + atelier.name + " - " + atelier.prix + " - " + workshop.duree + "</div>";
-    });
-  }
-  
-function displayAteliers(ateliers) {
-  var AteliersList = document.getElementById("AteliersList");
-  AteliersList.innerHTML = "";
-  ateliers.forEach(function(atelier) {
-    AteliersList.innerHTML += `<div class="slide">
-    <div class="image">
-        <img src="${atelier.img}" alt="">
-        <span>Mezze</span>
-    </div>
-    <div class="content">
-        <div class="icon">
-            <span><i class="fa-regular fa-clock" name="duree"></i> ${atelier.duree}</span> 
-            <span><i class="fas fa-user"></i> ${atelier.capacite} </span>
-            <span><i class="fa-solid fa-money-bill-1-wave" name="prix"></i> ${atelier.prix} </span>
-        </div>
-        <h3 class="title">${atelier.activite}</h3>
-        <p>${atelier.description}</p>
-        <a href="reserve.php?id=${atelier.id_atelier}" class="btn">Réserver</a>
-    </div>
-  </div>`;
-  });
-}; */
-
-
 function triAteliers() {
         var critere = document.getElementById("critere").value;
         var ateliers = document.querySelectorAll("#AteliersList .slide");
@@ -139,3 +83,30 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('triButton').addEventListener('click', triAteliers);
 });
 
+
+
+/* pour que mon header remonte vers le haut qd on scroll */
+
+const header = document.querySelector(".header");
+
+let lastScrollPos = 0;
+
+const hideHeader = function () {
+  const isScrollBottom = lastScrollPos < window.scrollY;
+  if (isScrollBottom) {
+    header.classList.add("hide");
+  } else {
+    header.classList.remove("hide");
+  }
+
+  lastScrollPos = window.scrollY;
+}
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY >= 50) {
+    header.classList.add("active");
+    hideHeader();
+  } else {
+    header.classList.remove("active");
+  }
+});

@@ -91,7 +91,6 @@ require 'connexion.php';
 <!-- début section ateliers -->
 
 
-
 <section class="ateliers_2" id="ateliers_2">
     
 <div class="lineh">
@@ -101,88 +100,109 @@ require 'connexion.php';
 </div>
     <br>
 
-<!-- barre de recherche en php -->
 
-<form method="post">
-    <label>Rechercher :<input type="search" name="s" placeholder="mezze, knefeh,..."></label>
-    <input type="submit" name="submit" value="Rechercher">
-</form>
 
-<?php
-if(isset($_POST["submit"])) {
-    $str = $_POST["search"];
-    $sth = $db->prepare("SELECT * FROM hh_atelier WHERE activité = '$str'");
-    $sth->setFetchMode(PDO:: FETCH_OBJ);
-    $sth -> execute();
-}
-?>
 
+
+
+<div class="fonctions">
+
+    <!-- barre de recherche en php -->
+    
+    <div class="search_container">
+        <form method="post" >
+            <label>ATELIER<input type="search" name="search" placeholder="mezze, knefeh,..." class="search"></label>
+            <input type="submit" name="submit" value="Rechercher" class="btn">
+        </form>
+    </div>
+
+
+    <!-- tri en js -->
+    
+    <div class="tri_container">
+    <select id="critere" class="tri">
+      <option value="">---</option>
+      <option value="prix">Prix</option>
+      <option value="duree">Durée</option>
+    </select>
+    <button id="triButton" class="btn">Trier</button>
+    </div>
+    
+</div>
 
 <!-- filtre en php -->
 
-<form action="concept.php">
+<div class="filtre_container">
+    <form action="concept.php" method="post">
+        <span>Filtrer :</span>
+        <select name="prix" id="prix" class="filtre">
+            <option value="">Par prix</option>
+            <?php
+            $requete = "SELECT DISTINCT prix FROM hh_atelier ORDER BY prix";
+            $stmt = $db->query($requete);
+            $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($resultat as $atelier){
+                echo "<option value='".($atelier["prix"])."'>".($atelier["prix"])."</option>";
+            }
+            ?>
+        </select>
+        <input type="submit" value="Valider" class="btn">
+        <br><br>
+    </form>
+</div>
 
-<span>Filtrer :</span>
-<select name="duree" id="duree">
-<?php 
-$requete = "SELECT DISTINCT * FROM hh_atelier ";
-$stmt = $db->query($requete);
-$resultat = $stmt -> fetchall();
-foreach ($resultat as $atelier){
-echo "<option value='duree'>".$atelier["duree"];
+
+<?php
+// Initialiser les variables pour les filtres et la recherche
+$prix = isset($_POST['prix']) ? $_POST['prix'] : '';
+$search = isset($_POST['search']) ? $_POST['search'] : '';
+
+// Construire la requête SQL en fonction des filtres et de la recherche
+$sql = "SELECT * FROM hh_atelier WHERE 1=1";
+$params = array();
+
+if (!empty($prix)) {
+    $sql .= " AND prix = :prix";
+    $params[':prix'] = $prix;
 }
-?>
-</select>
 
-<select name="duree" id="duree">
-<?php 
-$requete = "SELECT * FROM hh_atelier";
-$stmt = $db->query($requete);
-$resultat = $stmt -> fetchall();
-foreach ($resultat as $atelier){
-echo "<option value='prix'>".$atelier["prix"];
+if (!empty($search)) {
+    $sql .= " AND nom_img LIKE :search";
+    $params[':search'] = '%' . $search . '%';
 }
-?>
-</select>
 
-<input type="submit" value="Valider">
-<br><br>
-</form>
+// Préparer et exécuter la requête
+$sth = $db->prepare($sql);
+$sth->execute($params);
+$results = $sth->fetchAll(PDO::FETCH_OBJ);
 
-
-<!-- tri en js -->
-<select id="critere">
-  <option value="">---</option>
-  <option value="prix">Prix</option>
-  <option value="duree">Durée</option>
-</select>
-<button id="triButton">Trier</button>
-
-<div class="swiper" id="AteliersList">
-<?php 
-$requete = "SELECT * FROM hh_atelier";
-$stmt = $db->query($requete);
-$resultat = $stmt -> fetchall(PDO::FETCH_ASSOC);
-foreach ($resultat as $hh_atelier){
-    /* echo "<option value='realisateur'>".$film["prenom"]." ".$film["nom_realisateur"]."</option>"; */
-    echo '<div class="slide" data-prix="'.$hh_atelier["prix"].'" data-duree="'.$hh_atelier["duree"].'">
-    <div class="image">
-        <img src="'.$hh_atelier["img"].'" alt="">
-        <span>'.$hh_atelier["nom_img"].'</span>
-    </div>
-    <div class="content">
-        <div class="icon">
-            <span name="duree" id="prix"><i class="fa-regular fa-clock" ></i> '.$hh_atelier["duree"].'</span> 
-            <span><i class="fas fa-user"></i> '.$hh_atelier["capacite"].' </span>
-            <span name="prix" id="prix"><i class="fa-solid fa-money-bill-1-wave" ></i> '.$hh_atelier["prix"].' </span>
-        </div>
-        <h3 class="title">'.$hh_atelier["activité"].'</h3>
-        <p>'.$hh_atelier["description"].'</p>
-        <a href="reserve.php?id_atelier='.$hh_atelier["id_atelier"].'" class="btn">Réserver</a>
-    </div>
-</div>';
+// Afficher les résultats
+echo '<div class="swiper" id="AteliersList">';
+if ($results) {
+    foreach ($results as $row) {
+        echo '<div class="slide" data-prix="' . ($row->prix) . '" data-duree="' . ($row->duree) . '">
+                <div class="image">
+                    <img src="' . ($row->img) . '" alt="">
+                    <span>' . ($row->nom_img) . '</span>
+                </div>
+                <div class="content">
+                    <div class="icon">
+                        <span name="duree" id="duree"><i class="fa-regular fa-clock"></i> ' . ($row->duree) . '</span> 
+                        <span><i class="fas fa-user"></i> ' . ($row->capacite) . ' </span>
+                        <span name="prix" id="prix"><i class="fa-solid fa-money-bill-1-wave"></i> ' . ($row->prix) . ' </span>
+                    </div>
+                    <h3 class="title">' . ($row->activité) . '</h3>
+                    <p>' . ($row->description) . '</p>
+                    <a href="reserve.php?id_atelier=' . ($row->id_atelier) . '" class="btn">Réserver</a>
+                </div>
+            </div>';
+    }
+} else {
+    echo "<p>Aucun résultat trouvé.</p>";
 }
+echo '</div>';
 ?>
+
 
 
 </div>
