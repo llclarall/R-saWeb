@@ -71,7 +71,6 @@ if (isset($_GET["submit"])) {
 
 
     // * Mail pour l'utilisateur qui a réservé 
-
         if(mail($to, $subject, $message, $headers)) {
             echo "<script>alert('Réservation confirmée ! Vous recevrez bientôt un e-mail de confirmation.');</script>";
         } else {

@@ -5,8 +5,6 @@
 }
 
 * {
-    padding: 0;
-    margin: 0;
     text-decoration: none;
     list-style: none;
 }
@@ -34,8 +32,9 @@ section {
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #feebc4;
+    padding: 0;
+    margin: 0;
 }
-
 
 
 
@@ -110,13 +109,13 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    line-height: 100px;
-    margin: 0 5px;
+    line-height: 80px;
+    margin-left: 20px;
 }
 
 .a_nav {
     color: #77021D;
-    font-size: 1rem;
+    font-size: 1.8rem;
     text-transform: uppercase;
     border-radius: 3px;
     padding: 7px 13px;
@@ -450,7 +449,7 @@ a {
     transform: scale(1);
     opacity: 1;
     box-shadow: 5px 10px 10px rgb(125, 125, 125),
-                
+               
 }
 
 .blogs .slide .image {
@@ -555,6 +554,7 @@ a {
         text-align: center;
         transition: all .5s;
         font-weight: 800;
+        margin: 0;
     }
 
     nav ul li {
@@ -907,23 +907,28 @@ border-bottom: 2px solid #000;
     margin-right: 30px;
 }
 
-
 .ateliers_2 .swiper {
     display: flex;
     flex-wrap: wrap;
     gap: 10px; 
+    /* align-items: center; */
     justify-content: center;
-    align-items: center;
 }
 
 .ateliers_2 .slide {
-    margin-top: 1rem;
-    width: 40%;
-    margin-left: auto;margin-right: auto;
+    /* padding: 1rem; */
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 10px 10px rgb(125, 125, 125),
+    -5px 10px 10px rgb(125, 125, 125);
+    /* border: #000000 solid 1px; */
+    background-color: white;
+    margin-bottom: 5rem;
 }
 
 .ateliers_2 .slide .image {
-    height: 35rem;
+    height: 30rem;
     overflow: hidden;
     position: relative;
 }
@@ -932,6 +937,7 @@ border-bottom: 2px solid #000;
     height: 100%;
     width: 100%;
     object-fit: cover;
+    max-width: 100%;
 }
 
 .ateliers_2 .slide .image span {
@@ -958,12 +964,8 @@ border-bottom: 2px solid #000;
 .ateliers_2 .slide .content {
     padding: 2rem;
     background-color: white;
-    box-shadow: 5px 10px 10px rgb(125, 125, 125),
-    -5px 10px 10px rgb(125, 125, 125);
-    border: #000000 solid 1px;
-    margin-bottom: 4rem;
+    padding: 3rem;
     /* min-height: 400px; */
-    
 }
 
 .ateliers_2 .slide .content .icon {
@@ -996,6 +998,7 @@ border-bottom: 2px solid #000;
     line-height: 2;
     font-size: 1.6rem;
     color: #505050;
+    /* flex-grow: 1; */
 }
 
 
@@ -1153,6 +1156,7 @@ border-bottom: 2px solid #000;
     .ateliers_2 .swiper {
         gap: 10px;
     }
+    
 }
 
 @media (width<900px) {
@@ -1258,7 +1262,7 @@ border-bottom: 2px solid #000;
 }
 
  .ateliers .atelier_card{
-    width: 80px;
+    width: 90px;
     border-radius: 2rem;
     background-size: cover;
     cursor: pointer;
@@ -1276,6 +1280,8 @@ border-bottom: 2px solid #000;
     display: flex;
     flex-wrap: nowrap;
     margin-bottom: 5px;
+    margin-left: 5px;
+    /* gap: 10px; */
 }
 
 .ateliers .atelier_card > .row > .atelier_icon {
@@ -1283,6 +1289,7 @@ border-bottom: 2px solid #000;
     color: white;
     border-radius: 50%;
     width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1294,7 +1301,7 @@ border-bottom: 2px solid #000;
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
-    height: 80px;
+    height: 85px;
     width: 350px;
     opacity: 0;
     transform: translateY(30px);
@@ -1305,13 +1312,13 @@ border-bottom: 2px solid #000;
 
 .ateliers .description p {
     color: #d5d5d5;
-    padding-top: 5px;
     font-size: 1.5rem;
 }
 
 .ateliers .description h3 {
     text-transform: uppercase;
     font-size: 2rem;
+    margin: 0;
 }
 
 .ateliers input[type="radio"] {

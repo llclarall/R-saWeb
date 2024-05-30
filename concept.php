@@ -156,9 +156,10 @@ $results = $sth->fetchAll(PDO::FETCH_OBJ);
         </form>
     </div>
 
+<div class="swiper" id="AteliersList">
+
     <?php
     /* Afficher les résultats */
-    echo '<div class="swiper" id="AteliersList">';
     if ($results) {
         foreach ($results as $row) {
             echo '<div class="slide" data-prix="' . ($row->prix) . '" data-duree="' . ($row->duree) . '">
@@ -181,8 +182,10 @@ $results = $sth->fetchAll(PDO::FETCH_OBJ);
     } else {
         echo '<p>Aucun résultat trouvé.</p>';
     }
-    echo '</div>';
     ?>
+
+    </div>
+    
 </section>
 <!-- fin section ateliers -->
 
