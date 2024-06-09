@@ -40,18 +40,37 @@
     <!-- fin header -->
     
 
+<!-- section équipe et mentions légales -->
+
+<section class="me" id="me">
+
+            <div class="image">
+                <img src="images/mon_avatar.png" alt="">
+            </div>
+
+        <div class="content">
+            <h1 class="title">Salut, moi c'est Clara Moubarak :)</h1>
+            <p>Actuellement étudiante en MMI à l'université Gustave Eiffel, je suis ravie de vous présenter mon projet étudiant de 1ère année, Hommade Hommous.</p>
+    
+            <p>Le concept ici, c'est de proposer des ateliers autour de la cuisine libanaise. C'est une super opportunité de rencontrer de nouvelles personnes tout en apprenant à préparer des plats délicieux. Rien de mieux que de cuisiner ensemble pour créer des liens !</p>
+    
+            <p>Si vous avez des questions ou des suggestions n'hésitez pas à m'envoyer un message à clara.moubarak@edu.univ-eiffel.fr.</p>
+    
+            <p>Merci d'être là et bonne navigation !</p>
+        </div>
+
+
+</section>
+
+
+
 <!-- début section about us -->
 
     <section class="about_us" id="about_us">  
 
-<!--     <div class="heading2">
-        <span>PERSONNALISEZ VOS MOMENTS DU QUOTIDIEN</span>
-        <h3>Hommade Hommous, c'est qui ?</h3>
-    </div> -->
-
 <div class="abt-section">
     <div class="inner-container">
-        <h1>Notre Histoire</h1>
+        <h1>Notre Projet</h1>
         <p class="text">
         Aujourd’hui, nous vivons dans une société où l’amour est le but ultime pour beaucoup d’entre nous. 
         Mais qu’en est-il des amitiés, les gens qui resteront avec vous à travers toutes situations, les gens qui auront un album photo dédié à toutes les photos les plus laides de vous? 
@@ -73,9 +92,9 @@
 
     </div>
 </div>
+</section>
 
 
-<!-- section équipe et mentions légales -->
 
 
     <!-- début footer -->
@@ -105,7 +124,7 @@
         <div class="icons">
              <i class="fa-solid fa-info"></i>
              <h3>Infos Pratiques</h3>
-             <p><a href="#">Mentions Légales</a></p>
+             <p><a href="mentions.html">Mentions Légales</a></p>
              <p><a href="#">Accéssibilité</a></p>
              <p><a href="#">FAQ</a></p>
         </div>

@@ -75,7 +75,7 @@ $results = $sth->fetchAll(PDO::FETCH_OBJ);
         <label for="check" class="checkbtn">
         <span class="sr-only">Burger Menu</span><i class="fas fa-bars"></i>
         </label>
-        <a href="index.php" class="logo"><?= $logo ?></a>
+        <a href="index.php" class="logo">Hommade Hommous</a>
         <ul>
             <li><a class="a_nav" href="index.php">Home</a></li>
             <li><a href="about.php" class="a_nav">Nous</a></li>
@@ -89,34 +89,37 @@ $results = $sth->fetchAll(PDO::FETCH_OBJ);
     
 <!-- début section concept -->
 <img class='concept-header' src="images/concept_header.jpg" alt="">
+
 <section class="concept" id="concept">  
+
     <div class="heading2">
         <span>PERSONNALISEZ VOS MOMENTS DU QUOTIDIEN</span>
         <h1>Hommade Hommous, comment ça marche ?</h1>
     </div>
-    
+ 
+
     <div class="card-container">
         <div class="card">
             <img src="images/number-1.png" alt="">
             <div class="card-content">
-                <h2>Réservez le créneau qui vous convient</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam non delectus quas blanditiis officiis fugiat, pariatur ad in ut, et voluptatum.</p>
+                <h2>Réservez un de nos ateliers de cuisine interactifs</h2>
+                <p>Sucré, salé, rapide, plus long, vous avez l'embarras du choix avec nos ateliers tous plus riches en expérience les uns que les autres.</p>
             </div>
         </div>
     
         <div class="card">
             <img src="images/number-2.png" alt="">
             <div class="card-content">
-                <h2>Réservez le créneau qui vous convient</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam non delectus quas blanditiis officiis fugiat, pariatur ad in ut, et voluptatum.</p>
+                <h2>Venez concocter votre version de la cuisine libanaise </h2>
+                <p>Vous pourrez découvrir les multiples secrets des recettes libanaises, tout en y ajoutant votre propre fantaisie.</p>
             </div>
         </div>
     
         <div class="card">
             <img src="images/number-3.png" alt="">
             <div class="card-content">
-                <h2>Réservez le créneau qui vous convient</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam non delectus quas blanditiis officiis fugiat, pariatur ad in ut, et voluptatum.</p>
+                <h2>Rencontrez vos futurs meilleurs amis</h2>
+                <p>Pas de lieu plus propice à de nouvelles rencontres qu'autour de poêles et de condiments alors n'attendez plus, tentez l'aventure !</p>
             </div>
         </div>
     </div>
@@ -177,21 +180,20 @@ $results = $sth->fetchAll(PDO::FETCH_OBJ);
 
             <select name="duree" id="duree" class="filtre">
                 <option value="">Par durée</option>
-                <option value="moins_de_2h">2h</option>
+                <option value="moins_de_2h">Moins de 2h</option>
                 <option value="2h_ou_plus">2h ou plus</option>
             </select>
             <input type="submit" name="filtrer" value="Valider" class="btn">
-            
-            
+
+            <br>
             <!--
              * Ce code vérifie si la variable $prix ou $search n'est pas vide.
              * Si l'une des deux variables n'est pas vide, un bouton "Tout voir" est affiché pour réafficher tous les ateliers.
             -->
-            <?php if (!empty($prix) || !empty($search)): ?>
+            <?php if (!empty($prix) || !empty($search) || !empty($duree)): ?>
                 <input type="submit" name="tout_voir" value="Tout voir" class="btn tout_voir">
             <?php endif; ?>
-            
-            <br><br>
+
         </form>
     </div>
 
@@ -234,7 +236,7 @@ if ($results) {
         </div>';
     }   
 } else {
-    echo '<p>Aucun résultat trouvé.</p>';
+    echo '<p class="no_result">Aucun résultat trouvé.</p>';
 }
 ?>
 
@@ -270,7 +272,7 @@ if ($results) {
         <div class="icons">
              <i class="fa-solid fa-info"></i>
              <h3>Infos Pratiques</h3>
-             <p><a href="#">Mentions Légales</a></p>
+             <p><a href="mentions.html">Mentions Légales</a></p>
              <p><a href="#">Accéssibilité</a></p>
              <p><a href="#">FAQ</a></p>
         </div>

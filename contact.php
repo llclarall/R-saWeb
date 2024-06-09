@@ -167,7 +167,7 @@ if(!empty($_POST["send"])){
         <div class="icons">
              <i class="fa-solid fa-info"></i>
              <h3>Infos Pratiques</h3>
-             <p><a href="#">Mentions Légales</a></p>
+             <p><a href="mentions.html">Mentions Légales</a></p>
              <p><a href="#">Accéssibilité</a></p>
              <p><a href="#">FAQ</a></p>
         </div>

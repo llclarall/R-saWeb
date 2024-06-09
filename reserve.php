@@ -148,7 +148,7 @@ if (in_array($email_domain, $blacklist)) {
             <span class="sr-only">Burger Menu</span><i class="fas fa-bars"> </i>
             </label>
             
-            <a href="index.php" class="logo"><?= $logo ?></a>
+            <a href="index.php" class="logo">Hommade Hommous</a>
             <ul>
                 <li><a class="a_nav" href="index.php">Home</a></li>
                 <li><a href="about.php" class="a_nav">Nous</a></li>
@@ -238,7 +238,7 @@ if (in_array($email_domain, $blacklist)) {
         <div class="icons">
              <i class="fa-solid fa-info"></i>
              <h3>Infos Pratiques</h3>
-             <p><a href="#">Mentions Légales</a></p>
+             <p><a href="mentions.html">Mentions Légales</a></p>
              <p><a href="#">Accessibilité</a></p>
              <p><a href="#">FAQ</a></p>
         </div>

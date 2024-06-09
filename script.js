@@ -1,5 +1,7 @@
+
+
+// Initialisation du slider de la page d'accueil 
 var swiper = new Swiper(".home-slider", {
-/*   grabCursor: true, */
   loop: true,
   centeredSlides:true,
   navigation: {
@@ -10,7 +12,7 @@ var swiper = new Swiper(".home-slider", {
 
 
 /* slider food */
-var swiper = new Swiper(".food-slider", {
+/* var swiper = new Swiper(".food-slider", {
     grabCursor: true,
     loop: true,
     centeredSlides:true,
@@ -30,10 +32,12 @@ var swiper = new Swiper(".food-slider", {
         slidesPerView: 3,
       },
     }
-  });
+  }); */
+
 
 
 /* slider blog */
+
   var swiper = new Swiper(".blogs-slider", {
     grabCursor: true,
     loop: true,
@@ -60,32 +64,45 @@ var swiper = new Swiper(".food-slider", {
 
   /* tri ateliers */
 
-function triAteliers() {
-        var critere = document.getElementById("critere").value;
-        var ateliers = document.querySelectorAll("#AteliersList .slide");
-        var tableauAteliers = Array.from(ateliers);
+  function triAteliers() {
+    // Récupére le critère de tri sélectionné
+    var critere = document.getElementById("critere").value;
+    
+    // Récupére tous les ateliers
+    var ateliers = document.querySelectorAll("#AteliersList .slide");
+    
+    // Convertit la liste des ateliers en tableau
+    var tableauAteliers = Array.from(ateliers);
 
-        tableauAteliers.sort(function(a, b) {
-            var aValue = parseFloat(a.dataset[critere]);
-            var bValue = parseFloat(b.dataset[critere]);
-            return aValue - bValue;
-        });
+    // Tri le tableau des ateliers en fonction du critère
+    tableauAteliers.sort(function(a, b) {
+      var aValue = parseFloat(a.dataset[critere]);
+      var bValue = parseFloat(b.dataset[critere]);
+      return aValue - bValue;
+    });
 
-        var AteliersList = document.getElementById("AteliersList");
-        AteliersList.innerHTML = "";
+    // Récupére la liste des ateliers
+    var AteliersList = document.getElementById("AteliersList");
+    
+    // Vide la liste des ateliers
+    AteliersList.innerHTML = "";
 
-        tableauAteliers.forEach(function(atelier) {
-            AteliersList.appendChild(atelier);
-        });
-    }
+    // Ajoute les ateliers triés à la liste
+    tableauAteliers.forEach(function(atelier) {
+      AteliersList.appendChild(atelier);
+    });
+  }
 
-document.addEventListener('DOMContentLoaded', function() {
+  // chargement du DOM
+  document.addEventListener('DOMContentLoaded', function() {
+    // Ajoute un écouteur d'événement au bouton de tri
     document.getElementById('triButton').addEventListener('click', triAteliers);
-});
+  });
 
 
 
-/* pour que mon header remonte vers le haut qd on scroll */
+
+  /* code pour que mon header remonte vers le haut quand on scroll */
 
 const header = document.querySelector(".header");
 
@@ -94,6 +111,7 @@ let lastScrollPos = 0;
 const hideHeader = function () {
   const isScrollBottom = lastScrollPos < window.scrollY;
   if (isScrollBottom) {
+    // rajoute la classe .hide au header si on scrolle vers le bas 
     header.classList.add("hide");
   } else {
     header.classList.remove("hide");
@@ -103,10 +121,25 @@ const hideHeader = function () {
 }
 
 window.addEventListener("scroll", function () {
-  if (window.scrollY >= 50) {
+  if (window.scrollY >= 160) {
+    // rajoute la classe .active au header si on scrolle vers le haut 
     header.classList.add("active");
     hideHeader();
   } else {
     header.classList.remove("active");
   }
+});
+
+
+
+// fonction pour revenir à la page précédente
+
+function goBack() {
+  window.history.back();
+};
+
+// Écouteur d'événement pour le chargement du DOM
+document.addEventListener('DOMContentLoaded', function() {
+  // Écouteur d'événement pour le clic sur le bouton de retour
+  document.querySelector('.back-button').addEventListener('click', goBack);
 });

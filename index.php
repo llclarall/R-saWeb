@@ -34,7 +34,7 @@ require 'connexion.php';
     <label for="check" class="checkbtn">
     <span class="sr-only">Burger Menu</span><i class="fas fa-bars"> </i>
     </label>
-    <a href="#" class="logo"><?= $logo ?></a>
+    <a href="#" class="logo">Hommade Hommous</a>
     <ul>
         <li><a class="active a_nav" href="#">Home</a></li>
         <li><a href="about.php" class="a_nav">Nous</a></li>
