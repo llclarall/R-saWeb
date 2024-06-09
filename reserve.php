@@ -1,8 +1,10 @@
 <?php 
 require 'connexion.php';
 
+// Récupère l'ID de l'atelier à partir de l'URL
 $atelier = $_GET["id_atelier"];
 
+// Vérifie si le formulaire a été soumis et récupère les données du formulaire
 if (isset($_GET["submit"])) {
     $nom = $_GET["nom"];
     $prenom = $_GET["prenom"];
@@ -11,12 +13,39 @@ if (isset($_GET["submit"])) {
     $creneau = $_GET["creneaux"];
     $atelier = $_GET["id_atelier"];
 
+// Liste des domaines à bloquer (mails temporaires ou spam) 
+$blacklist = [
+    "uooos.com", "doolk.com", "nthrw.com", "bbitq.com", "ckptr.com", "alldrys.com", 
+    "moabuild.com", "moongit.com", "20minutemail.it", "diolang.com", "aosod.com", 
+    "huleos.com", "sharklasers.com", "guerrillamail.info", "grr.la", "guerrillamail.biz", 
+    "guerrillamail.com", "guerrillamail.de", "guerrillamail.net", "guerrillamail.org", 
+    "guerrillamailblock.com", "pokemail.net", "spam4.me", "musiccode.me", "lyricspad.net", 
+    "citmo.net", "vusra.com", "gufum.com", "best-john-boats.com", "pirolsnet.com", 
+    "trickyfucm.com", "entipat.com", "smartinbox.online", "goonby.com", "plexfirm.com", 
+    "neixos.com", "10mail.org", "firste.ml", "zeroe.ml", "dropmail.me", "vintomaper.com", 
+    "labworld.org", "fillallin.com", "dockleafs.com", "mailsac.com", "mails.omvvim.edu.in", 
+    "onetimeusemail.com", "midiharmonica.com", "fthcapital.com", "yopmail.com", 
+    "crazymailing.com", "exbts.com", "wemel.site", "mybx.site", "emeil.top", "mywrld.top", 
+    "matra.top", "memsg.site", "emailnax.com", "emailbbox.pro", "inboxbear.com", 
+    "getnada.com", "guysmail.com", "trashmail.fr", "trashmail.se", "my10minutemail.com"
+];
+
+// Extraire le domaine de l'email de l'utilisateur en repérant la chaîne de caractères après le @
+$email_domain = substr(strrchr($mail, "@"), 1);
+
+// Vérifie si le domaine de l'email est dans la liste noire et affiche un message d'erreur s'il l'est
+if (in_array($email_domain, $blacklist)) {
+    echo "<script>alert('Les adresses e-mail temporaires ne sont pas autorisées. Veuillez utiliser une adresse e-mail valide.');</script>";
+} else {
+
     try {
-        // Démarrer une transaction
+        // Démarrer une transaction pour effectuer plusieurs requêtes SQL
         $db->beginTransaction();
 
-        // Insérer l'utilisateur s'il n'existe pas déjà
+        // 1ère requête pour insérer l'utilisateur s'il n'existe pas déjà (avec le mail comme clé primaire)
         $sql = "INSERT IGNORE INTO hh_user (nom_user, prenom_user, mail_user) VALUES (:nom, :prenom, :mail)";
+
+        // Prépare la requête SQL pour l'exécution et lie les valeurs
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':nom', $nom);
         $stmt->bindParam(':prenom', $prenom);
@@ -24,7 +53,7 @@ if (isset($_GET["submit"])) {
         $stmt->execute();
 
 
-        // Insérer la réservation
+        // 2ème requête pour insérer la réservation dans la bdd
         $sql2 = "INSERT INTO hh_reservation (date_reservation, creneau_reservation, atelier, fk_user) VALUES (:jour, :creneau, :atelier, :mail)";
         $stmt2 = $db->prepare($sql2);
         $stmt2->bindParam(':jour', $date);
@@ -33,18 +62,14 @@ if (isset($_GET["submit"])) {
         $stmt2->bindParam(':mail', $mail);
         $stmt2->execute();
 
-        // Commit de la transaction
+        // Commit de la transaction dans la bdd si les requêtes ont été exécutées avec succès
         $db->commit();
+        
 
-
-        
-        
-        
+        // Récupére le nom de l'activité pour l'envoi de l'email
         $requete = "SELECT activité FROM hh_atelier WHERE id_atelier = $atelier";
-        /* echo $requete; */
         $stmt = $db->query($requete);
         $resultat = $stmt->fetch();
-        /* var_dump($resultat); */
         $to = $mail;
         $subject = "Confirmation de réservation";
         $message = "
@@ -64,26 +89,32 @@ if (isset($_GET["submit"])) {
             <p>Nous avons hâte de vous voir !</p>
         </body>
         </html>";
-        
+
+        // En-têtes pour envoyer le mail au format HTML
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= 'From: HommadeHommous@example.com' . "\r\n";
 
+        
 
-    // * Mail pour l'utilisateur qui a réservé 
+        // Envoi du mail pour l'utilisateur qui a réservé un atelier
         if(mail($to, $subject, $message, $headers)) {
             echo "<script>alert('Réservation confirmée ! Vous recevrez bientôt un e-mail de confirmation.');</script>";
+            // Redirige vers la page d'accueil après traitement 
+            echo "<script>setTimeout(function() { window.location.href = 'index.php'; });</script>";
         } else {
             echo "L'envoi de l'email a échoué.";
         }
-
-
-
-    } catch (Exception $e) {
-        // Rollback en cas d'erreur
+         
+        // Gestion des exceptions pour les erreurs SQL ou autres erreurs possibles lors de la réservation 
+        // $e est une variable qui contient l'exception
+        } catch (Exception $e) {
+        // $db->rollBack() annule toutes les modifications apportées à la base de données
         $db->rollBack();
-        echo "<script>alert('Erreur lors de la réservation : " . $e->getMessage() . "');</script>";
+        echo "<script>alert('Erreur lors de la réservation : " . 
+        $e->getMessage() . "');</script>";
     }
+}
 }
 
 ?>
@@ -97,6 +128,7 @@ if (isset($_GET["submit"])) {
 <title>HH - Réservation</title>
 <link rel="stylesheet" href="styles.css">
 <script src="https://kit.fontawesome.com/ac86f9bd86.js" crossorigin="anonymous"></script>
+<link rel="icon" href="images/favicon.ico" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -113,9 +145,10 @@ if (isset($_GET["submit"])) {
         
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn">
-                <i class="fas fa-bars"> </i>
+            <span class="sr-only">Burger Menu</span><i class="fas fa-bars"> </i>
             </label>
-            <a href="index.php" class="logo">Hommade Hommous</a>
+            
+            <a href="index.php" class="logo"><?= $logo ?></a>
             <ul>
                 <li><a class="a_nav" href="index.php">Home</a></li>
                 <li><a href="about.php" class="a_nav">Nous</a></li>
@@ -127,24 +160,27 @@ if (isset($_GET["submit"])) {
     </header>
     <!-- fin header -->
     
-<!-- début formulaire réservation -->
+<!-- début section formulaire réservation -->
 
 <section class="formulaire" id="formulaire">
 
 <div class="heading2">
         <span>Réservez votre créneau</span>
             <?php 
+            // Récupère le nom de l'atelier selon son id pour l'afficher dans le titre de la page
             $requete = "SELECT activité FROM hh_atelier WHERE id_atelier = $atelier";
-            /* echo $requete; */
+            // Exécute la requête SQL
             $stmt = $db->query($requete);
+            // Récupère le résultat de la requête
             $resultat = $stmt->fetch(); {
                 echo '<h1>'.$resultat['activité'].'</h1>'; 
             }?>   
 </div>
 
-
+<!-- Formulaire de réservation -->
 <div class="form">
     <form action="reserve.php" method="get" autocomplete="on">
+        <p>tous les champs sont obligatoires</p>
         <div class="date">
             <label>Prénom<input type="text" name="prenom" class="box" required></label>
             <label>Nom<input type="text" name="nom" class="box" required></label>
@@ -156,6 +192,7 @@ if (isset($_GET["submit"])) {
             <select name="creneaux" id="creneaux" class="box" required>
                 <option value="">Choisir un créneau</option>
                 <?php 
+                // Récupère les créneaux disponibles pour l'atelier sélectionné dans la bdd et les affiche dans une liste déroulante
                 $requete = "SELECT * FROM hh_calendrier WHERE fk_atelier = :atelier";
                 $stmt = $db->prepare($requete);
                 $stmt->bindParam(':atelier', $atelier);
@@ -168,8 +205,11 @@ if (isset($_GET["submit"])) {
             </select>
             </label>
         </div>
-        <input type="hidden" name="id_atelier" value="<?php echo htmlspecialchars($atelier); ?>">
+        <!-- Champ caché pour envoyer l'id de l'atelier avec le formulaire -->
+        <input type="hidden" name="id_atelier" value="<?php echo 
+        htmlspecialchars($atelier); ?>">
         <input type="submit" name="submit" class="btn" value="Réserver">
+        
     </form>
 </div>
 </section>
@@ -182,7 +222,7 @@ if (isset($_GET["submit"])) {
              <i class="fas fa-clock"></i>
              <h3>Heures d'ouverture</h3>
              <p>7 j / 7</p>
-             <p>de 11h à 22h</p>
+             <p>de 10h à 20h</p>
         </div>
         <div class="icons">
              <i class="fas fa-address-book"></i>

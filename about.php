@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HH - Concept</title>
 <link rel="stylesheet" href="styles.css">
+<link rel="icon" href="images/favicon.ico" />
 <script src="https://kit.fontawesome.com/ac86f9bd86.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,10 +42,7 @@
 
 <!-- début section about us -->
 
-
-<!--     <img class='about-header' src="images/about_header.jpg" alt="">
- -->    
-    <section class="about_us">  
+    <section class="about_us" id="about_us">  
 
 <!--     <div class="heading2">
         <span>PERSONNALISEZ VOS MOMENTS DU QUOTIDIEN</span>
@@ -88,7 +86,7 @@
              <i class="fas fa-clock"></i>
              <h3>Heures d'ouverture</h3>
              <p>7 j / 7</p>
-             <p>de 11h à 22h</p>
+             <p>de 10h à 20h</p>
         </div>
 
         <div class="icons">

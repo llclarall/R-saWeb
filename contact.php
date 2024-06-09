@@ -42,9 +42,18 @@
 
 <main> 
 
-<section class="contacts">
+<!-- début section formulaire de contact -->
+
+<section class="contacts" id="contacts">
+
 
 <?php 
+
+/**
+ * Récupère le nom, l'email, le numéro de téléphone et le message de l'utilisateur à partir de la requête POST.
+ * Envoie un email au destinataire spécifié avec les informations de l'utilisateur.
+ * Si l'email est envoyé avec succès, affiche un message de succès.
+ */
 if(!empty($_POST["send"])){
     $userNom = $_POST["userNom"];
     $userEmail = $_POST["userEmail"];
@@ -59,7 +68,10 @@ if(!empty($_POST["send"])){
 
     if(mail($toEmail, $userNom, $mailHeaders)) {
         $message = "Votre message a bien été reçu !";
-    }} ?>
+    }
+}
+
+?>
 
 
 
@@ -71,6 +83,7 @@ if(!empty($_POST["send"])){
 
 <div class="formulaire_contact">
     
+     <!-- début formulaire de contact -->
     <div class="form-container">
         <div class="form-design">
             <h2>Laissez-nous un message !</h2>
@@ -85,22 +98,25 @@ if(!empty($_POST["send"])){
             </div>
         </div>
     
+
         <form method="post" name="emailContact">
+        <p>tous les champs sont obligatoires</p>
             <div class="input-row">
-                <label>Nom<em>*</em><input type="text" name="userNom" required></label>
+                <label>Nom<input type="text" name="userNom" placeholder="Marion Chalard" required></label>
             </div>
             <div class="input-row">
-                <label>Email<em>*</em><input type="email" name="userEmail" required></label>
+                <label>Email<input type="email" name="userEmail" placeholder="exemple@gmail.com" required></label>
             </div>
             <div class="input-row">
-                <label>N° de téléphone<em>*</em><input type="tel" name="userTel" required></label>
+                <label>N° de téléphone<input type="tel" name="userTel" pattern="[0-9]{10}" placeholder="06 15 46 42 99"  required></label>
             </div>
             <div class="input-row">
-                <label>Message<em>*</em><textarea name="userMessage" required></textarea></label>
+                <label>Message<textarea name="userMessage" required></textarea></label>
             </div>
             <div class="input-row">
                 <input type="submit" name="send" class="btn" value="Envoyer">
                 <?php
+                // Affiche un message de succès si l'email est envoyé avec succès 
                     if(!empty($message)) {
                  ?>
                 <div class="success">
@@ -110,13 +126,10 @@ if(!empty($_POST["send"])){
                     }
                  ?>
             </div>
-    
+
         </form>
     </div>
 </div>
-
-            
-            
 
 
 </section>
@@ -135,7 +148,7 @@ if(!empty($_POST["send"])){
              <i class="fas fa-clock"></i>
              <h3>Heures d'ouverture</h3>
              <p>7 j / 7</p>
-             <p>de 11h à 22h</p>
+             <p>de 10h à 20h</p>
         </div>
 
         <div class="icons">
