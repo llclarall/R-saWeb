@@ -182,6 +182,7 @@ $results = $sth->fetchAll(PDO::FETCH_OBJ);
             </select>
             <input type="submit" name="filtrer" value="Valider" class="btn">
             
+            
             <!--
              * Ce code vérifie si la variable $prix ou $search n'est pas vide.
              * Si l'une des deux variables n'est pas vide, un bouton "Tout voir" est affiché pour réafficher tous les ateliers.

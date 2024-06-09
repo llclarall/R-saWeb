@@ -26,7 +26,7 @@
         
         <input type="checkbox" id="check">
         <label for="check" class="checkbtn">
-            <i class="fas fa-bars"> </i>
+        <span class="sr-only">Burger Menu</span><i class="fas fa-bars"> </i>
         </label>
         <a href="index.php" class="logo">Hommade Hommous</a>
         <ul>
