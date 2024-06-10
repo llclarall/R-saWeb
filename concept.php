@@ -259,7 +259,7 @@ if ($results) {
         <div class="icons">
              <i class="fas fa-address-book"></i>
              <h3>Contact</h3>
-             <p>07 83 62 45 20</p>
+             <p>07 23 60 88 01</p>
              <p>poischiche@gmail.com</p>
         </div>
 
@@ -273,8 +273,8 @@ if ($results) {
              <i class="fa-solid fa-info"></i>
              <h3>Infos Pratiques</h3>
              <p><a href="mentions.html">Mentions Légales</a></p>
-             <p><a href="#">Accéssibilité</a></p>
-             <p><a href="#">FAQ</a></p>
+             <p><a href="about.php">À propos</a></p>
+             <p><a href="faq.html">FAQ</a></p>
         </div>
     </div> 
     

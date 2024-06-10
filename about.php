@@ -20,7 +20,7 @@
     <header>
         <section class="header">
             <nav>
-            <a class="evitement" href="#about_us">Aller au contenu</a>
+            <a class="evitement" href="#me">Aller au contenu</a>
         
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn">
@@ -70,7 +70,7 @@
 
 <div class="abt-section">
     <div class="inner-container">
-        <h1>Notre Projet</h1>
+        <h1>Mon Projet</h1>
         <p class="text">
         Aujourd’hui, nous vivons dans une société où l’amour est le but ultime pour beaucoup d’entre nous. 
         Mais qu’en est-il des amitiés, les gens qui resteront avec vous à travers toutes situations, les gens qui auront un album photo dédié à toutes les photos les plus laides de vous? 
@@ -111,7 +111,7 @@
         <div class="icons">
              <i class="fas fa-address-book"></i>
              <h3>Contact</h3>
-             <p>07 83 62 45 20</p>
+             <p>07 23 60 88 01</p>
              <p>poischiche@gmail.com</p>
         </div>
 
@@ -125,8 +125,8 @@
              <i class="fa-solid fa-info"></i>
              <h3>Infos Pratiques</h3>
              <p><a href="mentions.html">Mentions Légales</a></p>
-             <p><a href="#">Accéssibilité</a></p>
-             <p><a href="#">FAQ</a></p>
+             <p><a href="about.php">À propos</a></p>
+             <p><a href="faq.html">FAQ</a></p>
         </div>
     </div> 
     
