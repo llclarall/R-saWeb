@@ -37,7 +37,11 @@ body {
 }
 
 
-
+.love-ya-like-a-sister-regular {
+    font-family: "Love Ya Like A Sister", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
 
 /* début header */
 
@@ -94,7 +98,7 @@ nav {
 
 .logo {
     color: #77021D;
-    font-size: 2.1rem;
+    font-size: 2.8rem;
     line-height: 100px;
     padding: 0 100px;
     font-weight: bold;
@@ -200,13 +204,13 @@ a {
     animation: fadeIn 0.4s cubic-bezier(0.54,1.3,0.63,1.34) 0.2s backwards;
 }
 
-.home .slide .content h3 {
+.home .slide .content h1 {
     text-transform: uppercase;
     color: #ffffff;
     text-shadow: 0 0.5rem 1rem #000000;
     line-height: 1;
     padding: 4rem 0;
-    font-size: 4vw;
+    font-size: 5vw;
     animation: fadeIn 0.4s cubic-bezier(0.54,1.3,0.63,1.34) 0.4s backwards;
 }
 
@@ -279,7 +283,7 @@ a {
 }
 
 .about .content .title {
-     font-size: 4rem;
+     font-size: 5rem;
      color: black;
 }
 
@@ -330,7 +334,7 @@ a {
 }
 
 .heading h2, .heading h1 {
-    font-size: 4.5rem;
+    font-size: 5rem;
     color: black;
 }
 
@@ -532,7 +536,7 @@ a {
 }
 
 .reservation .content .title {
-     font-size: 4rem;
+     font-size: 5rem;
      color: black;
 }
 
@@ -911,7 +915,7 @@ a {
 }
 
 .concept .heading2 h1 {
-    font-size: 4.5rem;
+    font-size: 5rem;
     color: black;
     margin-top: 2rem;
     font-weight: bold;
@@ -1003,7 +1007,7 @@ border-bottom: 2px solid #000;
 }
 
 .ateliers_2 h2 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 0;
     margin-top: 0;
     font-weight: bold;
@@ -1380,7 +1384,7 @@ border-bottom: 2px solid #000;
 
 .formulaire .heading2 span {
     font-size: 2rem;
-    color: #F6B339;
+    color: #77021D;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -1444,7 +1448,7 @@ border-bottom: 2px solid #000;
 /* début section mentions légales */
 
 .mentions {
-    margin-top: 13rem;
+    margin-top: 8vw;
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
@@ -1459,7 +1463,7 @@ border-bottom: 2px solid #000;
 }
 
 .mentions .heading2 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: black;
     font-weight: bold;
 }
@@ -1503,7 +1507,7 @@ border-bottom: 2px solid #000;
 
 .contacts .heading2 span {
     font-size: 2rem;
-    color: #F6B339;
+    color: #77021D;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -1527,7 +1531,8 @@ border-bottom: 2px solid #000;
     max-width: 650px;
     margin: 0 auto;
     border-radius: 10px;
-    color: #ffffff;
+    color: black;
+    font-weight: bold;
     background-color: #eeb751;
     box-sizing: 0 0 20px 10px rgba(0,0,0,.4);
     overflow: hidden;
@@ -1705,6 +1710,7 @@ border-bottom: 2px solid #000;
     color: #77021D;
     font-weight: bold;
     text-transform: uppercase;
+    padding-top: 2rem;
 }
 
 
@@ -1716,9 +1722,10 @@ border-bottom: 2px solid #000;
 }
 
 .faq .heading2 h1 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     color: black;
     font-weight: bold;
+    margin: 2rem;
 }
 
 .faq summary {

@@ -61,7 +61,9 @@ $results = $sth->fetchAll(PDO::FETCH_OBJ);
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -75,7 +77,7 @@ $results = $sth->fetchAll(PDO::FETCH_OBJ);
         <label for="check" class="checkbtn">
         <span class="sr-only">Burger Menu</span><i class="fas fa-bars"></i>
         </label>
-        <a href="index.php" class="logo">Hommade Hommous</a>
+        <a href="index.php" class="logo love-ya-like-a-sister-regular">Hommade Hommous</a>
         <ul>
             <li><a class="a_nav" href="index.php">Home</a></li>
             <li><a href="about.php" class="a_nav">Nous</a></li>
@@ -94,7 +96,7 @@ $results = $sth->fetchAll(PDO::FETCH_OBJ);
 
     <div class="heading2">
         <span>PERSONNALISEZ VOS MOMENTS DU QUOTIDIEN</span>
-        <h1>Hommade Hommous, comment ça marche ?</h1>
+        <h1 class="love-ya-like-a-sister-regular">Hommade Hommous, comment ça marche ?</h1>
     </div>
  
 
@@ -132,7 +134,7 @@ $results = $sth->fetchAll(PDO::FETCH_OBJ);
 <section class="ateliers_2" id="ateliers_2">
     <div class="lineh">
         <div class="line"></div>
-        <h2 id="concept">Nos Ateliers</h2>
+        <h2 id="concept" class="love-ya-like-a-sister-regular">Nos Ateliers</h2>
         <div class="line"></div>
     </div>
     <br>

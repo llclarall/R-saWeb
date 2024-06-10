@@ -133,7 +133,9 @@ if (in_array($email_domain, $blacklist)) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -148,7 +150,7 @@ if (in_array($email_domain, $blacklist)) {
             <span class="sr-only">Burger Menu</span><i class="fas fa-bars"> </i>
             </label>
             
-            <a href="index.php" class="logo">Hommade Hommous</a>
+            <a href="index.php" class="logo love-ya-like-a-sister-regular">Hommade Hommous</a>
             <ul>
                 <li><a class="a_nav" href="index.php">Home</a></li>
                 <li><a href="about.php" class="a_nav">Nous</a></li>
@@ -173,7 +175,7 @@ if (in_array($email_domain, $blacklist)) {
             $stmt = $db->query($requete);
             // Récupère le résultat de la requête
             $resultat = $stmt->fetch(); {
-                echo '<h1>'.$resultat['activité'].'</h1>'; 
+                echo '<h1 class="love-ya-like-a-sister-regular">'.$resultat['activité'].'</h1>'; 
             }?>   
 </div>
 

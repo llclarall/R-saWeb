@@ -12,7 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -26,7 +28,7 @@
             <label for="check" class="checkbtn">
             <span class="sr-only">Burger Menu</span><i class="fas fa-bars"> </i>
             </label>
-            <a href="index.php" class="logo">Hommade Hommous</a>
+            <a href="index.php" class="logo love-ya-like-a-sister-regular">Hommade Hommous</a>
             <ul>
                 <li><a class="a_nav" href="index.php">Home</a></li>
                 <li><a href="about.php" class="active a_nav">Nous</a></li>
@@ -49,7 +51,7 @@
             </div>
 
         <div class="content">
-            <h1 class="title">Salut, moi c'est Clara Moubarak :)</h1>
+            <h1 class="title love-ya-like-a-sister-regular">Salut, moi c'est Clara Moubarak :)</h1>
             <p>Actuellement étudiante en MMI à l'université Gustave Eiffel, je suis ravie de vous présenter mon projet étudiant de 1ère année, Hommade Hommous.</p>
     
             <p>Le concept ici, c'est de proposer des ateliers autour de la cuisine libanaise. C'est une super opportunité de rencontrer de nouvelles personnes tout en apprenant à préparer des plats délicieux. Rien de mieux que de cuisiner ensemble pour créer des liens !</p>
@@ -70,7 +72,7 @@
 
 <div class="abt-section">
     <div class="inner-container">
-        <h1>Mon Projet</h1>
+        <h1 class="love-ya-like-a-sister-regular">Mon Projet</h1>
         <p class="text">
         Aujourd’hui, nous vivons dans une société où l’amour est le but ultime pour beaucoup d’entre nous. 
         Mais qu’en est-il des amitiés, les gens qui resteront avec vous à travers toutes situations, les gens qui auront un album photo dédié à toutes les photos les plus laides de vous? 

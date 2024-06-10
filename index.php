@@ -17,6 +17,10 @@ require 'connexion.php';
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+
 
 </head>
 
@@ -34,7 +38,7 @@ require 'connexion.php';
     <label for="check" class="checkbtn">
     <span class="sr-only">Burger Menu</span><i class="fas fa-bars"> </i>
     </label>
-    <a href="#" class="logo">Hommade Hommous</a>
+    <a href="#" class="logo love-ya-like-a-sister-regular">Hommade Hommous</a>
     <ul>
         <li><a class="active a_nav" href="#">Home</a></li>
         <li><a href="about.php" class="a_nav">Nous</a></li>
@@ -61,23 +65,23 @@ require 'connexion.php';
         <div class="swiper-slide slide" style="background: url(images/home.avif) no-repeat" >
             <div class="content">
                 <span>Chiche ou Pois Chiche ?</span>
-                <h3>Venez cuisiner votre apéro</h3>
+                <h1 class="love-ya-like-a-sister-regular">Venez cuisiner votre apéro</h1>
                 <a href="#about" class="btn">C'est Parti !</a>
             </div>
         </div>
         
-        <div class="swiper-slide slide" style="background: url(images/slide2.webp) no-repeat" >
+        <div class="swiper-slide slide" style="background: url(images/slide4.jpg) no-repeat" >
             <div class="content">
-                <span>Chiche ou Pois Chiche</span>
-                <h3>Découvrez une autre culture</h3>
+                <span>Chiche ou Pois Chiche ?</span>
+                <h1 class="love-ya-like-a-sister-regular">Découvrez une autre culture</h1>
                 <a href="#about" class="btn">C'est Parti !</a>
             </div>
         </div>
         
-        <div class="swiper-slide slide" style="background: url(images/slide3.jpg) no-repeat" >
+        <div class="swiper-slide slide" style="background: url(images/slide.jpg) no-repeat" >
             <div class="content">
-                <span>Chiche ou Pois Chiche</span>
-                <h3>Passez des moments de qualité</h3>
+                <span>Chiche ou Pois Chiche ?</span>
+                <h1 class="love-ya-like-a-sister-regular">Passez des moments de qualité</h1>
                 <a href="#about" class="btn">C'est Parti !</a>
             </div>
         </div>
@@ -98,7 +102,7 @@ require 'connexion.php';
     </div>
 
     <div class="content">
-        <h1 class="title">Bienvenue à Hommade Hommous !</h1>
+        <h1 class="title love-ya-like-a-sister-regular">Bienvenue à Hommade Hommous !</h1>
         <p>Imaginez si Tinder rencontrait Cauchemars en cuisine. Cela semble être la recette du désastre, mais croyez-moi:
         La catastrophe n’est pas la seule recette que vous apprendrez avec nous car à Hommade Hommous, vous venez préparer vos propres repas libanais et repartez avec des amis pour la vie. </p>
         <a href="about.php" class="btn">En savoir plus</a>
@@ -176,7 +180,7 @@ fin section slider mezze -->
 
 <div class="heading">
     <span>Choix</span>
-    <h2>Ateliers</h2>
+    <h2 class="love-ya-like-a-sister-regular">Ateliers</h2>
 </div>  
 
 <div class="atelier_wrapper">
@@ -219,7 +223,7 @@ fin section slider mezze -->
 
 <section class="reservation" id="reservation">
     <div class="content">
-        <h1 class="title">Réservez maintenant !</h1>
+        <h1 class="title love-ya-like-a-sister-regular">Réservez maintenant !</h1>
         <p>Quelque soit l'atelier, vous voulez simplement rencontrer de nouvelles personnes en passant un bon moment ? Pas de soucis, vous pouvez accédez dés à présent au formulaire de réservation pour choisir un créneau.</p>
         <a href="concept.php" class="btn">Choisir un atelier</a>
     </div> 
@@ -239,8 +243,8 @@ fin section slider mezze -->
 
 <section class="blogs" id="blogs">
 <div class="heading">
-    <span>Blog</span>
-    <h2>Posts</h2>
+    <span>Avis</span>
+    <h2 class="love-ya-like-a-sister-regular">Posts</h2>
 </div>
 
 <div class="swiper blogs-slider">
