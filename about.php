@@ -41,6 +41,11 @@
 
     <!-- fin header -->
     
+<div class="bouton-back">
+    <button class="back-button">
+        <span class="sr-only">Retour</span><i class="fas fa-arrow-left"></i>
+    </button>
+</div>
 
 <!-- section équipe et mentions légales -->
 
@@ -55,6 +60,8 @@
             <p>Actuellement étudiante en MMI à l'université Gustave Eiffel, je suis ravie de vous présenter mon projet étudiant de 1ère année, Hommade Hommous.</p>
     
             <p>Le concept ici, c'est de proposer des ateliers autour de la cuisine libanaise. C'est une super opportunité de rencontrer de nouvelles personnes tout en apprenant à préparer des plats délicieux. Rien de mieux que de cuisiner ensemble pour créer des liens !</p>
+
+            <p>Enfin, ce site est conçu pour être accessible, garantissant une navigation fluide et une expérience optimale pour tous les utilisateurs, y compris ceux ayant des besoins spécifiques.</p>
     
             <p>Si vous avez des questions ou des suggestions n'hésitez pas à m'envoyer un message à clara.moubarak@edu.univ-eiffel.fr.</p>
     

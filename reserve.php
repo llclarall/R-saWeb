@@ -13,6 +13,10 @@ if (isset($_GET["submit"])) {
     $creneau = $_GET["creneaux"];
     $atelier = $_GET["id_atelier"];
 
+    // Convertir la date au format jour/mois/année
+    $dateObject = DateTime::createFromFormat('Y-m-d', $date);
+    $date = $dateObject->format('d/m/Y');
+
 // Liste des domaines à bloquer (mails temporaires ou spam) 
 $blacklist = [
     "uooos.com", "doolk.com", "nthrw.com", "bbitq.com", "ckptr.com", "alldrys.com", 
@@ -97,10 +101,10 @@ if (in_array($email_domain, $blacklist)) {
 
         
 
-        // Envoi du mail pour l'utilisateur qui a réservé un atelier
+        // Envoi du mail pour l'utilisateur qui a réservé un atelier (règle 83 Opquast)
         if(mail($to, $subject, $message, $headers)) {
             echo "<script>alert('Réservation confirmée ! Vous recevrez bientôt un e-mail de confirmation.');</script>";
-            // Redirige vers la page d'accueil après traitement 
+            // Redirige vers la page d'accueil après traitement (règle 82 Opquast) 
             echo "<script>setTimeout(function() { window.location.href = 'index.php'; });</script>";
         } else {
             echo "L'envoi de l'email a échoué.";
@@ -162,6 +166,13 @@ if (in_array($email_domain, $blacklist)) {
     </header>
     <!-- fin header -->
     
+
+
+
+<button class="back-button">
+    <span class="sr-only">Retour</span><i class="fas fa-arrow-left"></i>
+</button>
+
 <!-- début section formulaire réservation -->
 
 <section class="formulaire" id="formulaire">

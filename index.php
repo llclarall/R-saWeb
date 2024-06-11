@@ -39,6 +39,7 @@ require 'connexion.php';
     <span class="sr-only">Burger Menu</span><i class="fas fa-bars"> </i>
     </label>
     <a href="#" class="logo love-ya-like-a-sister-regular">Hommade Hommous</a>
+    <a href="#" class="logo2 love-ya-like-a-sister-regular">HH</a>
     <ul>
         <li><a class="active a_nav" href="#">Home</a></li>
         <li><a href="about.php" class="a_nav">Nous</a></li>
@@ -126,54 +127,6 @@ require 'connexion.php';
 
 
 
-<!-- début section slider mezze 
-
-<section class="food" id="food">
-
-<div class="heading">
-    <span>aMezzeing</span>
-    <h3>au menu</h3>
-</div>
-
-<div class="swiper food-slider">
-
-    <div class="swiper-wrapper">
-
-        <div class="swiper-slide slide" data-name="food-1">
-            <img src="images/about3.png" alt="">
-            <h3>delicious food</h3>
-        </div>
-
-        <div class="swiper-slide slide" data-name="food-2">
-            <img src="images/about3.png" alt="">
-            <h3>delicious food</h3>
-        </div>
-
-        <div class="swiper-slide slide" data-name="food-3">
-            <img src="images/about3.png" alt="">
-            <h3>delicious food</h3>
-        </div>
-
-        <div class="swiper-slide slide" data-name="food-4">
-            <img src="images/about3.png" alt="">
-            <h3>delicious food</h3>
-        </div>
-
-        <div class="swiper-slide slide" data-name="food-5">
-            <img src="images/about3.png" alt="">
-            <h3>delicious food</h3>
-        </div>
-        
-    </div>
-
-    <div class="swiper-pagination"></div>
-
-</div>
-
-</section>
-fin section slider mezze -->
-
-
 <!-- début section wrapper ateliers -->
 
 <section class="ateliers" id="ateliers">
@@ -188,7 +141,7 @@ fin section slider mezze -->
         <?php
         
         // Sélectionne tous les enregistrements de la table hh_atelier 
-        $requete = "SELECT * FROM hh_atelier";
+        $requete = "SELECT * FROM hh_atelier ORDER BY id_atelier" ;
         $stmt = $db->query($requete);
         $resultat = $stmt->fetchall(PDO::FETCH_ASSOC);
 

@@ -44,6 +44,11 @@
 
 <main> 
 
+<button class="back-button">
+    <span class="sr-only">Retour</span><i class="fas fa-arrow-left"></i>
+</button>
+
+
 <!-- début section formulaire de contact -->
 
 <section class="contacts" id="contacts">
@@ -82,10 +87,10 @@ if(!empty($_POST["send"])){
         <h1 class="love-ya-like-a-sister-regular">Contactez-nous</h1>
 </div>
 
+     <!-- début formulaire de contact -->
 
 <div class="formulaire_contact">
-    
-     <!-- début formulaire de contact -->
+
     <div class="form-container">
         <div class="form-design">
             <h2>Laissez-nous un message !</h2>

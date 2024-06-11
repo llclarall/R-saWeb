@@ -64,39 +64,37 @@ var swiper = new Swiper(".home-slider", {
 
   /* tri ateliers */
 
-  function triAteliers() {
-    // Récupére le critère de tri sélectionné
-    var critere = document.getElementById("critere").value;
-    
-    // Récupére tous les ateliers
-    var ateliers = document.querySelectorAll("#AteliersList .slide");
-    
-    // Convertit la liste des ateliers en tableau
-    var tableauAteliers = Array.from(ateliers);
-
-    // Tri le tableau des ateliers en fonction du critère
-    tableauAteliers.sort(function(a, b) {
-      var aValue = parseFloat(a.dataset[critere]);
-      var bValue = parseFloat(b.dataset[critere]);
-      return aValue - bValue;
-    });
-
-    // Récupére la liste des ateliers
-    var AteliersList = document.getElementById("AteliersList");
-    
-    // Vide la liste des ateliers
-    AteliersList.innerHTML = "";
-
-    // Ajoute les ateliers triés à la liste
-    tableauAteliers.forEach(function(atelier) {
-      AteliersList.appendChild(atelier);
-    });
-  }
-
   // chargement du DOM
   document.addEventListener('DOMContentLoaded', function() {
     // Ajoute un écouteur d'événement au bouton de tri
-    document.getElementById('triButton').addEventListener('click', triAteliers);
+    document.getElementById('triButton').addEventListener('click', function() {
+      // Récupére le critère de tri sélectionné
+      var critere = document.getElementById("critere").value;
+      
+      // Récupére tous les ateliers
+      var ateliers = document.querySelectorAll("#AteliersList .slide");
+      
+      // Convertit la liste des ateliers en tableau
+      var tableauAteliers = Array.from(ateliers);
+  
+      // Tri le tableau des ateliers en fonction du critère
+      tableauAteliers.sort(function(a, b) {
+        var aValue = parseFloat(a.dataset[critere]);
+        var bValue = parseFloat(b.dataset[critere]);
+        return aValue - bValue;
+      });
+  
+      // Récupére la liste des ateliers
+      var AteliersList = document.getElementById("AteliersList");
+      
+      // Vide la liste des ateliers
+      AteliersList.innerHTML = "";
+  
+      // Ajoute les ateliers triés à la liste
+      tableauAteliers.forEach(function(atelier) {
+        AteliersList.appendChild(atelier);
+      });
+    });
   });
 
 
@@ -132,14 +130,14 @@ window.addEventListener("scroll", function () {
 
 
 
-// fonction pour revenir à la page précédente
 
-function goBack() {
-  window.history.back();
-};
+
+// fonction pour revenir à la page précédente
 
 // Écouteur d'événement pour le chargement du DOM
 document.addEventListener('DOMContentLoaded', function() {
   // Écouteur d'événement pour le clic sur le bouton de retour
-  document.querySelector('.back-button').addEventListener('click', goBack);
+  document.querySelector('.back-button').addEventListener('click', function(){
+    window.history.back();
+  });
 });

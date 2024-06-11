@@ -89,8 +89,12 @@ $results = $sth->fetchAll(PDO::FETCH_OBJ);
 </header>
 <!-- fin header -->
     
+
 <!-- début section concept -->
-<img class='concept-header' src="images/concept_header.jpg" alt="">
+
+<button class="back-button">
+    <span class="sr-only">Retour</span><i class="fas fa-arrow-left"></i>
+</button>
 
 <section class="concept" id="concept">  
 
@@ -139,65 +143,69 @@ $results = $sth->fetchAll(PDO::FETCH_OBJ);
     </div>
     <br>
 
-    <div class="fonctions">
-
-        <!-- barre de recherche en php -->
-        <div class="search_container">
-            <form method="post">
-                <label>ATELIER<input type="search" name="search" placeholder="mezze, knefeh,..." class="search"></label>
-                <input type="submit" name="submit" value="Rechercher" class="btn">
+    
+<div class="fonctionnalites">
+    
+        <div class="fonctions">
+    
+            <!-- barre de recherche en php -->
+            <div class="search_container">
+                <form method="post">
+                    <label>ATELIER<input type="search" name="search" placeholder="mezze, knefeh,..." class="search"></label>
+                    <input type="submit" name="submit" value="Rechercher" class="btn">
+                </form>
+            </div>
+    
+            <!-- tri en js -->
+            <div class="tri_container">
+                <select id="critere" class="tri">
+                    <option value="">---</option>
+                    <option value="prix">Prix</option>
+                    <option value="duree">Durée</option>
+                </select>
+                <button id="triButton" class="btn">Trier</button>
+            </div>
+        </div>
+    
+        <!-- filtre en php -->
+        <div class="filtre_container">
+            <form action="concept.php" method="POST">
+    
+                <label for="prix"><span>Filtrer :</span>
+                    <select name="prix" id="prix" class="filtre">
+                        <option value="">Par prix</option>
+                        <?php
+                        // Requête pour récupérer les prix sans doublons des ateliers
+                        $requete = "SELECT DISTINCT prix FROM hh_atelier ORDER BY prix";
+                        $stmt = $db->query($requete);
+                        $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        // Affiche les prix dans la liste déroulante
+                        foreach ($resultat as $atelier){
+                            echo "<option value='".($atelier["prix"])."'>".($atelier["prix"])."</option>";
+                        }
+                        ?>
+                    </select>
+                </label>
+    
+                <select name="duree" id="duree" class="filtre">
+                    <option value="">Par durée</option>
+                    <option value="moins_de_2h">Moins de 2h</option>
+                    <option value="2h_ou_plus">2h ou plus</option>
+                </select>
+                <input type="submit" name="filtrer" value="Valider" class="btn">
+    
+                <br>
+                <!--
+                 * Ce code vérifie si la variable $prix ou $search n'est pas vide.
+                 * Si l'une des deux variables n'est pas vide, un bouton "Tout voir" est affiché pour réafficher tous les ateliers.
+                -->
+                <?php if (!empty($prix) || !empty($search) || !empty($duree)): ?>
+                    <input type="submit" name="tout_voir" value="Tout voir" class="btn tout_voir">
+                <?php endif; ?>
+    
             </form>
         </div>
-
-        <!-- tri en js -->
-        <div class="tri_container">
-            <select id="critere" class="tri">
-                <option value="">---</option>
-                <option value="prix">Prix</option>
-                <option value="duree">Durée</option>
-            </select>
-            <button id="triButton" class="btn">Trier</button>
-        </div>
-    </div>
-
-    <!-- filtre en php -->
-    <div class="filtre_container">
-        <form action="concept.php" method="POST">
-            
-            <label for="prix"><span>Filtrer :</span>
-                <select name="prix" id="prix" class="filtre">
-                    <option value="">Par prix</option>
-                    <?php
-                    // Requête pour récupérer les prix sans doublons des ateliers
-                    $requete = "SELECT DISTINCT prix FROM hh_atelier ORDER BY prix";
-                    $stmt = $db->query($requete);
-                    $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    // Affiche les prix dans la liste déroulante
-                    foreach ($resultat as $atelier){
-                        echo "<option value='".($atelier["prix"])."'>".($atelier["prix"])."</option>";
-                    }
-                    ?>
-                </select>
-            </label>
-
-            <select name="duree" id="duree" class="filtre">
-                <option value="">Par durée</option>
-                <option value="moins_de_2h">Moins de 2h</option>
-                <option value="2h_ou_plus">2h ou plus</option>
-            </select>
-            <input type="submit" name="filtrer" value="Valider" class="btn">
-
-            <br>
-            <!--
-             * Ce code vérifie si la variable $prix ou $search n'est pas vide.
-             * Si l'une des deux variables n'est pas vide, un bouton "Tout voir" est affiché pour réafficher tous les ateliers.
-            -->
-            <?php if (!empty($prix) || !empty($search) || !empty($duree)): ?>
-                <input type="submit" name="tout_voir" value="Tout voir" class="btn tout_voir">
-            <?php endif; ?>
-
-        </form>
-    </div>
+</div>
 
 <div class="swiper" id="AteliersList">
 
