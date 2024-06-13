@@ -80,17 +80,55 @@ if (in_array($email_domain, $blacklist)) {
         <html>
         <head>
             <title>Confirmation de réservation</title>
+        <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+            margin: 20px 0;
+        }
+        .logo img {
+            max-width: 120px;
+            height: auto;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fcf1dc;
+            border-radius: 4px;
+        }
+        .highlight {
+            color: #77021D;
+            font-weight: bold;
+        }
+    </style>
         </head>
         <body>
-            <p>Bonjour $prenom $nom,</p>
-            <p>Merci pour votre réservation à Hommade Hommous !</p>
+        <div class='container'>
+        <div class='logo'>
+            <img src='https://resaweb.moubarak.butmmi.o2switch.site/images/hummus.png' alt='Hommade Hommous Logo'>
+        </div>
+            <p>Bonjour <span class='highlight'>$prenom $nom</span>,</p>
+            <p>Merci pour votre réservation à <strong>Hommade Hommous</strong> !</p>
             <p>Voici les détails de votre réservation :</p>
             <ul>
-                <li>Activité : {$resultat['activité']}</li> 
-                <li>Date : $date</li>
-                <li>Créneau : $creneau</li>
+                <li>Activité : <span class='highlight'>{$resultat['activité']}</span></li> 
+                <li>Date : <span class='highlight'>$date</span></li>
+                <li>Créneau : <span class='highlight'>$creneau</span></li>
             </ul>
             <p>Nous avons hâte de vous voir !</p>
+             </div>
         </body>
         </html>";
 
@@ -155,6 +193,7 @@ if (in_array($email_domain, $blacklist)) {
             </label>
             
             <a href="index.php" class="logo love-ya-like-a-sister-regular">Hommade Hommous</a>
+            <a href="index.php" class="logo2 love-ya-like-a-sister-regular">HH</a>
             <ul>
                 <li><a class="a_nav" href="index.php">Home</a></li>
                 <li><a href="about.php" class="a_nav">Nous</a></li>
@@ -192,15 +231,17 @@ if (in_array($email_domain, $blacklist)) {
 
 <!-- Formulaire de réservation -->
 <div class="form">
-    <form action="reserve.php" method="get" autocomplete="on">
+    <form action="reserve.php" method="get" autocomplete="on" onsubmit="return validateForm()">
         <p>tous les champs sont obligatoires</p>
         <div class="date">
             <label>Prénom<input type="text" name="prenom" class="box" required></label>
+            <div class="error-message" id="prenom-error-message">Le prénom ne peut pas contenir de chiffres ou d'espaces vides.</div>
             <label>Nom<input type="text" name="nom" class="box" required></label>
+            <div class="error-message" id="nom-error-message">Le nom ne peut pas contenir de chiffres ou d'espaces vides.</div>
         </div>
         <label>Mail<input type="email" name="mail" class="box" required></label>
         <div class="date">
-            <label>Date<input type="date" name="date" class="box" required></label>
+        <label>Date<input type="date" name="date" class="box" required min="<?= date('Y-m-d') ?>"></label>
             <label>Créneau
             <select name="creneaux" id="creneaux" class="box" required>
                 <option value="">Choisir un créneau</option>

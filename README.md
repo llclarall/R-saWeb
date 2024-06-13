@@ -12,7 +12,6 @@ https://resaweb.moubarak.butmmi.o2switch.site/
 
 -------------------------------------------------------------------------
 
-
 Documentation WAMP (localhost):
 
 1. Exécuter le fichier d'installation après l'avoir téléchargé depuis leur site, et suivre les instructions à l'écran pour installer Wamp sur son ordinateur.

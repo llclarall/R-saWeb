@@ -78,6 +78,7 @@ $results = $sth->fetchAll(PDO::FETCH_OBJ);
         <span class="sr-only">Burger Menu</span><i class="fas fa-bars"></i>
         </label>
         <a href="index.php" class="logo love-ya-like-a-sister-regular">Hommade Hommous</a>
+        <a href="index.php" class="logo2 love-ya-like-a-sister-regular">HH</a>
         <ul>
             <li><a class="a_nav" href="index.php">Home</a></li>
             <li><a href="about.php" class="a_nav">Nous</a></li>

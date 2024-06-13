@@ -1,6 +1,9 @@
 
+/* j'ai fait la détection des mails temporaires en php parce que je n'avais pas vu qu'il fallait le faire en js
+C'est dans le fichier reserve.php */
 
-// Initialisation du slider de la page d'accueil 
+
+// initialisation du slider de la page d'accueil 
 var swiper = new Swiper(".home-slider", {
   loop: true,
   centeredSlides:true,
@@ -9,30 +12,6 @@ var swiper = new Swiper(".home-slider", {
     prevEl: ".swiper-button-prev",
   },
 });
-
-
-/* slider food */
-/* var swiper = new Swiper(".food-slider", {
-    grabCursor: true,
-    loop: true,
-    centeredSlides:true,
-    spaceBetween: 20,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      700: {
-        slidesPerView: 2,
-      },
-      1000: {
-        slidesPerView: 3,
-      },
-    }
-  }); */
 
 
 
@@ -131,7 +110,6 @@ window.addEventListener("scroll", function () {
 
 
 
-
 // fonction pour revenir à la page précédente
 
 // Écouteur d'événement pour le chargement du DOM
@@ -141,3 +119,37 @@ document.addEventListener('DOMContentLoaded', function() {
     window.history.back();
   });
 });
+
+
+
+
+
+// fonstion pour vérifier que les champs nom et prénom du formulaire contiennent bien des lettres et pas des espaces ou des chiffres
+
+function validateForm() {
+  var prenomInput = document.querySelector('input[name="prenom"]');
+  var nomInput = document.querySelector('input[name="nom"]');
+  var prenomErrorMessage = document.getElementById('prenom-error-message');
+  var nomErrorMessage = document.getElementById('nom-error-message');
+
+  // Expression régulière pour le prénom et le nom
+  var regexName = /^[a-zA-ZÀ-ÿ\-'\s]+$/;
+
+  // Validation du prénom
+  if (!regexName.test(prenomInput.value.trim())) {
+      prenomErrorMessage.style.display = 'block';
+      return false;
+  } else {
+      prenomErrorMessage.style.display = 'none';
+  }
+
+  // Validation du nom
+  if (!regexName.test(nomInput.value.trim())) {
+      nomErrorMessage.style.display = 'block';
+      return false;
+  } else {
+      nomErrorMessage.style.display = 'none';
+  }
+
+  return true;
+}
